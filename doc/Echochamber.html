@@ -80,7 +80,7 @@
   
     <dt class="r1 last">Defined in:</dt>
     <dd class="r1 last">lib/echochamber.rb<span class="defines">,<br />
-  lib/echochamber/version.rb,<br /> lib/echochamber/api_request.rb</span>
+  lib/echochamber/version.rb,<br /> lib/echochamber/api_request.rb,<br /> lib/echochamber/request_body.rb</span>
 </dd>
   
 </dl>
@@ -92,7 +92,7 @@
     
   
     
-      <strong class="classes">Classes:</strong> <span class='object_link'><a href="Echochamber/AUTH_CREDENTIALS_ERROR.html" title="Echochamber::AUTH_CREDENTIALS_ERROR (class)">AUTH_CREDENTIALS_ERROR</a></span>, <span class='object_link'><a href="Echochamber/ApiRequest.html" title="Echochamber::ApiRequest (class)">ApiRequest</a></span>
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="Echochamber/AUTH_CREDENTIALS_ERROR.html" title="Echochamber::AUTH_CREDENTIALS_ERROR (class)">AUTH_CREDENTIALS_ERROR</a></span>, <span class='object_link'><a href="Echochamber/ApiRequest.html" title="Echochamber::ApiRequest (class)">ApiRequest</a></span>, <span class='object_link'><a href="Echochamber/REQUIRED_PARAMS_ERROR.html" title="Echochamber::REQUIRED_PARAMS_ERROR (class)">REQUIRED_PARAMS_ERROR</a></span>, <span class='object_link'><a href="Echochamber/RequestBody.html" title="Echochamber::RequestBody (class)">RequestBody</a></span>
     
   
 </p>
@@ -100,6 +100,21 @@
   <h2>Constant Summary</h2>
   
     <dl class="constants">
+      
+        <dt id="BASE_URL-constant" class="">BASE_URL =
+          
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>https://secure.echosign.com/api/rest/v2</span><span class='tstring_end'>&#39;</span></span></pre></dd>
+      
+        <dt id="AUTH_ENDPOINT-constant" class="">AUTH_ENDPOINT =
+          
+        </dt>
+        <dd><pre class="code"><span class='const'>BASE_URL</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/auth</span><span class='tstring_end'>&#39;</span></span></pre></dd>
+      
+        <dt id="USERS_ENDPOINT-constant" class="">USERS_ENDPOINT =
+          
+        </dt>
+        <dd><pre class="code"><span class='const'>BASE_URL</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/users</span><span class='tstring_end'>&#39;</span></span></pre></dd>
       
         <dt id="VERSION-constant" class="">VERSION =
           
@@ -120,7 +135,7 @@
 </div>
 
     <div id="footer">
-  Generated on Thu Aug  7 19:02:06 2014 by
+  Generated on Fri Aug  8 16:17:15 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.4 (ruby-2.0.0).
 </div>

@@ -21,8 +21,30 @@ describe Echochamber::ApiRequest do
   end
 
   describe '.create_user' do
-    pending 'is populated with new user data' do
+
+    let(:key) { 'fakekey' }
+    let(:secret) { 'fakesecret' }
+    let(:client) { Echochamber::ApiRequest.new(key, secret) }
+
+    let(:user) { '' }
+    let(:password) { '' }
+    let(:firstname) { '' }
+    let(:lastname) { '' }
+
+    it 'rejects empty parameters' do
+      expect{ client.create_user(user, password, firstname, lastname) }.to raise_error Echochamber::REQUIRED_PARAMS_ERROR
     end
+
+    let(:user) { nil }
+    let(:password) { nil }
+    let(:firstname) { nil }
+    let(:lastname) { nil }
+
+
+    it 'rejects nil parameters' do
+      expect{ client.create_user(user, password, firstname, lastname) }.to raise_error Echochamber::REQUIRED_PARAMS_ERROR
+    end
+ 
   end
 
 end

@@ -1,3 +1,4 @@
-lib/echochamber.rb 2fb3ceff209be786f4966f7baec779731f528a3f
+lib/echochamber.rb a72807913892a232d5b4db5e69e3e3a1600a3ab0
 lib/echochamber/version.rb 86e7c3f81fdc9985b5294ac83b91a6f2e1f5af98
-lib/echochamber/api_request.rb ca4de8b84ece11b81c99fd50fca52cb86b1c5ae5
+lib/echochamber/api_request.rb 2a4e0c72507c954460353ba5262f1ab2966e94e8
+lib/echochamber/request_body.rb a28ef456c52a1976ad6188299099c9404cbac950
