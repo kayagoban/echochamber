@@ -1,32 +1,34 @@
 module Echochamber
 
-  class InvalidCredentialError < StandardError; end
+  class InvalidParameterError < StandardError; end
 
   module Validate
 
     def self.user(params)
-      @params = params
       @required_fields = [:firstName, :lastName, :email, :password]
-      self.validate
-      params
+      @params = params
+      validate
     end
-
-
-
-    private 
 
     def self.validate
       @required_fields.each do |field|
-        self.validate_field(field) 
+        validate_field(field) 
       end
     end
 
+    private 
+
     def self.validate_field(field)
       begin
-        @params.fetch(field)
+        value = @params.fetch(field)
+        raise_error(field) if value.nil? || value.empty?
       rescue KeyError
-        raise InvalidCredentialError, "Could not retrieve required field #{field.to_s}"
+        raise_error(field)
       end
+    end
+
+    def self.raise_error(field)
+      raise InvalidParameterError, "Invalid required parameter: #{field.to_s}"
     end
 
   end
