@@ -2,6 +2,16 @@ require 'spec_helper'
 
 describe Echochamber::User do
 
+  let(:first_name)   { "Reginald" }
+  let(:last_name)    { "Fartworthington" }
+  let(:password)     {  "fartworth" }
+  let(:email)        { "rfarting@comcast.net" }
+  let(:options_hash) do
+    {
+      phone: "885551234"
+    }
+  end
+
   let(:user) { Echochamber::User.new(user_params) }
   let(:user_params) do
     {
@@ -13,60 +23,50 @@ describe Echochamber::User do
     }
   end
   
-  let(:first_name)   { "Reginald" }
-  let(:last_name)    { "Fartworthington" }
-  let(:password)     {  "fartworth" }
-  let(:email)        { "rfarting@comcast.net" }
-  let(:options_hash) do
-    {
-      phone: "885551234"
-    }
-  end
-
   describe "#initialize" do
 
     context "when it has no first name" do
       let(:first_name) { '' }
-      let(:new_user) { Echochamber.new(user_params) }
+      let(:new_user) { Echochamber::User.new(user_params) }
 
       it "raises an invalid credential error" do
-        expect(new_user).to raise(Echochamber::InvalidCredentialError)
+        expect{new_user}.to raise_error(Echochamber::InvalidCredentialError)
       end
     end
 
     context "when it has no first name" do
       let(:first_name) { '' }
-      let(:new_user) { Echochamber.new(user_params) }
+      let(:new_user) { Echochamber::User.new(user_params) }
 
       it "raises an invalid credential error" do
-        expect(new_user).to raise(Echochamber::InvalidCredentialError)
+        expect{new_user}.to raise_error(Echochamber::InvalidCredentialError)
       end
     end
 
     context "when it has no last name" do
       let(:last_name) { '' }
-      let(:new_user) { Echochamber.new(user_params) }
+      let(:new_user) { Echochamber::User.new(user_params) }
 
       it "raises an invalid credential error" do
-        expect(new_user).to raise(Echochamber::InvalidCredentialError)
+        expect{new_user}.to raise_error(Echochamber::InvalidCredentialError)
       end
     end
 
     context "when it has no email" do
       let(:email) { '' }
-      let(:new_user) { Echochamber.new(user_params) }
+      let(:new_user) { Echochamber::User.new(user_params) }
 
       it "raises an invalid credential error" do
-        expect(new_user).to raise(Echochamber::InvalidCredentialError)
+        expect{new_user}.to raise_error(Echochamber::InvalidCredentialError)
       end
     end
 
     context "when it has no password" do
       let(:password) { '' }
-      let(:new_user) { Echochamber.new(user_params) }
+      let(:new_user) { Echochamber::User.new(user_params) }
 
       it "raises an invalid credential error" do
-        expect(new_user).to raise(Echochamber::InvalidCredentialError)
+        expect{new_user}.to raise_error(Echochamber::InvalidCredentialError)
       end
     end
 
@@ -84,8 +84,9 @@ describe Echochamber::User do
     end
 
     it "returns a valid user hash" do
-      options_hash.
-      expect(user.to_hash).to eq(expected_hash)
+      expected_hash.each do |key, value|
+        expect(user.to_hash[key]).to eq(value)
+      end
     end
     
   end
