@@ -52,7 +52,6 @@ describe Echochamber::Validate do
         expect{validation}.to raise_error(Echochamber::InvalidCredentialError)
       end
     end
-
   end
 
 end

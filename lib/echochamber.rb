@@ -1,5 +1,5 @@
 require "echochamber/version"
-require 'echochamber/api_request'
+require 'echochamber/client'
 require 'echochamber/validate'
 
 module Echochamber

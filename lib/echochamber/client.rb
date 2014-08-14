@@ -1,6 +1,6 @@
 module Echochamber
 
- class ApiRequest
+ class Client 
     # Initializes the ApiRequest object
     #
     # @param key [String] Application key
