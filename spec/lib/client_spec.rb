@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Echochamber::ApiRequest do
+describe Echochamber::Client do
 
   describe '.initialize' do
 
