@@ -1,5 +1,6 @@
 require "echochamber/version"
 require 'echochamber/api_request'
+require 'echochamber/user'
 require 'echochamber/request_body'
 
 module Echochamber
@@ -9,4 +10,6 @@ module Echochamber
 
   class AUTH_CREDENTIALS_ERROR < StandardError; end
   class REQUIRED_PARAMS_ERROR < StandardError; end
+
+  class InvalidCredentialError < StandardError; end
 end
