@@ -2,16 +2,11 @@ module Echochamber
 
   class InvalidParameterError < StandardError; end
 
-  module Validate
+  module Validator
 
-    def self.user(params)
-      @required_fields = [:firstName, :lastName, :email, :password]
+   def self.validate(required_fields, params)
       @params = params
-      validate
-    end
-
-    def self.validate
-      @required_fields.each do |field|
+      required_fields.each do |field|
         validate_field(field) 
       end
     end

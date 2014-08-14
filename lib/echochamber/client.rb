@@ -29,7 +29,7 @@ module Echochamber
     # @option options  [String] :customField2 You can choose to use custom fields to record additional information about your new users. These fields are, however, available only with customized implementations - please contact EchoSign if you would like to make use of this functionality
     # @option options  [String] :customField3 You can choose to use custom fields to record additional information about your new users. These fields are, however, available only with customized implementations - please contact EchoSign if you would like to make use of this functionality
    def create_user(params)
-     Echochamber::Validate.user(params)
+     Echochamber::Validator.validate([:firstName, :lastName, :email, :password], params)
 
    end
 
