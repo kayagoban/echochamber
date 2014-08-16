@@ -18,6 +18,7 @@ GEM
       highline (>= 1.6.2)
     json (1.8.1)
     method_source (0.8.2)
+    mime-types (1.25.1)
     multi_json (1.10.1)
     multipart-post (2.0.0)
     pry (0.10.0)
@@ -25,6 +26,8 @@ GEM
       method_source (~> 0.8.1)
       slop (~> 3.4)
     rake (10.3.2)
+    rest-client (1.6.7)
+      mime-types (>= 1.16)
     rspec (3.0.0)
       rspec-core (~> 3.0.0)
       rspec-expectations (~> 3.0.0)
@@ -47,7 +50,9 @@ DEPENDENCIES
   bundler (~> 1.6)
   echochamber!
   hitch
+  json
   pry
   rake
+  rest-client
   rspec
   yard
