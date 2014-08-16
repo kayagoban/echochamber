@@ -1,21 +1,19 @@
 module Echochamber
 
  class Client 
-    # Initializes the ApiRequest object
-    #
-    # @param key [String] Application key
-    # @param secret [String] Application secret
-    # @return [Echochamber::ApiRequest] Initialized ApiRequest
-    def initialize(key, secret)
-      raise AUTH_CREDENTIALS_ERROR, "App key and secret strings must be supplied" if blank?(key) || blank?(secret)
 
-      @app_key = key
-      @secret = secret
+   attr_reader :token
+    # Initializes the Client object
+    #
+    # @param credentials [Echochamber::Credentials] Initialized Echochamber::Credentials
+    # @return [Echochamber::ApiRequest] Initialized Echochamber::Client 
+    def initialize(credentials)
+      @token = Echochamber::Request.get_token(credentials)
     end
 
     # Creates a user for the current application
     #
-    # @param params [Hash] String-referenced Hash containing:
+    # @param params [Hash] SYMBOL-referenced Hash containing:
     # @option email [String] User's email address (REQUIRED)
     # @option password [String] The new user's password (REQUIRED)
     # @option firstName [String] The first name of the new user (REQUIRED)
@@ -28,27 +26,13 @@ module Echochamber
     # @option options [String] :customField1 You can choose to use custom fields to record additional information about your new users. These fields are, however, available only with customized implementations - please contact EchoSign if you would like to make use of this functionality
     # @option options  [String] :customField2 You can choose to use custom fields to record additional information about your new users. These fields are, however, available only with customized implementations - please contact EchoSign if you would like to make use of this functionality
     # @option options  [String] :customField3 You can choose to use custom fields to record additional information about your new users. These fields are, however, available only with customized implementations - please contact EchoSign if you would like to make use of this functionality
+    # @return [String] User ID
    def create_user(params)
      Echochamber::Validator.validate([:firstName, :lastName, :email, :password], params)
-
+     user = Echochamber::Request.create(:user, params, token)
+     user.fetch("user")
    end
 
-
-
-   private
-
-   # Blanket blank All The Things
-   def any_blank?(fields)
-      fields.any? do |field|
-        blank?(field)
-      end
-   end
-
-   # If blank? did not exist, we would need to invent it.
-   def blank?(field)
-     field.nil? || field.empty? 
-   end
-
-  end # class ApiRequest
+  end # class Client 
 
 end # module Echochamber
