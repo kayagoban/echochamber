@@ -1,0 +1,44 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://secure.echosign.com/api/rest/v2/auth/tokens
+    body:
+      encoding: UTF-8
+      string: '{"applicationCredentials":{"applicationId":"9QCM5C6Y2AX82M","applicationSecret":"390db093ee6f71ffc6d488b9457593a7"},"userCredentials":{"apiKey":"XCNLJFG83URX95Y","email":"cthomas@railjumper.com","password":"vvidmk"}}'
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '216'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Date:
+      - Sat, 16 Aug 2014 08:44:33 GMT
+      Server:
+      - Apache
+      Content-Length:
+      - '115'
+      Strict-Transport-Security:
+      - max-age=31536000;
+      P3p:
+      - CP="IDC DSP COR ADM DEVi TAIi PSA PSD IVAi IVDi CONi HIS OUR IND CNT"
+      X-Robots-Tag:
+      - none
+      Content-Type:
+      - application/json;charset=UTF-8
+    body:
+      encoding: UTF-8
+      string: '{"accessToken":"2AAABLblqZhC3HrDExRuNnTr9I-U3z2f2KtGloHKah3ccogCP4HzbN5XSbcKSlxNJDtNCVAq94pM*","expiresIn":1209599}'
+    http_version: 
+  recorded_at: Sat, 16 Aug 2014 08:44:33 GMT
+recorded_with: VCR 2.8.0

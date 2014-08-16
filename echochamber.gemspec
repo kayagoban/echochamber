@@ -23,9 +23,12 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rspec"
   spec.add_development_dependency "pry"
   spec.add_development_dependency "yard"
+  spec.add_development_dependency "hitch"
+  spec.add_development_dependency "webmock"
+  spec.add_development_dependency "vcr"
 
   spec.add_dependency "faraday"
   spec.add_dependency "json"
-  spec.add_dependency "multi_json"
+  spec.add_dependency "rest-client"
 
 end

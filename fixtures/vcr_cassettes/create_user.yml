@@ -1,0 +1,50 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://secure.echosign.com/api/rest/v2/users
+    body:
+      encoding: UTF-8
+      string: '{"firstName":"JohnQ","lastName":"Public","email":"publius@comcast.net","password":"kN12oK9p!3","title":"Hedge
+        Wizard"}'
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Type:
+      - application/json
+      Access-Token:
+      - 2AAABLblqZhC3HrDExRuNnTr9I-U3z2f2KtGloHKah3ccogCP4HzbN5XSbcKSlxNJDtNCVAq94pM*
+      Content-Length:
+      - '118'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Date:
+      - Sat, 16 Aug 2014 08:53:53 GMT
+      Server:
+      - Apache
+      Set-Cookie:
+      - JSESSIONID=178138DE8E9AC262B151A137AE89E8AE.ord-prod-app14; Path=/; Secure;
+        HttpOnly
+      Content-Length:
+      - '90'
+      Strict-Transport-Security:
+      - max-age=31536000;
+      P3p:
+      - CP="IDC DSP COR ADM DEVi TAIi PSA PSD IVAi IVDi CONi HIS OUR IND CNT"
+      X-Robots-Tag:
+      - none
+      Content-Type:
+      - application/json;charset=UTF-8
+    body:
+      encoding: UTF-8
+      string: '{"userId":"2AAABLblqZhA4djJBQ5Nlm-I_AWFlCrEQzXmu3k56lHy9h_-EHuFNZCLNplBXRh_FifTL8QlbnOY*"}'
+    http_version: 
+  recorded_at: Sat, 16 Aug 2014 08:53:54 GMT
+recorded_with: VCR 2.8.0

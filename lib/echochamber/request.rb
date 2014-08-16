@@ -2,7 +2,7 @@ require 'rest-client'
 
 module Echochamber::Request
 
-  BASE_URL          = 'https://secure.echosign.com/api/rest/v2'
+  BASE_URL = 'https://secure.echosign.com/api/rest/v2'
 
   ENDPOINT = { 
     token: BASE_URL + '/auth/tokens',
@@ -21,7 +21,7 @@ module Echochamber::Request
 
   # Performs REST create operation
   #
-  # @param endpoint_key [Symbol] Symbol to resolve the Echochamber::Request::ENDPOINT hash.  Can be one of :tokens, :users, :blah, :blah, :etc
+  # @param endpoint_key [Symbol] Symbol to resolve the Echochamber::Request::ENDPOINT hash.  Can be one of :token, :user, :blah, :blah, :etc
   # @param body [Hash] Valid request body
   # @return [String] Valid authentication token
   def self.create(endpoint_key, body, token)

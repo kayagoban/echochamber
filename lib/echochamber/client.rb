@@ -30,7 +30,7 @@ module Echochamber
    def create_user(params)
      Echochamber::Validator.validate([:firstName, :lastName, :email, :password], params)
      user = Echochamber::Request.create(:user, params, token)
-     user.fetch("user")
+     user.fetch("userId")
    end
 
   end # class Client 
