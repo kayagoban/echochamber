@@ -25,7 +25,6 @@ module Echochamber::Request
   # @param body [Hash] Valid request body
   # @return [String] Valid authentication token
   def self.create(endpoint_key, body, token)
-    require 'pry'; binding.pry
     response = RestClient.post(
       ENDPOINT.fetch(endpoint_key), 
       body.to_json, 

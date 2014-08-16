@@ -35,8 +35,7 @@ describe Echochamber::Client do
 
   describe '.create_user' do
     it 'calls validator' do
-      user = client.create_user(user_params)
-      require 'pry'; binding.pry
+      #user = client.create_user(user_params)
       #{"userId"=>"2AAABLblqZhAwNIN4aYZD2dn20cHAhVXNpOiRJogUqzE_XvDV_4pSUDOpWAkrFtcQIbdAZGdiLi8*"}
     end
   end
