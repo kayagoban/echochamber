@@ -28,7 +28,7 @@ module Echochamber
     # @option options  [String] :customField3 You can choose to use custom fields to record additional information about your new users. These fields are, however, available only with customized implementations - please contact EchoSign if you would like to make use of this functionality
     # @return [String] User ID
    def create_user(params)
-     Echochamber::Validator.validate([:firstName, :lastName, :email, :password], params)
+     Echochamber::Validator.require([:firstName, :lastName, :email, :password], params)
      user = Echochamber::Request.create_user(params, token)
      user.fetch("userId")
    end

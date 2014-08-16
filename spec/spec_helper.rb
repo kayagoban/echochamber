@@ -1,6 +1,7 @@
 require 'bundler/setup'
 require 'webmock/rspec'
 require 'vcr'
+require 'factory_girl'
 require 'echochamber'
 require 'pry'
  
@@ -13,6 +14,7 @@ end
 
 RSpec.configure do |config|
   config.include WebMock
+  config.include FactoryGirl::Syntax::Methods
 end
 
 

@@ -2,11 +2,26 @@ require 'spec_helper'
 
 describe Echochamber::Client do
 
+  let(:file_infos) do
+    [
+      Echochamber::Agreement::Fileinfo.build( {} )
+    ]
+  end
+
+  let(:agreement_info) do
+    {
+      fileInfos: file_infos,
+      recipients: recipients,
+      signatureFlow: "SENDER_SIGNS_LAST",
+      signatureType: "ESIGN",
+      name: "Rumplestiltskin Contract"
+    }
+  end
   let(:app_id)        { "9QCM5C6Y2AX82M" }
   let(:app_secret)    { "390db093ee6f71ffc6d488b9457593a7" }
   let(:api_key)       { "XCNLJFG83URX95Y" }
   let(:email)         { "cthomas@railjumper.com" }
-  let(:password)      { "vvidmk" }
+  let(:password)      { "badpassword" }
 
   let(:credentials) do  
     Echochamber::Credentials.build(app_id, app_secret, api_key, email, password)
@@ -44,12 +59,12 @@ describe Echochamber::Client do
   end
 
   describe '.create_agreement' do
-#    it 'returns something' do
-#      VCR.use_cassette('create_agreement', :record => :once) do
-#        user_id = client.create_agreement(agreement_params)
-##        expect(user_id).to_not be_nil
-#      end
-#    end
+    #    it 'returns something' do
+    #      VCR.use_cassette('create_agreement', :record => :once) do
+    #        user_id = client.create_agreement(agreement_params)
+    ##        expect(user_id).to_not be_nil
+    #      end
+    #    end
   end
 
 

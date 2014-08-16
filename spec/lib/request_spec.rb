@@ -6,7 +6,7 @@ describe Echochamber::Request do
   let(:app_secret)    { "390db093ee6f71ffc6d488b9457593a7" }
   let(:api_key)       { "XCNLJFG83URX95Y" }
   let(:email)         { "cthomas@railjumper.com" }
-  let(:password)      { "vvidmk" }
+  let(:password)      { "badpassword" }
 
   let(:credentials) do  
     Echochamber::Credentials.build(app_id, app_secret, api_key, email, password)

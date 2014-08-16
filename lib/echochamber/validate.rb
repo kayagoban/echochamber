@@ -4,7 +4,7 @@ module Echochamber
 
   module Validator
 
-   def self.validate(required_fields, params)
+   def self.require(required_fields, params)
       @params = params
       required_fields.each do |field|
         validate_field(field) 
