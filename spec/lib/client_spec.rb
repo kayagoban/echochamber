@@ -35,7 +35,6 @@ describe Echochamber::Client do
   end
 
   describe '.create_user' do
-
     it 'returns the User ID' do
       VCR.use_cassette('create_user', :record => :once) do
         user_id = client.create_user(user_params)
@@ -43,6 +42,16 @@ describe Echochamber::Client do
       end
     end
   end
+
+  describe '.create_agreement' do
+#    it 'returns something' do
+#      VCR.use_cassette('create_agreement', :record => :once) do
+#        user_id = client.create_agreement(agreement_params)
+##        expect(user_id).to_not be_nil
+#      end
+#    end
+  end
+
 
 end # describe Echochamber::Client
 

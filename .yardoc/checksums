@@ -1,4 +1,6 @@
-lib/echochamber.rb a72807913892a232d5b4db5e69e3e3a1600a3ab0
+lib/echochamber.rb d63bbf023f0dc445871b8a8f6d2e3bfec3637420
+lib/echochamber/client.rb 61f555d9d7ed7f98b79ca1b5d31e64c4f45afa7b
+lib/echochamber/request.rb b9b77de973f61a38b5ce5f6e630f58d104468f07
 lib/echochamber/version.rb 86e7c3f81fdc9985b5294ac83b91a6f2e1f5af98
-lib/echochamber/api_request.rb 2a4e0c72507c954460353ba5262f1ab2966e94e8
-lib/echochamber/request_body.rb a28ef456c52a1976ad6188299099c9404cbac950
+lib/echochamber/validate.rb 8b56534ebbfb70f26d7aa280e9a63374a0c5cc67
+lib/echochamber/credentials.rb 75f95bb6a3a6380a66da51ddad9aae57193d6b91
