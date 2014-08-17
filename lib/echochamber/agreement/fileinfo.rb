@@ -4,14 +4,14 @@ module Echochamber
 
       # Validates Fileinfo params 
       #
-      # @param params [Hash] SYMBOL-referenced Hash containing only one of the following:
-      # @option transientDocumentId [String] A transient document ID available to the sender
-      # @option libraryDocumentId [String] A library document ID available to the sender
-      # @option libraryDocumentName [String] A library document name available to the sender
-      # @option documentURL [Hash] Parameters created by Echochamber::Agreement::UrlFileInfo.build
-      def build(params)
+      # @param [Hash] params SYMBOL-referenced Hash containing exactly one of the following:
+      # @option params [String] :transientDocumentId A transient document ID available to the sender
+      # @option params [String] :libraryDocumentId A library document ID available to the sender
+      # @option params [String] :libraryDocumentName A library document name available to the sender
+      # @option params [Hash] :documentURL Parameters created by Echochamber::Agreement::UrlFileInfo.build
+      def self.build(params)
+        Echochamber::Validator.require_exactly_one([:transientDocumentId, :libraryDocumentId, :libraryDocumentName, :documentURL], params)
 
-        # TODO validation goes here!
         params
       end
     end

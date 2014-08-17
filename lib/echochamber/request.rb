@@ -2,6 +2,8 @@ require 'rest-client'
 
 module Echochamber::Request
 
+  class Failure < StandardError; end
+
   BASE_URL = 'https://secure.echosign.com/api/rest/v2'
 
   ENDPOINT = { 
@@ -15,7 +17,12 @@ module Echochamber::Request
   # @param credentials [Echochamber::Credentials] Initialized Echochamber::Credentials
   # @return [String] Valid authentication token
   def self.get_token(credentials)
-    response = RestClient.post(ENDPOINT[:token], credentials.to_json, :content_type => :json, :accept => :json)
+    begin
+      response = RestClient.post(ENDPOINT[:token], credentials.to_json, :content_type => :json, :accept => :json)
+    rescue RestClient::BadRequest => error
+      raise_error(error)
+    end
+
     response_body = JSON.parse(response.body)
     response_body.fetch("accessToken")
   end
@@ -25,11 +32,16 @@ module Echochamber::Request
   # @param body [Hash] Valid request body
   # @return [String] Valid authentication token
   def self.create_user(body, token)
-    response = RestClient.post(
-      ENDPOINT.fetch(:user), 
-      body.to_json, 
-      { :content_type => :json, :accept => :json, 'Access-Token' => token}
-    )
+    begin
+      response = RestClient.post(
+        ENDPOINT.fetch(:user), 
+        body.to_json, 
+        { :content_type => :json, :accept => :json, 'Access-Token' => token}
+      )
+    rescue RestClient::BadRequest => error
+      raise_error(error)
+    end
+
     JSON.parse(response.body)
   end
 
@@ -38,6 +50,7 @@ module Echochamber::Request
   # @param body [Hash] Valid request body
   # @return [String] Valid authentication token
   def self.create_agreement(body, token, user_id, user_email)
+    begin
     response = RestClient.post(
       ENDPOINT.fetch(:agreement), 
       body.to_json, 
@@ -49,9 +62,16 @@ module Echochamber::Request
         'x-user-email' => user_email
       }
     )
+    rescue RestClient::BadRequest => error
+      raise_error(error)
+    end
+
     JSON.parse(response.body)
   end
 
+  def self.raise_error(error)
+    raise Failure, "#{error.inspect}.  \nSee Adobe Echosign REST API documentation for Error code meanings: https://secure.echosign.com/public/docs/restapi/v2"
+  end
 
 end
 

@@ -29,7 +29,7 @@ describe Echochamber::Validator do
       it "raises an invalid parameter error" do
         expect do 
           Echochamber::Validator.require(required_fields, params)
-        end.to raise_error(Echochamber::InvalidParameterError)
+        end.to raise_error(Echochamber::RequiredParameterError)
       end
     end
 
@@ -39,7 +39,7 @@ describe Echochamber::Validator do
       it "raises an invalid parameter error" do
         expect do 
           Echochamber::Validator.require(required_fields, params)
-        end.to raise_error(Echochamber::InvalidParameterError)
+        end.to raise_error(Echochamber::RequiredParameterError)
       end
  
     end
@@ -49,7 +49,7 @@ describe Echochamber::Validator do
       it "raises an invalid parameter error" do
         expect do 
           Echochamber::Validator.require([:unknown_field], params)
-        end.to raise_error(Echochamber::InvalidParameterError)
+        end.to raise_error(Echochamber::RequiredParameterError)
       end
     end
 

@@ -1,6 +1,7 @@
 module Echochamber
 
-  class InvalidParameterError < StandardError; end
+  class RequiredParameterError < StandardError; end
+  class ParameterError < StandardError; end
 
   module Validator
 
@@ -9,22 +10,41 @@ module Echochamber
       required_fields.each do |field|
         validate_field(field) 
       end
-    end
+   end
 
-    private 
+   def self.require_exactly_one(field_group, params)
+     @params = params
+     set_fields = 0
+     field_group.each do |field|
+       begin
+         validate_field(field) 
+       rescue RequiredParameterError
+         next
+       else
+         set_fields += 1
+       end
+     end
+     raise ParameterError, "Exactly one of #{field_group.to_s} should be present" if set_fields != 1
+   end
 
-    def self.validate_field(field)
-      begin
-        value = @params.fetch(field)
-        raise_error(field) if value.nil? || value.empty?
-      rescue KeyError
-        raise_error(field)
-      end
-    end
+   # lambda / yield over here
+   # def self.require_conditionally(field, params)
+   # end
 
-    def self.raise_error(field)
-      raise InvalidParameterError, "Invalid required parameter: #{field.to_s}"
-    end
+   private 
+
+   def self.validate_field(field)
+     begin
+       value = @params.fetch(field)
+       required_error(field) if value.nil? || value.empty?
+     rescue KeyError
+       required_error(field)
+     end
+   end
+
+   def self.required_error(field)
+     raise RequiredParameterError, "Nil, empty or missing required parameter: #{field.to_s}"
+   end
 
   end
 
