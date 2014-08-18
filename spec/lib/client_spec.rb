@@ -1,26 +1,6 @@
 require 'spec_helper'
 
 describe Echochamber::Client do
-
-  let(:file_infos) do
-    [
-      Echochamber::Agreement::Fileinfo.build( {} )
-    ]
-  end
-
-  let(:agreement_user_id) { '2AAABLblqZhA4djJBQ5Nlm-I_AWFlCrEQzXmu3k56lHy9h_-EHuFNZCLNplBXRh_FifTL8QlbnOY*' }
-  let(:agreement_user_email) { 'publius@comcast.net' }
-
-  let(:agreement_info) do
-    {
-      fileInfos: [ Echochamber::Agreement::Fileinfo.build({ transientDocumentId: "123" }) ],
-      recipients: [ Echochamber::Agreement::Recipient.build({ role: 'SIGNER', email: 'goof@duper.com'})],
-      signatureFlow: "SENDER_SIGNS_LAST",
-      signatureType: "ESIGN",
-      name: "Rumplestiltskin Contract"
-    }
-  end
-
   let(:app_id)        { "9QCM5C6Y2AX82M" }
   let(:app_secret)    { "390db093ee6f71ffc6d488b9457593a7" }
   let(:api_key)       { "XCNLJFG83URX95Y" }
@@ -66,12 +46,34 @@ describe Echochamber::Client do
   end
 
   describe '.create_agreement' do
-    it 'returns something' do
-      #VCR.use_cassette('create_agreement', :record => :once) do
-      user_id = client.create_agreement(agreement_user_id, agreement_user_email, agreement_info)
-      expect(user_id).to_not be_nil
-      #end
+
+    let(:file_infos) do
+      [
+        Echochamber::Agreement::Fileinfo.new( {} )
+      ]
     end
+
+    let(:agreement_user_id) { '2AAABLblqZhA4djJBQ5Nlm-I_AWFlCrEQzXmu3k56lHy9h_-EHuFNZCLNplBXRh_FifTL8QlbnOY*' }
+    let(:agreement_user_email) { 'publius@comcast.net' }
+
+    let(:agreement_info) do
+      {
+        fileInfos: [ Echochamber::Fileinfo.new({ transientDocumentId: "123" }) ],
+        recipients: [ Echochamber::Recipient.new({ role: 'SIGNER', email: 'goof@duper.com'})],
+        signatureFlow: "SENDER_SIGNS_LAST",
+        signatureType: "ESIGN",
+        name: "Rumplestiltskin Contract"
+      }
+    end
+
+    let(:agreement)  { Echochamber::Agreement.new(agreement_user_id, agreement_user_email, agreement_info) }
+
+    #it 'returns something' do
+      #VCR.use_cassette('create_agreement', :record => :once) do
+      #user_id = client.create_agreement(agreement)
+      #expect(user_id).to_not be_nil
+      #end
+    #end
   end
 
 
