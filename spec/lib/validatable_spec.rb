@@ -22,21 +22,14 @@ describe Echochamber::Validatable do
     Foo.new
   end 
 
-  describe ".require_keys" do
-
-    let(:required_fields) do
-      [
-        :firstName,
-        :lastName
-      ]
-    end
+  describe ".validate_field" do
 
     context "when field is nil" do
       let(:first_name) { nil }
 
       it "raises an invalid parameter error" do
         expect do 
-          validatable_object.require_keys(required_fields, params)
+          validatable_object.validate_field(first_name, params)
         end.to raise_error(Echochamber::RequiredParameterError)
       end
     end
@@ -46,7 +39,7 @@ describe Echochamber::Validatable do
 
       it "raises an invalid parameter error" do
         expect do 
-          validatable_object.require_keys(required_fields, params)
+          validatable_object.validate_field(first_name, params)
         end.to raise_error(Echochamber::RequiredParameterError)
       end
 
@@ -56,8 +49,60 @@ describe Echochamber::Validatable do
 
       it "raises an invalid parameter error" do
         expect do 
-          validatable_object.require_keys([:unknown_field], params)
+          validatable_object.validate_field([:unknown_field], params)
         end.to raise_error(Echochamber::RequiredParameterError)
+      end
+    end
+
+  end
+
+  describe '.require_keys' do
+    let(:required_fields) do
+      [
+        :firstName,
+        :lastName
+      ]
+    end
+
+    context 'when all required fields are present' do
+      it 'it does not raise an error' do
+        expect do 
+          validatable_object.require_keys(required_fields, params)
+        end.to_not raise_error
+      end
+    end
+
+    context 'when a required fields is not present' do
+      it 'it raises an error' do
+        expect do 
+          validatable_object.require_keys(required_fields.push(:unknown_field), params)
+        end.to raise_error(Echochamber::RequiredParameterError)
+      end
+    end
+  end
+
+  describe '.require_exactly_one' do
+    context 'when more than one key value is present' do
+      it 'it raises an error' do
+        expect do 
+          validatable_object.require_exactly_one([:firstName, :lastName], params)
+        end.to raise_error(Echochamber::ParameterError)
+      end
+    end
+
+    context 'when none of the key values are present' do
+      it 'it raises an error' do
+        expect do 
+          validatable_object.require_exactly_one([:unknown_field], params)
+        end.to raise_error(Echochamber::ParameterError)
+      end
+    end
+
+    context 'when exactly one of the key values is present' do
+      it 'it does not raise an error' do
+        expect do 
+          validatable_object.require_exactly_one([:firstName], params)
+        end.to_not raise_error
       end
     end
 

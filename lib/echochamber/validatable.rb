@@ -6,18 +6,16 @@ module Echochamber
   module Validatable
 
     def require_keys(required_fields, params)
-      @params = params
       required_fields.each do |field|
-        validate_field(field) 
+        validate_field(field, params) 
       end
     end
 
     def require_exactly_one(field_group, params)
-      @params = params
       set_fields = 0
       field_group.each do |field|
         begin
-          validate_field(field) 
+          validate_field(field, params) 
         rescue RequiredParameterError
           next
         else
@@ -29,18 +27,18 @@ module Echochamber
 
     # TODO (kayagoban) A validator accepting a block for conditional execution
     # might be useful.  
-    # Maybe require should accept a block.  Figure out later.
+    # Maybe require_keys should accept a block.  Figure out later.
 
-    private 
-
-    def validate_field(field)
+    def validate_field(field, params)
       begin
-        value = @params.fetch(field)
+        value = params.fetch(field)
         required_error(field) if value.nil? || value.empty?
       rescue KeyError
         required_error(field)
       end
     end
+
+    private
 
     def required_error(field)
       raise RequiredParameterError, "Nil, empty or missing required parameter: #{field.to_s}"
