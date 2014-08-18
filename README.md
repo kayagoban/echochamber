@@ -68,7 +68,5 @@ client.create_agreement(agreement)
 
 ## Documentation
 
-Read the Echochamber [API Documentation](doc/index.html)
-
-
+Read the Echochamber [API Documentation](http://rdoc.info/github/kayagoban/echochamber/frames)
 

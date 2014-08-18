@@ -96,40 +96,40 @@
 
 <h4>Setting up a new agreement from a URL</h4>
 
-<pre class="code ruby"><code class="ruby">url_file_params = {
-      url:      &#39;http://somedomain.com/contract.pdf&#39;,
-      mimeType: &#39;application/pdf&#39;,
-      name:     &#39;contract.pdf&#39;
-}
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_url_file_params'>url_file_params</span> <span class='op'>=</span> <span class='lbrace'>{</span>
+      <span class='label'>url:</span>      <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>http://somedomain.com/contract.pdf</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+      <span class='label'>mimeType:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>application/pdf</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+      <span class='label'>name:</span>     <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>contract.pdf</span><span class='tstring_end'>&#39;</span></span>
+<span class='rbrace'>}</span>
 
-file_info_params = {
-     documentURL: Echochamber::UrlFileInfo.new(url_file_params) 
-}
+<span class='id identifier rubyid_file_info_params'>file_info_params</span> <span class='op'>=</span> <span class='lbrace'>{</span>
+     <span class='label'>documentURL:</span> <span class='const'>Echochamber</span><span class='op'>::</span><span class='const'>UrlFileInfo</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_url_file_params'>url_file_params</span><span class='rparen'>)</span> 
+<span class='rbrace'>}</span>
 
-recipient_params = {
-i    role: &#39;SIGNER&#39;, email: &#39;superguy@whatsit.com&#39;
-}
+<span class='id identifier rubyid_recipient_params'>recipient_params</span> <span class='op'>=</span> <span class='lbrace'>{</span>
+     <span class='label'>role:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>SIGNER</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>email:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>superguy@whatsit.com</span><span class='tstring_end'>&#39;</span></span>
+<span class='rbrace'>}</span>
 
-agreement_info_params = {
-     fileInfos:       [ Echochamber::Fileinfo.new(file_info_params) ],
-     recipients:      [ Echochamber::Recipient.new(recipient_params)],
-     signatureFlow:   &quot;SENDER_SIGNS_LAST&quot;,
-     signatureType:   &quot;ESIGN&quot;,
-     name:            &quot;Rumplestiltskin Contract&quot;
-}
+<span class='id identifier rubyid_agreement_info_params'>agreement_info_params</span> <span class='op'>=</span> <span class='lbrace'>{</span>
+     <span class='label'>fileInfos:</span>       <span class='lbracket'>[</span> <span class='const'>Echochamber</span><span class='op'>::</span><span class='const'>Fileinfo</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_file_info_params'>file_info_params</span><span class='rparen'>)</span> <span class='rbracket'>]</span><span class='comma'>,</span>
+     <span class='label'>recipients:</span>      <span class='lbracket'>[</span> <span class='const'>Echochamber</span><span class='op'>::</span><span class='const'>Recipient</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_recipient_params'>recipient_params</span><span class='rparen'>)</span><span class='rbracket'>]</span><span class='comma'>,</span>
+     <span class='label'>signatureFlow:</span>   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>SENDER_SIGNS_LAST</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+     <span class='label'>signatureType:</span>   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ESIGN</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+     <span class='label'>name:</span>            <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Rumplestiltskin Contract</span><span class='tstring_end'>&quot;</span></span>
+<span class='rbrace'>}</span>
 
-agreement = Echochamber::Agreement.new(sender_id, sender_email, agreement_info) 
+<span class='id identifier rubyid_agreement'>agreement</span> <span class='op'>=</span> <span class='const'>Echochamber</span><span class='op'>::</span><span class='const'>Agreement</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_sender_id'>sender_id</span><span class='comma'>,</span> <span class='id identifier rubyid_sender_email'>sender_email</span><span class='comma'>,</span> <span class='id identifier rubyid_agreement_info'>agreement_info</span><span class='rparen'>)</span> 
 
-client.create_agreement(agreement)
+<span class='id identifier rubyid_client'>client</span><span class='period'>.</span><span class='id identifier rubyid_create_agreement'>create_agreement</span><span class='lparen'>(</span><span class='id identifier rubyid_agreement'>agreement</span><span class='rparen'>)</span>
 </code></pre>
 
 <h2>Documentation</h2>
 
-<p>Read the Echochamber <a href="doc/index.html">API Documentation</a></p>
+<p>Read the Echochamber <a href="http://rdoc.info/github/kayagoban/echochamber/frames">API Documentation</a></p>
 </div></div>
 
     <div id="footer">
-  Generated on Mon Aug 18 11:26:20 2014 by
+  Generated on Mon Aug 18 11:40:46 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.4 (ruby-2.0.0).
 </div>
