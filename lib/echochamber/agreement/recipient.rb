@@ -11,8 +11,8 @@ module Echochamber
       # @option params [Array] :securityOptions Security options that apply to the recipient.  Populate the array with members from the results of Echochamber::Agreement::RecipientSecurityOption.build
 
       def self.build(params)
-        Echochamber::Validator.require([:role], params)
-        Echochamber::Validator.require_exactly_one([:email, :fax], params)
+        Echochamber::Validatable.require([:role], params)
+        Echochamber::Validatable.require_exactly_one([:email, :fax], params)
         params
       end
 

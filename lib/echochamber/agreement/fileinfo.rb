@@ -10,7 +10,7 @@ module Echochamber
       # @option params [String] :libraryDocumentName A library document name available to the sender
       # @option params [Hash] :documentURL Parameters created by Echochamber::Agreement::UrlFileInfo.build
       def self.build(params)
-        Echochamber::Validator.require_exactly_one([:transientDocumentId, :libraryDocumentId, :libraryDocumentName, :documentURL], params)
+        Echochamber::Validatable.require_exactly_one([:transientDocumentId, :libraryDocumentId, :libraryDocumentName, :documentURL], params)
 
         params
       end
