@@ -1,0 +1,138 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>
+  File: README
+  
+    &mdash; Documentation by YARD 0.8.7.4
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '';
+  framesUrl = "frames.html#!file.README.html";
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="_index.html">Index</a> &raquo; 
+    <span class="title">File: README</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><div id='filecontents'><h1>echochamber</h1>
+
+<p>Ruby Gem to consume Adobe&#39;s EchoSign e-signature service</p>
+
+<h2>Installation</h2>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_gem'>gem</span> <span class='id identifier rubyid_install'>install</span> <span class='id identifier rubyid_echochamber'>echochamber</span>
+</code></pre>
+
+<h2>Usage</h2>
+
+<h4>Initializing a client</h4>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_credentials'>credentials</span> <span class='op'>=</span> <span class='const'>Echochamber</span><span class='op'>::</span><span class='const'>Credentials</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id'>app_id</span><span class='comma'>,</span> <span class='id identifier rubyid_app_secret'>app_secret</span><span class='comma'>,</span> <span class='id identifier rubyid_api_key'>api_key</span><span class='comma'>,</span> <span class='id identifier rubyid_email'>email</span><span class='comma'>,</span> <span class='id identifier rubyid_password'>password</span><span class='rparen'>)</span>
+
+<span class='id identifier rubyid_client'>client</span> <span class='op'>=</span> <span class='const'>Echochamber</span><span class='op'>::</span><span class='const'>Client</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_credentials'>credentials</span><span class='rparen'>)</span>
+</code></pre>
+
+<h4>Creating a user</h4>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_user_params'>user_params</span> <span class='op'>=</span> <span class='lbrace'>{</span>
+      <span class='label'>firstName:</span>  <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>JohnQ</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+      <span class='label'>lastName:</span>   <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Public</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+      <span class='label'>email:</span>      <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>publius@comcast.net</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+      <span class='label'>password:</span>   <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>kN12oK9p!3</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
+      <span class='label'>title:</span>      <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Hedge Wizard</span><span class='tstring_end'>&#39;</span></span>
+<span class='rbrace'>}</span>
+
+<span class='id identifier rubyid_user'>user</span> <span class='op'>=</span> <span class='const'>Echochamber</span><span class='op'>::</span><span class='const'>User</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_user_params'>user_params</span><span class='rparen'>)</span>
+
+<span class='id identifier rubyid_user_id'>user_id</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span><span class='period'>.</span><span class='id identifier rubyid_create_user'>create_user</span><span class='lparen'>(</span><span class='id identifier rubyid_user'>user</span><span class='rparen'>)</span>
+</code></pre>
+
+<h4>Setting up a new agreement from a URL</h4>
+
+<pre class="code ruby"><code class="ruby">url_file_params = {
+      url:      &#39;http://somedomain.com/contract.pdf&#39;,
+      mimeType: &#39;application/pdf&#39;,
+      name:     &#39;contract.pdf&#39;
+}
+
+file_info_params = {
+     documentURL: Echochamber::UrlFileInfo.new(url_file_params) 
+}
+
+recipient_params = {
+i    role: &#39;SIGNER&#39;, email: &#39;superguy@whatsit.com&#39;
+}
+
+agreement_info_params = {
+     fileInfos:       [ Echochamber::Fileinfo.new(file_info_params) ],
+     recipients:      [ Echochamber::Recipient.new(recipient_params)],
+     signatureFlow:   &quot;SENDER_SIGNS_LAST&quot;,
+     signatureType:   &quot;ESIGN&quot;,
+     name:            &quot;Rumplestiltskin Contract&quot;
+}
+
+agreement = Echochamber::Agreement.new(sender_id, sender_email, agreement_info) 
+
+client.create_agreement(agreement)
+</code></pre>
+
+<h2>Documentation</h2>
+
+<p>Read the Echochamber <a href="doc/index.html">API Documentation</a></p>
+</div></div>
+
+    <div id="footer">
+  Generated on Mon Aug 18 11:26:20 2014 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.4 (ruby-2.0.0).
+</div>
+
+  </body>
+</html>

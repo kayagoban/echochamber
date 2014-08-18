@@ -68,5 +68,7 @@ client.create_agreement(agreement)
 
 ## Documentation
 
+Read the Echochamber [API Documentation](doc/index.html)
+
 
 
