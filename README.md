@@ -50,7 +50,7 @@ file_info_params = {
 }
 
 recipient_params = {
-i    role: 'SIGNER', email: 'superguy@whatsit.com'
+     role: 'SIGNER', email: 'superguy@whatsit.com'
 }
 
 agreement_info_params = {
