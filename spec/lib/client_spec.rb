@@ -31,17 +31,6 @@ describe Echochamber::Client do
     Echochamber::Credentials.build(app_id, app_secret, api_key, email, password)
   end
 
-  let (:user_params) do
-    {
-      firstName:  'JohnQ',
-      lastName:   'Public',
-      email:      'publius@comcast.net',
-      password:   'kN12oK9p!3',
-      title:      'Hedge Wizard'
-
-    }
-  end
-
   let(:client) do
     VCR.use_cassette('get_token', :record => :once) do
       Echochamber::Client.new(credentials) 
@@ -54,9 +43,23 @@ describe Echochamber::Client do
   end
 
   describe '.create_user' do
+
+    let (:user_params) do
+      {
+        firstName:  'JohnQ',
+        lastName:   'Public',
+        email:      'publius@comcast.net',
+        password:   'kN12oK9p!3',
+        title:      'Hedge Wizard'
+
+      }
+    end
+
+    let (:user) { Echochamber::User.new(user_params) }
+
     it 'returns the User ID' do
       VCR.use_cassette('create_user', :record => :once) do
-        user_id = client.create_user(user_params)
+        user_id = client.create_user(user)
         expect(user_id).to_not be_nil
       end
     end
@@ -65,8 +68,8 @@ describe Echochamber::Client do
   describe '.create_agreement' do
     it 'returns something' do
       #VCR.use_cassette('create_agreement', :record => :once) do
-        user_id = client.create_agreement(agreement_user_id, agreement_user_email, agreement_info)
-        expect(user_id).to_not be_nil
+      user_id = client.create_agreement(agreement_user_id, agreement_user_email, agreement_info)
+      expect(user_id).to_not be_nil
       #end
     end
   end

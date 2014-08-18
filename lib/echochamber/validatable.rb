@@ -5,14 +5,14 @@ module Echochamber
 
   module Validatable
 
-   def self.require(required_fields, params)
+   def require_keys(required_fields, params)
       @params = params
       required_fields.each do |field|
         validate_field(field) 
       end
    end
 
-   def self.require_exactly_one(field_group, params)
+   def require_exactly_one(field_group, params)
      @params = params
      set_fields = 0
      field_group.each do |field|
@@ -33,7 +33,7 @@ module Echochamber
 
    private 
 
-   def self.validate_field(field)
+   def validate_field(field)
      begin
        value = @params.fetch(field)
        required_error(field) if value.nil? || value.empty?
@@ -42,7 +42,7 @@ module Echochamber
      end
    end
 
-   def self.required_error(field)
+   def required_error(field)
      raise RequiredParameterError, "Nil, empty or missing required parameter: #{field.to_s}"
    end
 
