@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Echochamber::Validator do
+describe Echochamber::Validatable do
 
   describe "#user" do
 
@@ -28,7 +28,7 @@ describe Echochamber::Validator do
 
       it "raises an invalid parameter error" do
         expect do 
-          Echochamber::Validator.require(required_fields, params)
+          Echochamber::Validatable.require(required_fields, params)
         end.to raise_error(Echochamber::RequiredParameterError)
       end
     end
@@ -38,7 +38,7 @@ describe Echochamber::Validator do
 
       it "raises an invalid parameter error" do
         expect do 
-          Echochamber::Validator.require(required_fields, params)
+          Echochamber::Validatable.require(required_fields, params)
         end.to raise_error(Echochamber::RequiredParameterError)
       end
  
@@ -48,7 +48,7 @@ describe Echochamber::Validator do
 
       it "raises an invalid parameter error" do
         expect do 
-          Echochamber::Validator.require([:unknown_field], params)
+          Echochamber::Validatable.require([:unknown_field], params)
         end.to raise_error(Echochamber::RequiredParameterError)
       end
     end

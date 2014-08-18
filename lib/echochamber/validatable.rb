@@ -3,7 +3,7 @@ module Echochamber
   class RequiredParameterError < StandardError; end
   class ParameterError < StandardError; end
 
-  module Validator
+  module Validatable
 
    def self.require(required_fields, params)
       @params = params
@@ -27,9 +27,9 @@ module Echochamber
      raise ParameterError, "Exactly one of #{field_group.to_s} should be present" if set_fields != 1
    end
 
-   # lambda / yield over here
-   # def self.require_conditionally(field, params)
-   # end
+   # TODO (kayagoban) A validator accepting a block for conditional execution
+   # might be useful.  
+   # Maybe require should accept a block.  Figure out later.
 
    private 
 

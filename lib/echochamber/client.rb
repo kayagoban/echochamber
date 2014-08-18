@@ -28,7 +28,7 @@ module Echochamber
     # @option params [String] :customField3 You can choose to use custom fields to record additional information about your new users. These fields are, however, available only with customized implementations - please contact EchoSign if you would like to make use of this functionality
     # @return [String] User ID
     def create_user(params)
-      Echochamber::Validator.require([:firstName, :lastName, :email, :password], params)
+      Echochamber::Validatable.require([:firstName, :lastName, :email, :password], params)
       user = Echochamber::Request.create_user(params, token)
       user.fetch("userId")
     end
@@ -45,7 +45,7 @@ module Echochamber
     # @option params [String] :name The name of the agreement that will be used to identify it, in emails and on the website. (REQUIRED)
     # @return [String] Agreement ID
     def create_agreement(user_id, user_email, params)
-      Echochamber::Validator.require([:signatureType, :recipients, :signatureFlow, :fileInfos, :name], params)
+      Echochamber::Validatable.require([:signatureType, :recipients, :signatureFlow, :fileInfos, :name], params)
       agreement = Echochamber::Request.create_agreement(params, token, user_id, user_email)
     end
 
