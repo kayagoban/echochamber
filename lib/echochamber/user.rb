@@ -11,7 +11,7 @@ module Echochamber
     # @option params [String] :firstName The first name of the new user (REQUIRED)
     # @option params [String] :lastName The last name of the new user (REQUIRED)
     # @option params [String] :optIn 'YES' or 'NO' or 'UNKNOWN': Whether or not the user has opted in to recieve marketing information from EchoSign and its partners. Default value is UNKNOWN
-    # @option params options [String] :groupId Group in which the new user should be added. It can be obtained through GET /users call. Default is Group of the user making this call. The user is inferred from the access_token header
+    # @option params [String] :groupId Group in which the new user should be added. It can be obtained through GET /users call. Default is Group of the user making this call. The user is inferred from the access_token header
     # @option params [String] :title The new user's job title
     # @option params [String] :phone The phone number of the new user
     # @option params [String] :company The name of the new user's company
