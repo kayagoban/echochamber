@@ -3,3 +3,4 @@
 .yardoc/*
 doc
 doc/*
+.DS_Store
