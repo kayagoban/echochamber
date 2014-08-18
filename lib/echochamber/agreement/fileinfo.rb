@@ -9,7 +9,7 @@ module Echochamber
     # @option params [String] :transientDocumentId A transient document ID available to the sender
     # @option params [String] :libraryDocumentId A library document ID available to the sender
     # @option params [String] :libraryDocumentName A library document name available to the sender
-    # @option params [Hash] :documentURL Parameters created by Echochamber::Agreement::UrlFileInfo.build
+    # @option params [Echochamber::UrlFileInfo] :documentURL A description of the URL where the document can be found
     # @return [Echochamber::Fileinfo]
     def initialize(params)
       require_exactly_one([:transientDocumentId, :libraryDocumentId, :libraryDocumentName, :documentURL], params)

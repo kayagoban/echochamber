@@ -68,12 +68,12 @@ describe Echochamber::Client do
 
     let(:agreement)  { Echochamber::Agreement.new(agreement_user_id, agreement_user_email, agreement_info) }
 
-    #it 'returns something' do
+    it 'returns something' do
       #VCR.use_cassette('create_agreement', :record => :once) do
-      #user_id = client.create_agreement(agreement)
-      #expect(user_id).to_not be_nil
+        user_id = client.create_agreement(agreement)
+        expect(user_id).to_not be_nil
       #end
-    #end
+    end
   end
 
 

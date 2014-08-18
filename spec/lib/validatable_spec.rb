@@ -46,7 +46,6 @@ describe Echochamber::Validatable do
     end
 
     context "when key is not present" do
-
       it "raises an invalid parameter error" do
         expect do 
           validatable_object.validate_field([:unknown_field], params)
@@ -72,7 +71,7 @@ describe Echochamber::Validatable do
       end
     end
 
-    context 'when a required fields is not present' do
+    context 'when a required field is not present' do
       it 'it raises an error' do
         expect do 
           validatable_object.require_keys(required_fields.push(:unknown_field), params)

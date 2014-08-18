@@ -1,19 +1,19 @@
 module Echochamber
-  module Agreement
-    module PhoneInfo 
+  class PhoneInfo < Hash
 
-      # Validates PhoneInfo parameters
-      #
-      # @param params [Hash] SYMBOL-referenced Hash.
-      # @option phone [String] The phone number required for the recipient to view and sign the document if authentication type is PHONE (REQUIRED)
-      # @option countryCode [String] The phoneInfo country code required for the recipient to view and sign the document if authentication type is PHONE
+    include Validatable
 
-      def build(params)
-        # TODO validations.
+    # PhoneInfo 
+    #
+    # @param [Hash] params SYMBOL-referenced Hash.
+    # @option params [String] :phone The phone number required for the recipient to view and sign the document (REQUIRED)
+    # @option params [String] :countryCode The phoneInfo country code required for the recipient to view and sign the document if authentication type is PHONE
+    # @return [Echochamber::PhoneInfo]
 
-      end
-
+    def initialize(params)
+      require_keys([:phone], params)
+      merge!(params)
     end
+
   end
 end
-

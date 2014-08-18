@@ -4,7 +4,7 @@ module Echochamber
     class CredentialsError < StandardError; end
     # Builds a Credentials object
     #
-    # @param app_key [String] Application key
+    # @param app_id [String] Application key
     # @param app_secret [String] Application secret
     # @param api_key [String] API Key
     # @param email [String] User email 

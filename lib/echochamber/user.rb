@@ -5,7 +5,7 @@ module Echochamber
 
     # Creates a user for the current application
     #
-    # @options [Hash] params SYMBOL-referenced Hash containing:
+    # @param [Hash] params SYMBOL-referenced Hash containing:
     # @option params [String] :email User's email address (REQUIRED)
     # @option params [String] :password The new user's password (REQUIRED)
     # @option params [String] :firstName The first name of the new user (REQUIRED)
@@ -19,9 +19,10 @@ module Echochamber
     # @option params [String] :customField2 You can choose to use custom fields to record additional information about your new users. These fields are, however, available only with customized implementations - please contact EchoSign if you would like to make use of this functionality
     # @option params [String] :customField3 You can choose to use custom fields to record additional information about your new users. These fields are, however, available only with customized implementations - please contact EchoSign if you would like to make use of this functionality
     # @return [String] User ID
+
     def initialize(params)
       require_keys([:firstName, :lastName, :email, :password], params)
-      merge(params)
+      merge!(params)
     end
 
   end # class User

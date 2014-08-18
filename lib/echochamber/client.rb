@@ -13,8 +13,8 @@ module Echochamber
 
     # Creates a user for the current application
     #
-    # @param [Echochamber::User] Initialized Echochamber::User
-    # @option params [String] :email User's email address (REQUIRED)
+    # @param user [Echochamber::User] Initialized Echochamber::User
+    # @return [String] User ID of new Echosign user
    def create_user(user)
      user_response  = Echochamber::Request.create_user(user, token)
      user_response.fetch("userId")
@@ -22,7 +22,7 @@ module Echochamber
 
    # Creates an agreement
    #
-   # @param [Echochamber::Agreement] Initialized Echochamber::Agreement 
+   # @param agreement [Echochamber::Agreement] Initialized Echochamber::Agreement 
    # @return [String] Agreement ID
    def create_agreement(agreement)
      agreement_response = Echochamber::Request.create_agreement(agreement, token, agreement.user_id, agreement.user_email)
