@@ -12,7 +12,7 @@ gem install echochamber
 
 ## Usage
 
-#### Initializing a client with your Echosign user credentials and application credentials
+#### Initializing a client
 
 ```
 credentials = Echochamber::Credentials.new(app_id, app_secret, api_key, email, password)
@@ -49,20 +49,24 @@ file_info_params = {
      documentURL: Echochamber::UrlFileInfo.new(url_file_params) 
 }
 
+recipient_params = {
+i    role: 'SIGNER', email: 'superguy@whatsit.com'
+}
+
 agreement_info_params = {
      fileInfos:       [ Echochamber::Fileinfo.new(file_info_params) ],
-     recipients:      [ Echochamber::Recipient.new({ role: 'SIGNER', email: 'superguy@whatsit.com'})],
+     recipients:      [ Echochamber::Recipient.new(recipient_params)],
      signatureFlow:   "SENDER_SIGNS_LAST",
      signatureType:   "ESIGN",
      name:            "Rumplestiltskin Contract"
 }
 
-agreement = Echochamber::Agreement.new(sender_user_id, sender_user_email, agreement_info) 
+agreement = Echochamber::Agreement.new(sender_id, sender_email, agreement_info) 
 
 client.create_agreement(agreement)
 ```
 
-
 ## Documentation
+
 
 
