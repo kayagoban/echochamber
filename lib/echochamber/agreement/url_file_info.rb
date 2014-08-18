@@ -1,6 +1,8 @@
 module Echochamber
   class UrlFileInfo < Hash
 
+    include Validatable
+
     # Validates UrlFileInfo parameters
     #
     # @param [Hash] params SYMBOL-referenced Hash 

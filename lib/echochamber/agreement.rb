@@ -1,4 +1,5 @@
 require 'echochamber/agreement/fileinfo'
+require 'echochamber/agreement/url_file_info'
 require 'echochamber/agreement/recipient'
 
 module Echochamber
@@ -24,7 +25,7 @@ module Echochamber
       @user_email = user_email
       #TODO (cthomas) barf if user_id or user_email are blank
       require_keys([:signatureType, :recipients, :signatureFlow, :fileInfos, :name], params)
-      merge!(params)
+      merge!({ documentCreationInfo: params })
     end
 
   end # class Agreement

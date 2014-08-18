@@ -47,19 +47,31 @@ describe Echochamber::Client do
 
   describe '.create_agreement' do
 
-    let(:file_infos) do
-      [
-        Echochamber::Agreement::Fileinfo.new( {} )
-      ]
+    let(:url_file_info) do
+      {
+      url: 'http://findgoplayers.com/resume.pdf',
+      mimeType: 'application/pdf',
+      name: 'resume.pdf'
+      }
     end
 
-    let(:agreement_user_id) { '2AAABLblqZhA4djJBQ5Nlm-I_AWFlCrEQzXmu3k56lHy9h_-EHuFNZCLNplBXRh_FifTL8QlbnOY*' }
-    let(:agreement_user_email) { 'publius@comcast.net' }
+    let(:file_info) do
+      { 
+        documentURL: Echochamber::UrlFileInfo.new(url_file_info) 
+      }
+    end
+
+    let(:file_infos) do
+      [ Echochamber::Fileinfo.new(file_info) ] 
+    end
+
+    let(:agreement_user_id) { nil } 
+    let(:agreement_user_email) { nil }
 
     let(:agreement_info) do
       {
-        fileInfos: [ Echochamber::Fileinfo.new({ transientDocumentId: "123" }) ],
-        recipients: [ Echochamber::Recipient.new({ role: 'SIGNER', email: 'goof@duper.com'})],
+        fileInfos: [ file_infos ],
+        recipients: [ Echochamber::Recipient.new({ role: 'SIGNER', email: 'goishi.san@gmail.com'})],
         signatureFlow: "SENDER_SIGNS_LAST",
         signatureType: "ESIGN",
         name: "Rumplestiltskin Contract"
@@ -68,12 +80,25 @@ describe Echochamber::Client do
 
     let(:agreement)  { Echochamber::Agreement.new(agreement_user_id, agreement_user_email, agreement_info) }
 
-    it 'returns something' do
-      #VCR.use_cassette('create_agreement', :record => :once) do
-        user_id = client.create_agreement(agreement)
-        expect(user_id).to_not be_nil
-      #end
+    it 'returns the agreement_id' do
+      VCR.use_cassette('create_agreement', :record => :once) do
+        agreement_id = client.create_agreement(agreement)
+        expect(agreement_id).to_not be_nil
+      end
     end
+  end
+
+  describe '.create_transient_document' do
+
+    let(:file_name) { 'resume.pdf' }
+    let(:mime_type) { 'application/pdf' }
+    let(:file) { File.new("/home/cthomas/resume.pdf", 'rb') }
+
+    #it 'returns the transient document ID' do
+      #binding.pry
+      #tran_doc_id = client.create_transient_document(file_name, mime_type, file)
+      #expect(tran_doc_id).to_not be_nil
+    #end
   end
 
 

@@ -13,7 +13,7 @@ module Echochamber
     # @return [Echochamber::Fileinfo]
     def initialize(params)
       require_exactly_one([:transientDocumentId, :libraryDocumentId, :libraryDocumentName, :documentURL], params)
-      merge(params)
+      merge!(params)
     end
   end
 end
