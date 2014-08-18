@@ -9,7 +9,7 @@ describe Echochamber::Request do
   let(:password)      { "badpassword" }
 
   let(:credentials) do  
-    Echochamber::Credentials.build(app_id, app_secret, api_key, email, password)
+    Echochamber::Credentials.new(app_id, app_secret, api_key, email, password)
   end
 
 

@@ -44,6 +44,11 @@ module Echochamber
       raise RequiredParameterError, "Nil, empty or missing required parameter: #{field.to_s}"
     end
 
+    # If blank? did not exist, we would need to invent it.
+    def blank?(field)
+      field.nil? || field.empty? 
+    end
+
   end
 
 end

@@ -1,7 +1,8 @@
 module Echochamber
-  module Credentials
+  class Credentials < Hash
 
-    class CredentialsError < StandardError; end
+    include Validatable
+
     # Builds a Credentials object
     #
     # @param app_id [String] Application key
@@ -10,10 +11,9 @@ module Echochamber
     # @param email [String] User email 
     # @param password [String] User password
     # @return [Echochamber::Credentials] Echosign credentials
-    def self.build(app_id, app_secret, api_key, email, password)
+    def initialize(app_id, app_secret, api_key, email, password)
 
-      # TODO sanity checks on credentials inputs
-      #raise CredentialsError, "App key and secret strings must be supplied" if blank?(key) || blank?(secret)
+      merge!(
       {
         applicationCredentials:  {
         applicationId: app_id,
@@ -25,13 +25,7 @@ module Echochamber
         password: password 
       }
       }
-    end
-
-    private
-
-    # If blank? did not exist, we would need to invent it.
-    def blank?(field)
-      field.nil? || field.empty? 
+      )
     end
 
   end
