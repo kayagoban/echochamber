@@ -137,16 +137,13 @@ describe Echochamber::Client do
     let(:document_id) { "2AAABLblqZhDcteEO9jy6gSat9d_3XgpPVpxhetoDCpU4L9PoolGv_3mqgKL1DhIGTXTHhqAHlHk*" }
 
     it 'returns a document file from the selected agreement' do
-      #VCR.use_cassette('agreement_document_file', :record => :once) do
+      VCR.use_cassette('agreement_document_file', :record => :once) do
         result = client.agreement_document_file(agreement_id, document_id)
-        binding.pry
-        expect(result).to_not be_a File
-      #end
+        expect(result).to be_a String 
+        expect(result).to_not be_nil
+      end
     end
-
-
   end
-
 
 
   describe '.create_transient_document' do

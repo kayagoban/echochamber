@@ -115,12 +115,11 @@ module Echochamber::Request
   #
   # @param token [String] Auth Token
   # @param agreement_id [String] ID of agreement to retrieve info on.
-  # @return [Hash] Agreement info response body
+  # @return [String] Raw bytes from document file
   def self.agreement_document_file(token, agreement_id, document_id)
     headers = { 'Access-Token' => token }
-    endpoint = "#{ENDPOINT.fetch(:agreement)}/#{agreement_id}/#{document_id}"
+    endpoint = "#{ENDPOINT.fetch(:agreement)}/#{agreement_id}/documents/#{document_id}"
 
-    binding.pry
     begin
       response = RestClient.get(
         endpoint, 
@@ -129,8 +128,6 @@ module Echochamber::Request
     rescue Exception => error
       raise_error(error)
     end
-
-    JSON.parse(response.body)
   end
 
 

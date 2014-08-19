@@ -91,11 +91,15 @@ module Echochamber
    # @param agreement_id [String]  (REQUIRED)
    # @param document_id [String]  (REQUIRED)
    # @param file_path [String] File path to save the document.  If no file path is given, nothing is saved to disk.
-   # @return [File] File handle of the returned document
-   def agreement_document_file(agreement_id, document_id)
+   # @return [String] Raw bytes from document file
+   def agreement_document_file(agreement_id, document_id, file_path=nil)
      response = Echochamber::Request.agreement_document_file(token, agreement_id, document_id)
-     binding.pry
-     #transient_document_response.fetch("transientDocumentId")
+     unless file_path.nil?
+       file = File.new(file_path, 'wb')
+       file.write(response)
+       file.close
+     end
+     response
    end
 
 
