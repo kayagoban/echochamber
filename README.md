@@ -10,6 +10,14 @@ Ruby Gem to consume Adobe's EchoSign e-signature service
 gem install echochamber
 ```
 
+## Documentation
+
+The bulk of the API is at on the [Echochamber::Client class](http://rdoc.info/github/kayagoban/echochamber/frames/Echochamber/Client)
+
+You can read Echochamber's full [API Documentation](http://rdoc.info/github/kayagoban/echochamber/frames)
+
+It also wouldn't heart to read Adobe's [Echosign API documentation](https://secure.echosign.com/public/docs/restapi/v2)
+
 ## Usage
 
 #### Initializing a client
@@ -74,13 +82,5 @@ user_id = client.create_user(user)
 ```
 tran_doc_id = client.create_transient_document(file_name, mime_type, File.new('myfile.pdf'))
 ```
-
-## Documentation
-
-The bulk of the API is at on the [Echochamber::Client class](http://rdoc.info/github/kayagoban/echochamber/frames/Echochamber/Client)
-
-You can read Echochamber's full [API Documentation](http://rdoc.info/github/kayagoban/echochamber/frames)
-
-It also wouldn't heart to read Adobe's [Echosign API documentation](https://secure.echosign.com/public/docs/restapi/v2)
 
 
