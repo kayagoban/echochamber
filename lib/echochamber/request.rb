@@ -111,6 +111,30 @@ module Echochamber::Request
     JSON.parse(response.body)
   end
 
+  # Performs REST GET /agreement/:id operation
+  #
+  # @param token [String] Auth Token
+  # @param agreement_id [String] ID of agreement to retrieve info on.
+  # @return [Hash] Agreement info response body
+  def self.agreement_document_file(token, agreement_id, document_id)
+    headers = { 'Access-Token' => token }
+    endpoint = "#{ENDPOINT.fetch(:agreement)}/#{agreement_id}/#{document_id}"
+
+    binding.pry
+    begin
+      response = RestClient.get(
+        endpoint, 
+        headers
+      )
+    rescue Exception => error
+      raise_error(error)
+    end
+
+    JSON.parse(response.body)
+  end
+
+
+
   # Performs REST GET /agreement/:id/documents
   #
   # @param agreement_id [String] (REQUIRED)

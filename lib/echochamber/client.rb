@@ -73,7 +73,6 @@ module Echochamber
    # @return [Array] Documents relating to agreement.
    def agreement_documents(agreement_id, recipient_email, format, version_id=nil)
      result = Echochamber::Request.agreement_documents(token, agreement_id, recipient_email, format, version_id)
-     result.fetch('documents')
    end
 
    # Creates a transient document for later referral
@@ -85,6 +84,18 @@ module Echochamber
    def create_transient_document(file_name, mime_type, file_handle)
      transient_document_response = Echochamber::Request.create_transient_document(token, file_name, file_handle, mime_type)
      transient_document_response.fetch("transientDocumentId")
+   end
+
+   # Retrieve a document file from an agreement
+   #
+   # @param agreement_id [String]  (REQUIRED)
+   # @param document_id [String]  (REQUIRED)
+   # @param file_path [String] File path to save the document.  If no file path is given, nothing is saved to disk.
+   # @return [File] File handle of the returned document
+   def agreement_document_file(agreement_id, document_id)
+     response = Echochamber::Request.agreement_document_file(token, agreement_id, document_id)
+     binding.pry
+     #transient_document_response.fetch("transientDocumentId")
    end
 
 
