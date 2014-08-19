@@ -73,22 +73,22 @@ module Echochamber::Request
 
   # Performs REST create_transient_document operation
   #
-  # @param body [Hash] Request body  (REQUIRED)
   # @param token [String] Auth token  (REQUIRED)
   # @param file_name [String] File name  (REQUIRED)
   # @param mime_type [String] Mime type
   # @return [Hash] Transient Document Response Body
-  def self.create_transient_document(body, token, file_name, mime_type=nil)
+  def self.create_transient_document(token, file_name, file_handle, mime_type=nil)
     headers = { :content_type => :json, :accept => :json, 'Access-Token' => token }
-    headers.merge!('File-Name' => file_name) 
-    headers.merge!('Mime-Type' => mime_type) unless mime_type.nil?
+    #headers.merge!('File-Name' => file_name) 
+    #headers.merge!('Mime-Type' => mime_type) unless mime_type.nil?
 
     begin
-      response = RestClient.post(
-        ENDPOINT.fetch(:transientDocument), 
-        body.to_json, 
-        headers 
-      )
+    response =  RestClient.post ENDPOINT.fetch(:transientDocument), {'File-Name' => file_name, 'Mime-Type' => mime_type, 'File' => file_handle,  :multipart => true}, headers
+    #  response = RestClient.post(
+    #    ENDPOINT.fetch(:transientDocument), 
+    #    body.to_json, 
+    #    headers 
+    #  )
     rescue Exception => error
       raise_error(error)
     end

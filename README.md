@@ -68,5 +68,8 @@ client.create_agreement(agreement)
 
 ## Documentation
 
-Read the Echochamber [API Documentation](http://rdoc.info/github/kayagoban/echochamber/frames)
+Read Echochamber's [API Documentation](http://rdoc.info/github/kayagoban/echochamber/frames)
+It wouldn't heart to read Adobe's [Echosign API documentation](https://secure.echosign.com/public/docs/restapi/v2)
+
+
 

@@ -33,13 +33,10 @@ module Echochamber
    #
    # @param file_name [String] 
    # @param mime_type [String] 
-   # @param file [File] 
+   # @param file_handle [File] 
    # @return [String] Transient document ID
-   def create_transient_document(file_name, mime_type, file)
-     transient_document_response = Echochamber::Request.create_transient_document(agreement, token, 
-                                                                                  transient_document.file_name, 
-                                                                                  transient_document.mime_type)
-     binding.pry
+   def create_transient_document(file_name, mime_type, file_handle)
+     transient_document_response = Echochamber::Request.create_transient_document(token, file_name, file_handle, mime_type)
      transient_document_response.fetch("transientDocumentId")
    end
 

@@ -90,15 +90,16 @@ describe Echochamber::Client do
 
   describe '.create_transient_document' do
 
-    let(:file_name) { 'resume.pdf' }
+    let(:file_name) { 'agreement.pdf' }
     let(:mime_type) { 'application/pdf' }
-    let(:file) { File.new("/home/cthomas/resume.pdf", 'rb') }
+    let(:file) { File.new("fixtures/agreement.pdf", 'rb') }
 
-    #it 'returns the transient document ID' do
-      #binding.pry
-      #tran_doc_id = client.create_transient_document(file_name, mime_type, file)
-      #expect(tran_doc_id).to_not be_nil
-    #end
+    it 'returns the transient document ID' do
+      VCR.use_cassette('create_transient_document', :record => :once) do
+        tran_doc_id = client.create_transient_document(file_name, mime_type, file)
+        expect(tran_doc_id).to_not be_nil
+      end
+    end
   end
 
 
