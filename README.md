@@ -20,22 +20,6 @@ credentials = Echochamber::Credentials.new(app_id, app_secret, api_key, email, p
 client = Echochamber::Client.new(credentials)
 ```
 
-#### Creating a user
-
-```
-user_params = {
-      firstName:  'JohnQ',
-      lastName:   'Public',
-      email:      'publius@comcast.net',
-      password:   'kN12oK9p!3',
-      title:      'Hedge Wizard'
-}
-
-user = Echochamber::User.new(user_params)
-
-user_id = client.create_user(user)
-```
-
 #### Setting up a new agreement from a URL 
 
 ```
@@ -63,7 +47,29 @@ agreement_info_params = {
 
 agreement = Echochamber::Agreement.new(sender_id, sender_email, agreement_info) 
 
-client.create_agreement(agreement)
+agreement_id = client.create_agreement(agreement)
+```
+
+#### Creating a user
+```
+user_params = {
+      firstName:  'JohnQ',
+      lastName:   'Public',
+      email:      'publius@comcast.net',
+      password:   'kN12oK9p!3',
+      title:      'Hedge Wizard'
+}
+
+user = Echochamber::User.new(user_params)
+
+user_id = client.create_user(user)
+```
+
+
+#### Sending a transient document for later referral
+```
+tran_doc_id = client.create_transient_document(file_name, mime_type, File.new('myfile.pdf'))
+
 ```
 
 ## Documentation
