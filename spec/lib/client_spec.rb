@@ -78,7 +78,7 @@ describe Echochamber::Client do
       }
     end
 
-    let(:agreement)  { Echochamber::Agreement.new(agreement_info, agreement_user_id, agreement_user_email) }
+    let(:agreement)  { Echochamber::Agreement.new(agreement_user_id, agreement_user_email, agreement_info) }
 
     it 'returns the agreement_id' do
       VCR.use_cassette('create_agreement', :record => :once) do
