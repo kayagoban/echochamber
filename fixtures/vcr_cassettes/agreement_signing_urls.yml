@@ -1,0 +1,42 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://secure.echosign.com/api/rest/v2/agreements/2AAABLblqZhDdfTP0uM4EIz2UE2Mq27D7PXGl7Uk3e5nO4RtzlkN8GMANmeVwUVRWGGuUGCQoRQc*/signingUrls
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      Access-Token:
+      - 2AAABLblqZhC3HrDExRuNnTr9I-U3z2f2KtGloHKah3ccogCP4HzbN5XSbcKSlxNJDtNCVAq94pM*
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 19 Aug 2014 13:30:02 GMT
+      Server:
+      - Apache
+      Content-Length:
+      - '245'
+      Strict-Transport-Security:
+      - max-age=31536000;
+      P3p:
+      - CP="IDC DSP COR ADM DEVi TAIi PSA PSD IVAi IVDi CONi HIS OUR IND CNT"
+      X-Robots-Tag:
+      - none
+      Content-Type:
+      - application/json;charset=UTF-8
+    body:
+      encoding: UTF-8
+      string: '{"signingUrls":[{"email":"goishi.san@gmail.com","esignUrl":"https://secure.echosign.com/public/apiesign?spm=GXhc6rm7IC19y3fLpAXcTw**.cGlkPTJBQUFCTGJscVpoQVN2UXBxc19BYzBLNGZkVWxCV1gtUV9BMmljYmJ4YnFyYllXUTVIeWU5TzhnTEwxWlg2aHBsVkNXMDRTaXJQcjQq"}]}'
+    http_version: 
+  recorded_at: Tue, 19 Aug 2014 13:30:03 GMT
+recorded_with: VCR 2.8.0

@@ -149,16 +149,24 @@ describe Echochamber::Client do
     let(:agreement_id) { "2AAABLblqZhA79nM-6ALjW2nXMKKb_ECz-Nr2yr_WrJ-3-Vz7d5D5_Dn9B6K-25C_EDktQqawW7M*" }
 
     it 'returns a pdf file for an audit trail on the agreement' do
-      #VCR.use_cassette('audit_trail_pdf', :record => :once) do
+      VCR.use_cassette('audit_trail_pdf', :record => :once) do
         result = client.audit_trail_pdf(agreement_id, '/tmp/test.pdf')
-        binding.pry
-        #expect(result).to be_a String 
-        #expect(result).to_not be_nil
-      #end
+        expect(result).to be_a String 
+        expect(result).to_not be_nil
+      end
     end
   end
 
+  describe '.agreement_signing_urls' do
+    let(:agreement_id) { "2AAABLblqZhDdfTP0uM4EIz2UE2Mq27D7PXGl7Uk3e5nO4RtzlkN8GMANmeVwUVRWGGuUGCQoRQc*" }
 
+    it 'returns URL information for the agreement' do
+      VCR.use_cassette('agreement_signing_urls', :record => :once) do
+        result = client.agreement_signing_urls(agreement_id)
+        expect(result).to be_a Hash
+      end
+    end
+  end
 
   describe '.create_transient_document' do
     let(:file_name) { 'agreement.pdf' }

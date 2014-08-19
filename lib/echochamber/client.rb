@@ -117,6 +117,13 @@ module Echochamber
      response
    end
 
+   # Retrieves the URL for the eSign page for the current signer(s) of an agreement
+   #
+   # @param agreement_id [String]  (REQUIRED)
+   # @return [Hash] URL information for the eSign page of the agreement
+   def agreement_signing_urls(agreement_id)
+     response = Echochamber::Request.agreement_signing_urls(token, agreement_id)
+   end
 
 
   end # class Client 
