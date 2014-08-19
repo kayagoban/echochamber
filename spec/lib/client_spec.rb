@@ -150,7 +150,19 @@ describe Echochamber::Client do
 
     it 'returns a pdf file for an audit trail on the agreement' do
       VCR.use_cassette('audit_trail_pdf', :record => :once) do
-        result = client.audit_trail_pdf(agreement_id, '/tmp/test.pdf')
+        result = client.audit_trail_pdf(agreement_id)
+        expect(result).to be_a String 
+        expect(result).to_not be_nil
+      end
+    end
+  end
+
+  describe '.agreement_combined_pdf' do
+    let(:agreement_id) { "2AAABLblqZhA79nM-6ALjW2nXMKKb_ECz-Nr2yr_WrJ-3-Vz7d5D5_Dn9B6K-25C_EDktQqawW7M*" }
+
+    it 'returns a combined pdf file ' do
+      VCR.use_cassette('agreement_combined_pdf', :record => :once) do
+        result = client.agreement_combined_pdf(agreement_id)
         expect(result).to be_a String 
         expect(result).to_not be_nil
       end

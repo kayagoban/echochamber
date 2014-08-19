@@ -132,9 +132,27 @@ module Echochamber::Request
     JSON.parse(response.body)
   end
 
+  # Gets a single combined PDF document for the documents associated with an agreement.
+  # 
+  # @param token [String] Auth Token
+  # @param agreement_id [String] ID of agreement to retrieve info on.
+  # @return [String] Raw bytes from document file
+  def self.agreement_combined_pdf(token, agreement_id)
+    headers = { 'Access-Token' => token }
+    endpoint = "#{ENDPOINT.fetch(:agreement)}/#{agreement_id}/combinedDocument"
+
+    begin
+      response = RestClient.get(
+        endpoint, 
+        headers
+      )
+    rescue Exception => error
+      raise_error(error)
+    end
+  end
 
 
-  # Performs REST GET /agreement/:id operation
+  # Retrieve agreement document PDF
   #
   # @param token [String] Auth Token
   # @param agreement_id [String] ID of agreement to retrieve info on.
