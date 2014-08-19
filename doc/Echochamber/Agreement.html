@@ -182,7 +182,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#initialize-instance_method" title="#initialize (instance method)">- (Echochamber::Agreement) <strong>initialize</strong>(user_id, user_email, params) </a>
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (Echochamber::Agreement) <strong>initialize</strong>(params, user_id = nil, user_email = nil) </a>
     
 
     
@@ -198,9 +198,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Creates an agreement object for submission.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -226,7 +224,7 @@
     <div class="method_details first">
   <h3 class="signature first" id="initialize-instance_method">
   
-    - (<tt><span class='object_link'><a href="" title="Echochamber::Agreement (class)">Echochamber::Agreement</a></span></tt>) <strong>initialize</strong>(user_id, user_email, params) 
+    - (<tt><span class='object_link'><a href="" title="Echochamber::Agreement (class)">Echochamber::Agreement</a></span></tt>) <strong>initialize</strong>(params, user_id = nil, user_email = nil) 
   
 
   
@@ -235,160 +233,11 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Creates an agreement object for submission</p>
-
 
   </div>
 </div>
 <div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
   
-    <li>
-      
-        <span class='name'>user_id</span>
-      
-      
-        <span class='type'>(<tt>String</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>ID of the user whom this agreement is made for</p>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>user_email</span>
-      
-      
-        <span class='type'>(<tt>String</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>Email of the user whom this agreement is made for</p>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>params</span>
-      
-      
-        <span class='type'>(<tt>Hash</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>SYMBOL-referenced Hash containing:</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-  
-    
-    
-    
-    
-    
-    
-    <p class="tag_title">Options Hash (<tt>params</tt>):</p>
-    <ul class="option">
-      
-        <li>
-          <span class="name">:fileInfos</span>
-          <span class="type">(<tt>Array</tt>)</span>
-          <span class="default">
-            
-          </span>
-          
-            &mdash; <div class='inline'>
-<p>A list of one or more files (or references to files) that will be sent out
-for signature. If more than one file is provided, they will be combined
-into one PDF before being sent out. Note: Only one of the four parameters
-in every FileInfo object must be specified.  Populate the array with
-instances of <span class='object_link'><a href="Fileinfo.html" title="Echochamber::Fileinfo (class)">Echochamber::Fileinfo</a></span> (REQUIRED)</p>
-</div>
-          
-        </li>
-      
-        <li>
-          <span class="name">:recipients</span>
-          <span class="type">(<tt>Array</tt>)</span>
-          <span class="default">
-            
-          </span>
-          
-            &mdash; <div class='inline'>
-<p>A list of one or more recipients. For regular (non-MegaSign) documents,
-there is no limit on the number of electronic signatures in a single
-document. Written signatures are limited to four per document. This limit
-includes the sender if the sender&#39;s signature is also required. 
-Populate the array with instances of <span class='object_link'><a href="Recipient.html" title="Echochamber::Recipient (class)">Echochamber::Recipient</a></span> (REQUIRED)</p>
-</div>
-          
-        </li>
-      
-        <li>
-          <span class="name">:signatureFlow</span>
-          <span class="type">(<tt>String</tt>)</span>
-          <span class="default">
-            
-          </span>
-          
-            &mdash; <div class='inline'>
-<p>[&#39;SENDER_SIGNATURE_NOT_REQUIRED&#39; or &#39;SENDER_SIGNS_LAST&#39; or
-&#39;SENDER_SIGNS_FIRST&#39; or &#39;SEQUENTIAL&#39; or
-&#39;PARALLEL&#39;]: Selects the workflow you would like to use - whether
-the sender needs to sign before the recipient, after the recipient, or not
-at all. The possible values for this variable are
-SENDER_SIGNATURE_NOT_REQUIRED, SENDER_SIGNS_LAST, SENDER_SIGNS_FIRST,
-SEQUENTIAL or PARALLEL.  (REQUIRED)</p>
-</div>
-          
-        </li>
-      
-        <li>
-          <span class="name">:signatureType</span>
-          <span class="type">(<tt>String</tt>)</span>
-          <span class="default">
-            
-          </span>
-          
-            &mdash; <div class='inline'>
-<p>[&#39;ESIGN&#39; or &#39;WRITTEN&#39;]: Specifies the type of signature you
-would like to request - written or eSignature. The possible values are
-ESIGN or WRITTEN  (REQUIRED)</p>
-</div>
-          
-        </li>
-      
-        <li>
-          <span class="name">:name</span>
-          <span class="type">(<tt>String</tt>)</span>
-          <span class="default">
-            
-          </span>
-          
-            &mdash; <div class='inline'>
-<p>The name of the agreement that will be used to identify it, in emails and
-on the website. (REQUIRED)</p>
-</div>
-          
-        </li>
-      
-    </ul>
-  
-
 
 </div><table class="source_code">
   <tr>
@@ -396,18 +245,18 @@ on the website. (REQUIRED)</p>
       <pre class="lines">
 
 
-23
 24
 25
 26
 27
 28
-29</pre>
+29
+30</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/echochamber/agreement.rb', line 23</span>
+      <pre class="code"><span class="info file"># File 'lib/echochamber/agreement.rb', line 24</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_user_id'>user_id</span><span class='comma'>,</span> <span class='id identifier rubyid_user_email'>user_email</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='comma'>,</span> <span class='id identifier rubyid_user_id'>user_id</span><span class='op'>=</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='id identifier rubyid_user_email'>user_email</span><span class='op'>=</span><span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='ivar'>@user_id</span> <span class='op'>=</span> <span class='id identifier rubyid_user_id'>user_id</span>
   <span class='ivar'>@user_email</span> <span class='op'>=</span> <span class='id identifier rubyid_user_email'>user_email</span>
   <span class='comment'>#TODO (cthomas) barf if user_id or user_email are blank
@@ -516,7 +365,7 @@ on the website. (REQUIRED)</p>
 </div>
 
     <div id="footer">
-  Generated on Mon Aug 18 11:40:46 2014 by
+  Generated on Tue Aug 19 05:57:50 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.4 (ruby-2.0.0).
 </div>

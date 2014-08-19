@@ -111,6 +111,31 @@ module Echochamber::Request
     JSON.parse(response.body)
   end
 
+  # Performs REST GET /agreement/:id/documents
+  #
+  # @param agreement_id [String] (REQUIRED)
+  # @param recipient_email [String] The email address of the participant to be used to retrieve documents. (REQUIRED)
+  # @param format [String] Content format of the supported documents. It can have two possible values ORIGINAL or CONVERTED_PDF. (REQUIRED)
+  # @param version_id [String] Version of the agreement as provided by {agreement_info agreement_info}.  If not provided, the latest version of the agreement is used.
+  # @return [Hash] Agreement documents response body
+  def self.agreement_documents(token, agreement_id, recipient_email, format, version_id=nil)
+    headers = { :accept => :json, 'Access-Token' => token }
+    endpoint = "#{ENDPOINT.fetch(:agreement)}/#{agreement_id}/documents?participantEmail=#{recipient_email}&format=#{format}"
+    endpoint << "&version_id=#{version_id}" unless version_id.nil?
+
+    begin
+      response = RestClient.get(
+        endpoint, 
+        headers
+      )
+    rescue Exception => error
+      raise_error(error)
+    end
+
+    JSON.parse(response.body)
+  end
+
+
 
 
   # Performs REST PUT /agreement/:id operation

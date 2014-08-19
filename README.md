@@ -70,17 +70,17 @@ user = Echochamber::User.new(user_params)
 user_id = client.create_user(user)
 ```
 
-
 #### Sending a transient document for later referral
 ```
 tran_doc_id = client.create_transient_document(file_name, mime_type, File.new('myfile.pdf'))
-
 ```
 
 ## Documentation
 
-Read Echochamber's [API Documentation](http://rdoc.info/github/kayagoban/echochamber/frames)
-It wouldn't heart to read Adobe's [Echosign API documentation](https://secure.echosign.com/public/docs/restapi/v2)
+The bulk of the API is at on the [Echochamber::Client class](http://rdoc.info/github/kayagoban/echochamber/frames/Echochamber/Client)
 
+You can read Echochamber's full [API Documentation](http://rdoc.info/github/kayagoban/echochamber/frames)
+
+It also wouldn't heart to read Adobe's [Echosign API documentation](https://secure.echosign.com/public/docs/restapi/v2)
 
 

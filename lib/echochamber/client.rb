@@ -64,6 +64,18 @@ module Echochamber
      agreement_status_response.fetch('result')
    end
 
+   # All documents relating to an agreement
+   # 
+   # @param agreement_id [String] (REQUIRED)
+   # @param recipient_email [String] The email address of the participant to be used to retrieve documents. (REQUIRED)
+   # @param format [String] Content format of the supported documents. It can have two possible values ORIGINAL or CONVERTED_PDF. (REQUIRED)
+   # @param version_id [String] Version of the agreement as provided by agreement_info().  If not provided, the latest version of the agreement is used.
+   # @return [Array] Documents relating to agreement.
+   def agreement_documents(agreement_id, recipient_email, format, version_id=nil)
+     result = Echochamber::Request.agreement_documents(token, agreement_id, recipient_email, format, version_id)
+     result.fetch('documents')
+   end
+
    # Creates a transient document for later referral
    #
    # @param file_name [String] 

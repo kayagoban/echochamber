@@ -118,6 +118,20 @@ describe Echochamber::Client do
     end
   end
 
+  describe '.agreement_documents' do
+    let(:agreement_id) { "2AAABLblqZhA79nM-6ALjW2nXMKKb_ECz-Nr2yr_WrJ-3-Vz7d5D5_Dn9B6K-25C_EDktQqawW7M*" }
+    let(:recipient_email) { 'goishi.san@gmail.com' }
+    let(:format) { 'ORIGINAL' }
+    let(:version_id) { nil }
+
+    it 'returns information about documents for this agreement' do
+      VCR.use_cassette('agreement_documents', :record => :once) do
+        result = client.agreement_documents(agreement_id, recipient_email, format, version_id)
+        expect(result).to_not be_nil
+      end
+    end
+  end
+
 
 
   describe '.create_transient_document' do
