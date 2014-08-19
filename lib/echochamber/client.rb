@@ -7,7 +7,7 @@ module Echochamber
     # Initializes the Client object
     #
     # @param credentials [Echochamber::Credentials] Initialized Echochamber::Credentials
-    # @return [Echochamber::ApiRequest] Initialized Echochamber::Client 
+    # @return [Echochamber::Client] Initialized Echochamber::Client 
     def initialize(credentials)
       @token = Echochamber::Request.get_token(credentials)
     end

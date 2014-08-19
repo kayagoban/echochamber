@@ -53,7 +53,7 @@ agreement_id = client.create_agreement(agreement)
 #### Cancelling a pending agreement
 ```
 result = client.cancel_agreement(agreement_id, true, 'Because...blah blah.')
-``
+```
 
 #### Creating a user
 ```
