@@ -130,7 +130,24 @@ module Echochamber::Request
     end
   end
 
+  # Performs REST GET /agreement/:id/auditTrail operation
+  #
+  # @param token [String] Auth Token
+  # @param agreement_id [String] ID of agreement to retrieve info on.
+  # @return [String] Raw bytes from audit pdf file
+  def self.audit_trail_pdf(token, agreement_id)
+    headers = { 'Access-Token' => token }
+    endpoint = "#{ENDPOINT.fetch(:agreement)}/#{agreement_id}/auditTrail"
 
+    begin
+      response = RestClient.get(
+        endpoint, 
+        headers
+      )
+    rescue Exception => error
+      raise_error(error)
+    end
+  end
 
   # Performs REST GET /agreement/:id/documents
   #
@@ -155,8 +172,6 @@ module Echochamber::Request
 
     JSON.parse(response.body)
   end
-
-
 
 
   # Performs REST PUT /agreement/:id operation

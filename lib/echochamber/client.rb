@@ -102,6 +102,21 @@ module Echochamber
      response
    end
 
+   # Retrieve a PDF audit file for an agreement
+   #
+   # @param agreement_id [String]  (REQUIRED)
+   # @param file_path [String] File path to save the document.  If no file path is given, nothing is saved to disk.
+   # @return [String] Raw bytes from document file
+   def audit_trail_pdf(agreement_id, file_path=nil)
+     response = Echochamber::Request.audit_trail_pdf(token, agreement_id)
+     unless file_path.nil?
+       file = File.new(file_path, 'wb')
+       file.write(response)
+       file.close
+     end
+     response
+   end
+
 
 
   end # class Client 

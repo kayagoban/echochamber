@@ -12,11 +12,11 @@ gem install echochamber
 
 ## Documentation
 
-The bulk of the API is at on the [Echochamber::Client class](http://rdoc.info/github/kayagoban/echochamber/frames/Echochamber/Client)
+The bulk of the API is on the [Echochamber::Client class](http://rdoc.info/github/kayagoban/echochamber/frames/Echochamber/Client)
 
 You can read Echochamber's full [API Documentation](http://rdoc.info/github/kayagoban/echochamber/frames)
 
-It also wouldn't heart to read Adobe's [Echosign API documentation](https://secure.echosign.com/public/docs/restapi/v2)
+It also wouldn't hurt to read Adobe's [Echosign API documentation](https://secure.echosign.com/public/docs/restapi/v2)
 
 ## Usage
 
