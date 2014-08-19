@@ -151,6 +151,25 @@ module Echochamber::Request
     end
   end
 
+  # Retrieves data entered by the user into interactive form fields at the time they signed the agreement
+  # 
+  # @param token [String] Auth Token
+  # @param agreement_id [String]  (REQUIRED)
+  # @return [String] Raw bytes representing CSV file
+  def self.agreement_form_data(token, agreement_id)
+    headers = { 'Access-Token' => token }
+    endpoint = "#{ENDPOINT.fetch(:agreement)}/#{agreement_id}/formData"
+
+    begin
+      response = RestClient.get(
+        endpoint, 
+        headers
+      )
+    rescue Exception => error
+      raise_error(error)
+    end
+
+  end
 
   # Retrieve agreement document PDF
   #
@@ -263,6 +282,26 @@ module Echochamber::Request
     JSON.parse(response.body)
   end
 
+  # Gets all the users in an account that the caller has permissions to access. 
+  #
+  # @param token [String] Auth Token
+  # @param user_email [String] The email address of the user whose details are being requested.
+  # @return [Hash] User info hash
+  def self.get_users(token, user_email)
+    headers = { 'Access-Token' => token }
+    endpoint = "#{ENDPOINT.fetch(:user)}?x-user-email=#{user_email}"
+
+    begin
+      response = RestClient.get(
+        endpoint, 
+        headers
+      )
+    rescue Exception => error
+      raise_error(error)
+    end
+
+    JSON.parse(response)
+  end
 
   def self.raise_error(error)
     raise Failure, "#{error.inspect}.  \nSee Adobe Echosign REST API documentation for Error code meanings: https://secure.echosign.com/public/docs/restapi/v2"

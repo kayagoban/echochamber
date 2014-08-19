@@ -45,6 +45,17 @@ describe Echochamber::Client do
     end
   end
 
+  describe '.get_users' do
+   let(:email) { "cthomas@railjumper.com" }
+    it 'returns CSV data' do
+      VCR.use_cassette('get_users', :record => :once) do
+        response = client.get_users(email)
+        expect(response).to be_a Hash
+      end
+   end
+  end
+
+
   describe '.create_agreement' do
 
     let(:url_file_info) do
@@ -58,6 +69,7 @@ describe Echochamber::Client do
     let(:file_info) do
       { 
         documentURL: Echochamber::UrlFileInfo.new(url_file_info) 
+      #  transientDocumentId: "2AAABLblqZhASezqyVioHG5sGiurozjMEAJOXDzoG0ycIeLopOTfcwu0in1uhWU3Pp7hRcf3VOGlFiaFtul6CQubO4vRo-UXIStCJqssVq9b-hI-4Zq10hMnzBtA1W89PTZoCYyU4gGyaZ0_2OjJb38xjAxQQuG7_0CJ0UA9Glw32_zOEj9lzIRmuvkEtD3qOzm2GVvV1mULX7a4IWP5vsvSgvWYADjRcHv_zXIEphMizvHg1nS0uAQ**"
       }
     end
 
@@ -105,6 +117,16 @@ describe Echochamber::Client do
         expect(response).to_not be_nil
       end
     end
+  end
+
+  describe '.agreement_form_data' do
+   let(:agreement_id) { "2AAABLblqZhDvfdYluvps8mSzQXnXr074OVtMYTwTVtljZYFJNi43iuzYeBaPUUOMTSlGXrt04Sw*" }
+    it 'returns CSV data' do
+      VCR.use_cassette('agreement_form_data', :record => :once) do
+        response = client.agreement_form_data(agreement_id)
+        expect(response).to_not be_nil
+      end
+   end
   end
 
   describe '.cancel_agreement' do
@@ -182,8 +204,10 @@ describe Echochamber::Client do
 
   describe '.create_transient_document' do
     let(:file_name) { 'agreement.pdf' }
+    #let(:file_name) { 'fillable.pdf' }
     let(:mime_type) { 'application/pdf' }
     let(:file) { File.new("fixtures/agreement.pdf", 'rb') }
+    #let(:file) { File.new("/tmp/fillable.pdf", 'rb') }
 
     it 'returns the transient document ID' do
       VCR.use_cassette('create_transient_document', :record => :once) do

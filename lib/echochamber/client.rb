@@ -2,7 +2,6 @@ module Echochamber
 
   class Client 
 
-
     attr_reader :token
     # Initializes the Client object
     #
@@ -138,6 +137,30 @@ module Echochamber
        file.close
      end
      response
+   end
+
+   # Retrieves data entered by the user into interactive form fields at the time they signed the agreement
+   # 
+   # @param agreement_id [String]  (REQUIRED)
+   # @param file_path [String] File path where to save the CSV file.  If no file path is given, nothing is saved to disk.
+   # @return [String] Raw bytes representing CSV file
+   def agreement_form_data(agreement_id, file_path=nil)
+     response = Echochamber::Request.agreement_form_data(token, agreement_id)
+     unless file_path.nil?
+       file = File.new(file_path, 'wb')
+       file.write(response)
+       file.close
+     end
+     response
+   end
+
+  
+   # Gets all the users in an account that the caller has permissions to access.
+   # 
+   # @param user_email [String] The email address of the user whose details are being requested  (REQUIRED)
+   # @return [Hash] User info hash
+   def get_users(user_email)
+     Echochamber::Request.get_users(token, user_email)
    end
 
 
