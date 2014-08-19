@@ -92,7 +92,16 @@ describe Echochamber::Client do
     it 'returns all agreements' do
       VCR.use_cassette('get_agreements', :record => :once) do
         response = client.get_agreements
-        puts response
+        expect(response).to_not be_nil
+      end
+    end
+  end
+
+  describe '.agreement_info' do
+    let(:agreement_id) { "2AAABLblqZhA79nM-6ALjW2nXMKKb_ECz-Nr2yr_WrJ-3-Vz7d5D5_Dn9B6K-25C_EDktQqawW7M*" }
+    it 'returns detailed agreement info' do
+      VCR.use_cassette('agreement_info', :record => :once) do
+        response = client.agreement_info(agreement_id)
         expect(response).to_not be_nil
       end
     end
@@ -101,13 +110,14 @@ describe Echochamber::Client do
   describe '.cancel_agreement' do
     let(:agreement_id) { "2AAABLblqZhA79nM-6ALjW2nXMKKb_ECz-Nr2yr_WrJ-3-Vz7d5D5_Dn9B6K-25C_EDktQqawW7M*" }
 
-    it 'returns the transient document ID' do
+    it 'returns the result of the operation' do
       VCR.use_cassette('cancel_agreement', :record => :once) do
         result = client.cancel_agreement(agreement_id, true, 'Just because')
         expect(result).to_not be_nil
       end
     end
   end
+
 
 
   describe '.create_transient_document' do

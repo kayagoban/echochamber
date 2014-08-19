@@ -31,6 +31,7 @@ module Echochamber::Request
   # Performs REST create_user operation
   #
   # @param body [Hash] Valid request body
+  # @param token [String] Auth Token
   # @return [Hash] New user response body
   def self.create_user(body, token)
     begin
@@ -73,6 +74,7 @@ module Echochamber::Request
 
   # Performs REST GET /agreements operation
   #
+  # @param token [String] Auth Token
   # @return [Hash] Agreements response body
   def self.get_agreements(token)
     headers = { :accept => :json, 'Access-Token' => token }
@@ -88,8 +90,34 @@ module Echochamber::Request
     JSON.parse(response.body)
   end
 
+  # Performs REST GET /agreement/:id operation
+  #
+  # @param token [String] Auth Token
+  # @param agreement_id [String] ID of agreement to retrieve info on.
+  # @return [Hash] Agreement info response body
+  def self.agreement_info(token, agreement_id)
+    headers = { :accept => :json, 'Access-Token' => token }
+    endpoint = "#{ENDPOINT.fetch(:agreement)}/#{agreement_id}"
+
+    begin
+      response = RestClient.get(
+        endpoint, 
+        headers
+      )
+    rescue Exception => error
+      raise_error(error)
+    end
+
+    JSON.parse(response.body)
+  end
+
+
+
   # Performs REST PUT /agreement/:id operation
   #
+  # @param token [String] Auth Token
+  # @param agreement_id [String] ID of agreement to retrieve info on.
+  # @param request_body [Hash] Hash for Agreement status update
   # @return [Hash] Agreements response body
   def self.update_agreement_status(token, agreement_id, request_body)
     headers = { :content_type => :json, :accept => :json, 'Access-Token' => token }
@@ -111,20 +139,21 @@ module Echochamber::Request
   #
   # @param token [String] Auth token  (REQUIRED)
   # @param file_name [String] File name  (REQUIRED)
+  # @param file_handle [File] File handle (REQUIRED)
   # @param mime_type [String] Mime type
   # @return [Hash] Transient Document Response Body
   def self.create_transient_document(token, file_name, file_handle, mime_type=nil)
     headers = { :content_type => :json, :accept => :json, 'Access-Token' => token }
-    #headers.merge!('File-Name' => file_name) 
-    #headers.merge!('Mime-Type' => mime_type) unless mime_type.nil?
 
     begin
-    response =  RestClient.post ENDPOINT.fetch(:transientDocument), {'File-Name' => file_name, 'Mime-Type' => mime_type, 'File' => file_handle,  :multipart => true}, headers
-    #  response = RestClient.post(
-    #    ENDPOINT.fetch(:transientDocument), 
-    #    body.to_json, 
-    #    headers 
-    #  )
+      response = RestClient.post( 
+                                 ENDPOINT.fetch(:transientDocument), 
+                                 { 'File-Name' => file_name, 
+                                   'Mime-Type' => mime_type, 
+                                   'File' => file_handle,  
+                                   :multipart => true}, 
+                                   headers
+                                )
     rescue Exception => error
       raise_error(error)
     end

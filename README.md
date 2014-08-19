@@ -50,6 +50,11 @@ agreement = Echochamber::Agreement.new(sender_id, sender_email, agreement_info)
 agreement_id = client.create_agreement(agreement)
 ```
 
+#### Cancelling a pending agreement
+```
+result = client.cancel_agreement(agreement_id, true, 'Because...blah blah.')
+``
+
 #### Creating a user
 ```
 user_params = {

@@ -1,0 +1,50 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://secure.echosign.com/api/rest/v2/agreements/2AAABLblqZhA79nM-6ALjW2nXMKKb_ECz-Nr2yr_WrJ-3-Vz7d5D5_Dn9B6K-25C_EDktQqawW7M*
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Access-Token:
+      - 2AAABLblqZhC3HrDExRuNnTr9I-U3z2f2KtGloHKah3ccogCP4HzbN5XSbcKSlxNJDtNCVAq94pM*
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 19 Aug 2014 08:42:02 GMT
+      Server:
+      - Apache
+      Content-Length:
+      - '1572'
+      Strict-Transport-Security:
+      - max-age=31536000;
+      P3p:
+      - CP="IDC DSP COR ADM DEVi TAIi PSA PSD IVAi IVDi CONi HIS OUR IND CNT"
+      X-Robots-Tag:
+      - none
+      Content-Type:
+      - application/json;charset=UTF-8
+    body:
+      encoding: UTF-8
+      string: '{"events":[{"actingUserEmail":"cthomas@railjumper.com","actingUserIpAddress":"107.170.74.216","date":"2014-08-18T22:39:14-07:00","description":"Document
+        created by Cath Thomas","participantEmail":"cthomas@railjumper.com","type":"CREATED","versionId":"2AAABLblqZhC6RgqB3eZ6dH5RBFoR2g_pRau1gaTpf6MfFSvna48gZ02O8Cu0ksHQYNND_6xgSxc*"},{"actingUserEmail":"cthomas@railjumper.com","date":"2014-08-18T22:39:15-07:00","description":"Sent
+        out for signature to goishi.san@gmail.com","participantEmail":"goishi.san@gmail.com","type":"SIGNATURE_REQUESTED"},{"actingUserEmail":"goishi.san@gmail.com","actingUserIpAddress":"108.234.60.58","date":"2014-08-18T23:25:10-07:00","description":"Document
+        viewed by goishi.san@gmail.com","participantEmail":"goishi.san@gmail.com","type":"EMAIL_VIEWED"},{"actingUserEmail":"cthomas@railjumper.com","actingUserIpAddress":"107.170.74.216","comment":"Just
+        because","date":"2014-08-19T01:00:01-07:00","description":"Document cancelled
+        by Cath Thomas","participantEmail":"cthomas@railjumper.com","type":"RECALLED"}],"latestVersionId":"2AAABLblqZhAypHHR55kg_cq3nHDKf_a1oeC1Q26NI1BJm2JtqxcNX8dTFbXVmrn3Bgoj9EHuTYU*","locale":"en_US","name":"Rumplestiltskin
+        Contract","participants":[{"email":"goishi.san@gmail.com","name":"","status":"RECALLED","roles":["SIGNER"]},{"company":"Independent
+        Contractor","email":"cthomas@railjumper.com","name":"Cath Thomas","status":"RECALLED","title":"Ruby
+        on Rails developer","roles":["SENDER","SIGNER"]}],"status":"ABORTED","agreementId":"2AAABLblqZhA79nM-6ALjW2nXMKKb_ECz-Nr2yr_WrJ-3-Vz7d5D5_Dn9B6K-25C_EDktQqawW7M*"}'
+    http_version: 
+  recorded_at: Tue, 19 Aug 2014 08:42:02 GMT
+recorded_with: VCR 2.8.0

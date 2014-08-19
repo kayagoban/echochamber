@@ -30,13 +30,21 @@ module Echochamber
      agreement_response.fetch("agreementId")
    end
 
-   # Creates an agreement
+   # Gets list of agreements
    #
    # @param agreement [Echochamber::Agreement]
    # @return [String] Agreement ID
    def get_agreements
      get_agreements_response = Echochamber::Request.get_agreements(token)
      get_agreements_response.fetch("userAgreementList")
+   end
+
+   # Gets detailed info on an agreement
+   # 
+   # @param agreement_id [String] ID of agreement to retrieve info on.
+   # @return [Hash] Detailed agreement info
+   def agreement_info(agreement_id)
+     Echochamber::Request.agreement_info(token, agreement_id)
    end
 
    # Cancel agreement
