@@ -71,6 +71,42 @@ module Echochamber::Request
     JSON.parse(response.body)
   end
 
+  # Performs REST GET /agreements operation
+  #
+  # @return [Hash] Agreements response body
+  def self.get_agreements(token)
+    headers = { :accept => :json, 'Access-Token' => token }
+
+    begin
+      response = RestClient.get(
+        ENDPOINT.fetch(:agreement), headers
+      )
+    rescue Exception => error
+      raise_error(error)
+    end
+
+    JSON.parse(response.body)
+  end
+
+  # Performs REST PUT /agreement/:id operation
+  #
+  # @return [Hash] Agreements response body
+  def self.update_agreement_status(token, agreement_id, request_body)
+    headers = { :content_type => :json, :accept => :json, 'Access-Token' => token }
+    endpoint = "#{ENDPOINT.fetch(:agreement)}/#{agreement_id}/status"
+    begin
+      response = RestClient.put(
+        endpoint, 
+        request_body.to_json,
+        headers
+      )
+    rescue Exception => error
+      raise_error(error)
+    end
+
+    JSON.parse(response.body)
+  end
+
   # Performs REST create_transient_document operation
   #
   # @param token [String] Auth token  (REQUIRED)

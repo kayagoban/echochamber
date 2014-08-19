@@ -88,8 +88,29 @@ describe Echochamber::Client do
     end
   end
 
-  describe '.create_transient_document' do
+  describe '.get_agreements' do
+    it 'returns all agreements' do
+      VCR.use_cassette('get_agreements', :record => :once) do
+        response = client.get_agreements
+        puts response
+        expect(response).to_not be_nil
+      end
+    end
+  end
 
+  describe '.cancel_agreement' do
+    let(:agreement_id) { "2AAABLblqZhA79nM-6ALjW2nXMKKb_ECz-Nr2yr_WrJ-3-Vz7d5D5_Dn9B6K-25C_EDktQqawW7M*" }
+
+    it 'returns the transient document ID' do
+      VCR.use_cassette('cancel_agreement', :record => :once) do
+        result = client.cancel_agreement(agreement_id, true, 'Just because')
+        expect(result).to_not be_nil
+      end
+    end
+  end
+
+
+  describe '.create_transient_document' do
     let(:file_name) { 'agreement.pdf' }
     let(:mime_type) { 'application/pdf' }
     let(:file) { File.new("fixtures/agreement.pdf", 'rb') }
@@ -101,6 +122,7 @@ describe Echochamber::Client do
       end
     end
   end
+
 
 
 end # describe Echochamber::Client

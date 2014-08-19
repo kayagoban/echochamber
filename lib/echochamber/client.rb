@@ -2,6 +2,7 @@ module Echochamber
 
   class Client 
 
+
     attr_reader :token
     # Initializes the Client object
     #
@@ -27,6 +28,32 @@ module Echochamber
    def create_agreement(agreement)
      agreement_response = Echochamber::Request.create_agreement(agreement, token, agreement.user_id, agreement.user_email)
      agreement_response.fetch("agreementId")
+   end
+
+   # Creates an agreement
+   #
+   # @param agreement [Echochamber::Agreement]
+   # @return [String] Agreement ID
+   def get_agreements
+     get_agreements_response = Echochamber::Request.get_agreements(token)
+     get_agreements_response.fetch("userAgreementList")
+   end
+
+   # Cancel agreement
+   # 
+   # @param agreement_id [String] (REQUIRED)
+   # @param notify_signer [Boolean] Whether to notify the signer by email of the cancellation.  Default is false.
+   # @param comment [String] Comment regarding this cancellation.
+   # @return [String] Result of the operation
+   def cancel_agreement(agreement_id, notify_signer=false, comment=nil)
+     request_body = {
+       "value" => "CANCEL",
+       "notifySigner" => notify_signer 
+     }
+     request_body.merge!(comment: comment) unless comment.nil?
+
+     agreement_status_response = Echochamber::Request.update_agreement_status(token, agreement_id, request_body)
+     agreement_status_response.fetch('result')
    end
 
    # Creates a transient document for later referral

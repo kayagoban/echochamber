@@ -1,0 +1,46 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://secure.echosign.com/api/rest/v2/agreements
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Access-Token:
+      - 2AAABLblqZhC3HrDExRuNnTr9I-U3z2f2KtGloHKah3ccogCP4HzbN5XSbcKSlxNJDtNCVAq94pM*
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 19 Aug 2014 06:56:52 GMT
+      Server:
+      - Apache
+      Content-Length:
+      - '1491'
+      Strict-Transport-Security:
+      - max-age=31536000;
+      P3p:
+      - CP="IDC DSP COR ADM DEVi TAIi PSA PSD IVAi IVDi CONi HIS OUR IND CNT"
+      X-Robots-Tag:
+      - none
+      Content-Type:
+      - application/json;charset=UTF-8
+    body:
+      encoding: UTF-8
+      string: '{"userAgreementList":[{"displayDate":"2014-08-18T22:39:14-07:00","displayUserInfo":{"fullNameOrEmail":"goishi.san@gmail.com"},"esign":true,"agreementId":"2AAABLblqZhA79nM-6ALjW2nXMKKb_ECz-Nr2yr_WrJ-3-Vz7d5D5_Dn9B6K-25C_EDktQqawW7M*","latestVersionId":"2AAABLblqZhAypHHR55kg_cq3nHDKf_a1oeC1Q26NI1BJm2JtqxcNX8dTFbXVmrn3Bgoj9EHuTYU*","name":"Rumplestiltskin
+        Contract","status":"OUT_FOR_SIGNATURE"},{"displayDate":"2014-08-18T22:31:30-07:00","displayUserInfo":{"fullNameOrEmail":"goishi.san@gmail.com"},"esign":true,"agreementId":"2AAABLblqZhB9M1Is8I7L1SIT19X1Or72ODbao3qEmDu8D7MfEfth83dMhkioX23wk4ID0lcnSM4*","latestVersionId":"2AAABLblqZhD1TbvlYT6MuFPqsNgm_VjQqoJKCDbWJu4mtQDlEVL5Kvu4_4SCz1K37hG45zJovfE*","name":"Rumplestiltskin
+        Contract","status":"OUT_FOR_SIGNATURE"},{"displayDate":"2014-08-18T22:22:16-07:00","displayUserInfo":{"fullNameOrEmail":"goof@duper.com"},"esign":true,"agreementId":"2AAABLblqZhA4OrgLouFjqjBDnPbf-0EzhVfDmFC2bl0XqQYWXxqUTANYkuAsl4Z5wwrkX7jSDc0*","latestVersionId":"2AAABLblqZhC2KxUF4nKuO6Fs83BLjuNhXnVfXTVn9cee51B26U2w1u4A5-rNJSJRCW9rB-kKRxA*","name":"Rumplestiltskin
+        Contract","status":"RECALLED"},{"displayDate":"2014-08-18T22:22:01-07:00","displayUserInfo":{"fullNameOrEmail":"goishi.san@gmail.com"},"esign":true,"agreementId":"2AAABLblqZhDH5O_Xd8tfOd1Zo9wVISPLZOaCZMbrNqEFQbBC4RqW7W1FgVWp4lhWk8cG5ctTnEU*","latestVersionId":"2AAABLblqZhCeeGsCVrDsILbwrUinZ32Tjv4m-Ka71Cd_h78m7WgNe8GXTJKbHdwQmjGUvMuvKUQ*","name":"Rumplestiltskin
+        Contract","status":"RECALLED"}]}'
+    http_version: 
+  recorded_at: Tue, 19 Aug 2014 06:56:52 GMT
+recorded_with: VCR 2.8.0
