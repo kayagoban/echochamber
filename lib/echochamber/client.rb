@@ -1,4 +1,5 @@
 require 'echochamber/agreement/client'
+require 'echochamber/library_documents/client'
 
 module Echochamber
 
@@ -73,46 +74,6 @@ module Echochamber
       Echochamber::Request.get_user(token, user_id)
     end
 
-    # Retrieves library documents metadata for a user.
-    #
-    # @param user_id [String] The ID of the user whose library documents are being requested. 
-    # @param user_email [String] The email address of the user whose library documents are being requested. If both user_id and user_email are provided then user_id is given preference. If neither is specified then the user is inferred from the access token.
-    # @return [Hash] Library documents metadata
-    def get_library_documents(user_id=nil, user_email=nil)
-      Echochamber::Request.get_library_documents(token, user_id, user_email)
-    end
-
-    # Retrieves library document metadata 
-    #
-    # @param library_document_id [String] (REQUIRED)
-    # @return [Hash] Library document metadata
-    def get_library_document(library_document_id)
-      Echochamber::Request.get_library_document(token, library_document_id)
-    end
-
-    # Retrieves library document files metadata
-    #
-    # @param library_document_id [String] (REQUIRED)
-    # @return [Hash] Library document files metadata
-    def get_library_document_files(library_document_id)
-      Echochamber::Request.get_library_document_files(token, library_document_id)
-    end
-
-    # Retrieves library document file data
-    #
-    # @param library_document_id (REQUIRED)
-    # @param file_id [String] (REQUIRED)
-    # @param file_path [String] File path for saving the document.  If none is given, nothing will be saved to disk.
-    # @return [String] Raw library document file data
-    def get_library_document_file(library_document_id, file_id, file_path=nil)
-      response = Echochamber::Request.get_library_document_file(token, library_document_id, file_id)
-      unless file_path.nil?
-        file = File.new(file_path, 'wb')
-        file.write(response)
-        file.close
-      end
-      response
-    end
 
 
   end # class Client 

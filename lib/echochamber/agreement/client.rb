@@ -95,7 +95,7 @@ module Echochamber
      response
    end
 
-   # Retrieves data entered by the user into interactive form fields at the time they signed the agreement
+   # Retrieves library document audit trail file
    # 
    # @param agreement_id [String]  (REQUIRED)
    # @param file_path [String] File path where to save the CSV file.  If no file path is given, nothing is saved to disk.

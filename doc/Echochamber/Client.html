@@ -95,7 +95,7 @@
   
     <dt class="r2 last">Defined in:</dt>
     <dd class="r2 last">lib/echochamber/client.rb<span class="defines">,<br />
-  lib/echochamber/agreement/client.rb</span>
+  lib/echochamber/agreement/client.rb,<br /> lib/echochamber/library_documents/client.rb</span>
 </dd>
   
 </dl>
@@ -241,8 +241,7 @@ agreement.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Retrieves data entered by the user into interactive form fields at the time
-they signed the agreement.</p>
+<p>Retrieves library document audit trail file.</p>
 </div></span>
   
 </li>
@@ -635,6 +634,54 @@ agreement.</p>
 </li>
 
       
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#library_combined_document-instance_method" title="#library_combined_document (instance method)">- (String) <strong>library_combined_document</strong>(library_document_id, file_path = nil) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Retrieves library combined document file.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#library_document_audit_trail-instance_method" title="#library_document_audit_trail (instance method)">- (String) <strong>library_document_audit_trail</strong>(library_document_id, file_path = nil) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Retrieves library document audit trail file.</p>
+</div></span>
+  
+</li>
+
+      
     </ul>
   
 
@@ -687,12 +734,12 @@ agreement.</p>
       <pre class="lines">
 
 
-12
 13
-14</pre>
+14
+15</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/echochamber/client.rb', line 12</span>
+      <pre class="code"><span class="info file"># File 'lib/echochamber/client.rb', line 13</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_credentials'>credentials</span><span class='rparen'>)</span>
   <span class='ivar'>@token</span> <span class='op'>=</span> <span class='const'>Echochamber</span><span class='op'>::</span><span class='const'>Request</span><span class='period'>.</span><span class='id identifier rubyid_get_token'>get_token</span><span class='lparen'>(</span><span class='id identifier rubyid_credentials'>credentials</span><span class='rparen'>)</span>
@@ -735,12 +782,12 @@ agreement.</p>
       <pre class="lines">
 
 
-7
 8
-9</pre>
+9
+10</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/echochamber/client.rb', line 7</span>
+      <pre class="code"><span class="info file"># File 'lib/echochamber/client.rb', line 8</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_token'>token</span>
   <span class='ivar'>@token</span>
@@ -1138,8 +1185,7 @@ the latest version of the agreement is used.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Retrieves data entered by the user into interactive form fields at the time
-they signed the agreement</p>
+<p>Retrieves library document audit trail file</p>
 
 
   </div>
@@ -1479,7 +1525,6 @@ to disk.</p>
       <pre class="lines">
 
 
-49
 50
 51
 52
@@ -1487,10 +1532,11 @@ to disk.</p>
 54
 55
 56
-57</pre>
+57
+58</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/echochamber/client.rb', line 49</span>
+      <pre class="code"><span class="info file"># File 'lib/echochamber/client.rb', line 50</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_audit_trail_pdf'>audit_trail_pdf</span><span class='lparen'>(</span><span class='id identifier rubyid_agreement_id'>agreement_id</span><span class='comma'>,</span> <span class='id identifier rubyid_file_path'>file_path</span><span class='op'>=</span><span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>Echochamber</span><span class='op'>::</span><span class='const'>Request</span><span class='period'>.</span><span class='id identifier rubyid_audit_trail_pdf'>audit_trail_pdf</span><span class='lparen'>(</span><span class='id identifier rubyid_token'>token</span><span class='comma'>,</span> <span class='id identifier rubyid_agreement_id'>agreement_id</span><span class='rparen'>)</span>
@@ -1771,12 +1817,12 @@ false.</p>
       <pre class="lines">
 
 
-29
 30
-31</pre>
+31
+32</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/echochamber/client.rb', line 29</span>
+      <pre class="code"><span class="info file"># File 'lib/echochamber/client.rb', line 30</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create_reminder'>create_reminder</span><span class='lparen'>(</span><span class='id identifier rubyid_reminder'>reminder</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_reminder_response'>reminder_response</span> <span class='op'>=</span> <span class='const'>Echochamber</span><span class='op'>::</span><span class='const'>Request</span><span class='period'>.</span><span class='id identifier rubyid_create_reminder'>create_reminder</span><span class='lparen'>(</span><span class='id identifier rubyid_token'>token</span><span class='comma'>,</span> <span class='id identifier rubyid_reminder'>reminder</span><span class='rparen'>)</span>
@@ -1867,13 +1913,13 @@ false.</p>
       <pre class="lines">
 
 
-39
 40
 41
-42</pre>
+42
+43</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/echochamber/client.rb', line 39</span>
+      <pre class="code"><span class="info file"># File 'lib/echochamber/client.rb', line 40</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create_transient_document'>create_transient_document</span><span class='lparen'>(</span><span class='id identifier rubyid_file_name'>file_name</span><span class='comma'>,</span> <span class='id identifier rubyid_mime_type'>mime_type</span><span class='comma'>,</span> <span class='id identifier rubyid_file_handle'>file_handle</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_transient_document_response'>transient_document_response</span> <span class='op'>=</span> <span class='const'>Echochamber</span><span class='op'>::</span><span class='const'>Request</span><span class='period'>.</span><span class='id identifier rubyid_create_transient_document'>create_transient_document</span><span class='lparen'>(</span><span class='id identifier rubyid_token'>token</span><span class='comma'>,</span> <span class='id identifier rubyid_file_name'>file_name</span><span class='comma'>,</span> <span class='id identifier rubyid_file_handle'>file_handle</span><span class='comma'>,</span> <span class='id identifier rubyid_mime_type'>mime_type</span><span class='rparen'>)</span>
@@ -1943,13 +1989,13 @@ false.</p>
       <pre class="lines">
 
 
-20
 21
 22
-23</pre>
+23
+24</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/echochamber/client.rb', line 20</span>
+      <pre class="code"><span class="info file"># File 'lib/echochamber/client.rb', line 21</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create_user'>create_user</span><span class='lparen'>(</span><span class='id identifier rubyid_user'>user</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_user_response'>user_response</span>  <span class='op'>=</span> <span class='const'>Echochamber</span><span class='op'>::</span><span class='const'>Request</span><span class='period'>.</span><span class='id identifier rubyid_create_user'>create_user</span><span class='lparen'>(</span><span class='id identifier rubyid_user'>user</span><span class='comma'>,</span> <span class='id identifier rubyid_token'>token</span><span class='rparen'>)</span>
@@ -2100,12 +2146,12 @@ false.</p>
       <pre class="lines">
 
 
-89
-90
-91</pre>
+18
+19
+20</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/echochamber/client.rb', line 89</span>
+      <pre class="code"><span class="info file"># File 'lib/echochamber/library_documents/client.rb', line 18</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_library_document'>get_library_document</span><span class='lparen'>(</span><span class='id identifier rubyid_library_document_id'>library_document_id</span><span class='rparen'>)</span>
   <span class='const'>Echochamber</span><span class='op'>::</span><span class='const'>Request</span><span class='period'>.</span><span class='id identifier rubyid_get_library_document'>get_library_document</span><span class='lparen'>(</span><span class='id identifier rubyid_token'>token</span><span class='comma'>,</span> <span class='id identifier rubyid_library_document_id'>library_document_id</span><span class='rparen'>)</span>
@@ -2209,18 +2255,18 @@ to disk.</p>
       <pre class="lines">
 
 
-107
-108
-109
-110
-111
-112
-113
-114
-115</pre>
+36
+37
+38
+39
+40
+41
+42
+43
+44</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/echochamber/client.rb', line 107</span>
+      <pre class="code"><span class="info file"># File 'lib/echochamber/library_documents/client.rb', line 36</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_library_document_file'>get_library_document_file</span><span class='lparen'>(</span><span class='id identifier rubyid_library_document_id'>library_document_id</span><span class='comma'>,</span> <span class='id identifier rubyid_file_id'>file_id</span><span class='comma'>,</span> <span class='id identifier rubyid_file_path'>file_path</span><span class='op'>=</span><span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>Echochamber</span><span class='op'>::</span><span class='const'>Request</span><span class='period'>.</span><span class='id identifier rubyid_get_library_document_file'>get_library_document_file</span><span class='lparen'>(</span><span class='id identifier rubyid_token'>token</span><span class='comma'>,</span> <span class='id identifier rubyid_library_document_id'>library_document_id</span><span class='comma'>,</span> <span class='id identifier rubyid_file_id'>file_id</span><span class='rparen'>)</span>
@@ -2300,12 +2346,12 @@ to disk.</p>
       <pre class="lines">
 
 
-97
-98
-99</pre>
+26
+27
+28</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/echochamber/client.rb', line 97</span>
+      <pre class="code"><span class="info file"># File 'lib/echochamber/library_documents/client.rb', line 26</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_library_document_files'>get_library_document_files</span><span class='lparen'>(</span><span class='id identifier rubyid_library_document_id'>library_document_id</span><span class='rparen'>)</span>
   <span class='const'>Echochamber</span><span class='op'>::</span><span class='const'>Request</span><span class='period'>.</span><span class='id identifier rubyid_get_library_document_files'>get_library_document_files</span><span class='lparen'>(</span><span class='id identifier rubyid_token'>token</span><span class='comma'>,</span> <span class='id identifier rubyid_library_document_id'>library_document_id</span><span class='rparen'>)</span>
@@ -2402,12 +2448,12 @@ access token.</p>
       <pre class="lines">
 
 
-81
-82
-83</pre>
+10
+11
+12</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/echochamber/client.rb', line 81</span>
+      <pre class="code"><span class="info file"># File 'lib/echochamber/library_documents/client.rb', line 10</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_library_documents'>get_library_documents</span><span class='lparen'>(</span><span class='id identifier rubyid_user_id'>user_id</span><span class='op'>=</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='id identifier rubyid_user_email'>user_email</span><span class='op'>=</span><span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='const'>Echochamber</span><span class='op'>::</span><span class='const'>Request</span><span class='period'>.</span><span class='id identifier rubyid_get_library_documents'>get_library_documents</span><span class='lparen'>(</span><span class='id identifier rubyid_token'>token</span><span class='comma'>,</span> <span class='id identifier rubyid_user_id'>user_id</span><span class='comma'>,</span> <span class='id identifier rubyid_user_email'>user_email</span><span class='rparen'>)</span>
@@ -2476,12 +2522,12 @@ access token.</p>
       <pre class="lines">
 
 
-72
 73
-74</pre>
+74
+75</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/echochamber/client.rb', line 72</span>
+      <pre class="code"><span class="info file"># File 'lib/echochamber/client.rb', line 73</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_user'>get_user</span><span class='lparen'>(</span><span class='id identifier rubyid_user_id'>user_id</span><span class='rparen'>)</span>
   <span class='const'>Echochamber</span><span class='op'>::</span><span class='const'>Request</span><span class='period'>.</span><span class='id identifier rubyid_get_user'>get_user</span><span class='lparen'>(</span><span class='id identifier rubyid_token'>token</span><span class='comma'>,</span> <span class='id identifier rubyid_user_id'>user_id</span><span class='rparen'>)</span>
@@ -2555,15 +2601,225 @@ access token.</p>
       <pre class="lines">
 
 
-64
 65
-66</pre>
+66
+67</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/echochamber/client.rb', line 64</span>
+      <pre class="code"><span class="info file"># File 'lib/echochamber/client.rb', line 65</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_users'>get_users</span><span class='lparen'>(</span><span class='id identifier rubyid_user_email'>user_email</span><span class='rparen'>)</span>
   <span class='const'>Echochamber</span><span class='op'>::</span><span class='const'>Request</span><span class='period'>.</span><span class='id identifier rubyid_get_users'>get_users</span><span class='lparen'>(</span><span class='id identifier rubyid_token'>token</span><span class='comma'>,</span> <span class='id identifier rubyid_user_email'>user_email</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="library_combined_document-instance_method">
+  
+    - (<tt>String</tt>) <strong>library_combined_document</strong>(library_document_id, file_path = nil) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Retrieves library combined document file</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>library_document_id</span>
+      
+      
+        <span class='type'>(<tt>REQUIRED</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>file_path</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>File path for saving the document.  If none is given, nothing will be saved
+to disk.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Raw library combined document file data</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+66
+67
+68
+69
+70
+71
+72
+73
+74</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/echochamber/library_documents/client.rb', line 66</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_library_combined_document'>library_combined_document</span><span class='lparen'>(</span><span class='id identifier rubyid_library_document_id'>library_document_id</span><span class='comma'>,</span> <span class='id identifier rubyid_file_path'>file_path</span><span class='op'>=</span><span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>Echochamber</span><span class='op'>::</span><span class='const'>Request</span><span class='period'>.</span><span class='id identifier rubyid_library_combined_document'>library_combined_document</span><span class='lparen'>(</span><span class='id identifier rubyid_token'>token</span><span class='comma'>,</span> <span class='id identifier rubyid_library_document_id'>library_document_id</span><span class='rparen'>)</span>
+  <span class='kw'>unless</span> <span class='id identifier rubyid_file_path'>file_path</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+    <span class='id identifier rubyid_file'>file</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_file_path'>file_path</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>wb</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_file'>file</span><span class='period'>.</span><span class='id identifier rubyid_write'>write</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_file'>file</span><span class='period'>.</span><span class='id identifier rubyid_close'>close</span>
+  <span class='kw'>end</span>
+  <span class='id identifier rubyid_response'>response</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="library_document_audit_trail-instance_method">
+  
+    - (<tt>String</tt>) <strong>library_document_audit_trail</strong>(library_document_id, file_path = nil) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Retrieves library document audit trail file</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>library_document_id</span>
+      
+      
+        <span class='type'>(<tt>REQUIRED</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>file_path</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>File path for saving the document.  If none is given, nothing will be saved
+to disk.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Raw library document file data</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+51
+52
+53
+54
+55
+56
+57
+58
+59</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/echochamber/library_documents/client.rb', line 51</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_library_document_audit_trail'>library_document_audit_trail</span><span class='lparen'>(</span><span class='id identifier rubyid_library_document_id'>library_document_id</span><span class='comma'>,</span> <span class='id identifier rubyid_file_path'>file_path</span><span class='op'>=</span><span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>Echochamber</span><span class='op'>::</span><span class='const'>Request</span><span class='period'>.</span><span class='id identifier rubyid_library_document_audit_trail'>library_document_audit_trail</span><span class='lparen'>(</span><span class='id identifier rubyid_token'>token</span><span class='comma'>,</span> <span class='id identifier rubyid_library_document_id'>library_document_id</span><span class='rparen'>)</span>
+  <span class='kw'>unless</span> <span class='id identifier rubyid_file_path'>file_path</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+    <span class='id identifier rubyid_file'>file</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_file_path'>file_path</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>wb</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_file'>file</span><span class='period'>.</span><span class='id identifier rubyid_write'>write</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_file'>file</span><span class='period'>.</span><span class='id identifier rubyid_close'>close</span>
+  <span class='kw'>end</span>
+  <span class='id identifier rubyid_response'>response</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -2575,7 +2831,7 @@ access token.</p>
 </div>
 
     <div id="footer">
-  Generated on Wed Aug 20 07:37:45 2014 by
+  Generated on Wed Aug 20 08:47:41 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.4 (ruby-2.0.0).
 </div>
