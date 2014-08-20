@@ -94,7 +94,9 @@
   
   
     <dt class="r2 last">Defined in:</dt>
-    <dd class="r2 last">lib/echochamber/client.rb</dd>
+    <dd class="r2 last">lib/echochamber/client.rb<span class="defines">,<br />
+  lib/echochamber/agreement/client.rb</span>
+</dd>
   
 </dl>
 <div class="clear"></div>
@@ -589,12 +591,12 @@ agreement.</p>
       <pre class="lines">
 
 
-10
-11
-12</pre>
+12
+13
+14</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/echochamber/client.rb', line 10</span>
+      <pre class="code"><span class="info file"># File 'lib/echochamber/client.rb', line 12</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_credentials'>credentials</span><span class='rparen'>)</span>
   <span class='ivar'>@token</span> <span class='op'>=</span> <span class='const'>Echochamber</span><span class='op'>::</span><span class='const'>Request</span><span class='period'>.</span><span class='id identifier rubyid_get_token'>get_token</span><span class='lparen'>(</span><span class='id identifier rubyid_credentials'>credentials</span><span class='rparen'>)</span>
@@ -637,12 +639,12 @@ agreement.</p>
       <pre class="lines">
 
 
-5
-6
-7</pre>
+7
+8
+9</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/echochamber/client.rb', line 5</span>
+      <pre class="code"><span class="info file"># File 'lib/echochamber/client.rb', line 7</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_token'>token</span>
   <span class='ivar'>@token</span>
@@ -743,18 +745,18 @@ to disk.</p>
       <pre class="lines">
 
 
-140
-141
-142
-143
-144
-145
-146
-147
-148</pre>
+88
+89
+90
+91
+92
+93
+94
+95
+96</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/echochamber/client.rb', line 140</span>
+      <pre class="code"><span class="info file"># File 'lib/echochamber/agreement/client.rb', line 88</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_agreement_combined_pdf'>agreement_combined_pdf</span><span class='lparen'>(</span><span class='id identifier rubyid_agreement_id'>agreement_id</span><span class='comma'>,</span> <span class='id identifier rubyid_file_path'>file_path</span><span class='op'>=</span><span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>Echochamber</span><span class='op'>::</span><span class='const'>Request</span><span class='period'>.</span><span class='id identifier rubyid_agreement_combined_pdf'>agreement_combined_pdf</span><span class='lparen'>(</span><span class='id identifier rubyid_token'>token</span><span class='comma'>,</span> <span class='id identifier rubyid_agreement_id'>agreement_id</span><span class='rparen'>)</span>
@@ -869,18 +871,18 @@ to disk.</p>
       <pre class="lines">
 
 
-102
-103
-104
-105
-106
-107
-108
-109
-110</pre>
+65
+66
+67
+68
+69
+70
+71
+72
+73</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/echochamber/client.rb', line 102</span>
+      <pre class="code"><span class="info file"># File 'lib/echochamber/agreement/client.rb', line 65</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_agreement_document_file'>agreement_document_file</span><span class='lparen'>(</span><span class='id identifier rubyid_agreement_id'>agreement_id</span><span class='comma'>,</span> <span class='id identifier rubyid_document_id'>document_id</span><span class='comma'>,</span> <span class='id identifier rubyid_file_path'>file_path</span><span class='op'>=</span><span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>Echochamber</span><span class='op'>::</span><span class='const'>Request</span><span class='period'>.</span><span class='id identifier rubyid_agreement_document_file'>agreement_document_file</span><span class='lparen'>(</span><span class='id identifier rubyid_token'>token</span><span class='comma'>,</span> <span class='id identifier rubyid_agreement_id'>agreement_id</span><span class='comma'>,</span> <span class='id identifier rubyid_document_id'>document_id</span><span class='rparen'>)</span>
@@ -1013,12 +1015,12 @@ the latest version of the agreement is used.</p>
       <pre class="lines">
 
 
-81
-82
-83</pre>
+55
+56
+57</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/echochamber/client.rb', line 81</span>
+      <pre class="code"><span class="info file"># File 'lib/echochamber/agreement/client.rb', line 55</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_agreement_documents'>agreement_documents</span><span class='lparen'>(</span><span class='id identifier rubyid_agreement_id'>agreement_id</span><span class='comma'>,</span> <span class='id identifier rubyid_recipient_email'>recipient_email</span><span class='comma'>,</span> <span class='id identifier rubyid_format'>format</span><span class='comma'>,</span> <span class='id identifier rubyid_version_id'>version_id</span><span class='op'>=</span><span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='const'>Echochamber</span><span class='op'>::</span><span class='const'>Request</span><span class='period'>.</span><span class='id identifier rubyid_agreement_documents'>agreement_documents</span><span class='lparen'>(</span><span class='id identifier rubyid_token'>token</span><span class='comma'>,</span> <span class='id identifier rubyid_agreement_id'>agreement_id</span><span class='comma'>,</span> <span class='id identifier rubyid_recipient_email'>recipient_email</span><span class='comma'>,</span> <span class='id identifier rubyid_format'>format</span><span class='comma'>,</span> <span class='id identifier rubyid_version_id'>version_id</span><span class='rparen'>)</span>
@@ -1112,18 +1114,18 @@ saved to disk.</p>
       <pre class="lines">
 
 
-155
-156
-157
-158
-159
-160
-161
-162
-163</pre>
+103
+104
+105
+106
+107
+108
+109
+110
+111</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/echochamber/client.rb', line 155</span>
+      <pre class="code"><span class="info file"># File 'lib/echochamber/agreement/client.rb', line 103</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_agreement_form_data'>agreement_form_data</span><span class='lparen'>(</span><span class='id identifier rubyid_agreement_id'>agreement_id</span><span class='comma'>,</span> <span class='id identifier rubyid_file_path'>file_path</span><span class='op'>=</span><span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>Echochamber</span><span class='op'>::</span><span class='const'>Request</span><span class='period'>.</span><span class='id identifier rubyid_agreement_form_data'>agreement_form_data</span><span class='lparen'>(</span><span class='id identifier rubyid_token'>token</span><span class='comma'>,</span> <span class='id identifier rubyid_agreement_id'>agreement_id</span><span class='rparen'>)</span>
@@ -1203,12 +1205,12 @@ saved to disk.</p>
       <pre class="lines">
 
 
-53
-54
-55</pre>
+27
+28
+29</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/echochamber/client.rb', line 53</span>
+      <pre class="code"><span class="info file"># File 'lib/echochamber/agreement/client.rb', line 27</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_agreement_info'>agreement_info</span><span class='lparen'>(</span><span class='id identifier rubyid_agreement_id'>agreement_id</span><span class='rparen'>)</span>
   <span class='const'>Echochamber</span><span class='op'>::</span><span class='const'>Request</span><span class='period'>.</span><span class='id identifier rubyid_agreement_info'>agreement_info</span><span class='lparen'>(</span><span class='id identifier rubyid_token'>token</span><span class='comma'>,</span> <span class='id identifier rubyid_agreement_id'>agreement_id</span><span class='rparen'>)</span>
@@ -1283,12 +1285,12 @@ agreement</p>
       <pre class="lines">
 
 
-131
-132
-133</pre>
+79
+80
+81</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/echochamber/client.rb', line 131</span>
+      <pre class="code"><span class="info file"># File 'lib/echochamber/agreement/client.rb', line 79</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_agreement_signing_urls'>agreement_signing_urls</span><span class='lparen'>(</span><span class='id identifier rubyid_agreement_id'>agreement_id</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>Echochamber</span><span class='op'>::</span><span class='const'>Request</span><span class='period'>.</span><span class='id identifier rubyid_agreement_signing_urls'>agreement_signing_urls</span><span class='lparen'>(</span><span class='id identifier rubyid_token'>token</span><span class='comma'>,</span> <span class='id identifier rubyid_agreement_id'>agreement_id</span><span class='rparen'>)</span>
@@ -1381,18 +1383,18 @@ to disk.</p>
       <pre class="lines">
 
 
-117
-118
-119
-120
-121
-122
-123
-124
-125</pre>
+49
+50
+51
+52
+53
+54
+55
+56
+57</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/echochamber/client.rb', line 117</span>
+      <pre class="code"><span class="info file"># File 'lib/echochamber/client.rb', line 49</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_audit_trail_pdf'>audit_trail_pdf</span><span class='lparen'>(</span><span class='id identifier rubyid_agreement_id'>agreement_id</span><span class='comma'>,</span> <span class='id identifier rubyid_file_path'>file_path</span><span class='op'>=</span><span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>Echochamber</span><span class='op'>::</span><span class='const'>Request</span><span class='period'>.</span><span class='id identifier rubyid_audit_trail_pdf'>audit_trail_pdf</span><span class='lparen'>(</span><span class='id identifier rubyid_token'>token</span><span class='comma'>,</span> <span class='id identifier rubyid_agreement_id'>agreement_id</span><span class='rparen'>)</span>
@@ -1509,19 +1511,19 @@ false.</p>
       <pre class="lines">
 
 
-63
-64
-65
-66
-67
-68
-69
-70
-71
-72</pre>
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/echochamber/client.rb', line 63</span>
+      <pre class="code"><span class="info file"># File 'lib/echochamber/agreement/client.rb', line 37</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_cancel_agreement'>cancel_agreement</span><span class='lparen'>(</span><span class='id identifier rubyid_agreement_id'>agreement_id</span><span class='comma'>,</span> <span class='id identifier rubyid_notify_signer'>notify_signer</span><span class='op'>=</span><span class='kw'>false</span><span class='comma'>,</span> <span class='id identifier rubyid_comment'>comment</span><span class='op'>=</span><span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_request_body'>request_body</span> <span class='op'>=</span> <span class='lbrace'>{</span>
@@ -1597,13 +1599,13 @@ false.</p>
       <pre class="lines">
 
 
-27
-28
-29
-30</pre>
+9
+10
+11
+12</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/echochamber/client.rb', line 27</span>
+      <pre class="code"><span class="info file"># File 'lib/echochamber/agreement/client.rb', line 9</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create_agreement'>create_agreement</span><span class='lparen'>(</span><span class='id identifier rubyid_agreement'>agreement</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_agreement_response'>agreement_response</span> <span class='op'>=</span> <span class='const'>Echochamber</span><span class='op'>::</span><span class='const'>Request</span><span class='period'>.</span><span class='id identifier rubyid_create_agreement'>create_agreement</span><span class='lparen'>(</span><span class='id identifier rubyid_agreement'>agreement</span><span class='comma'>,</span> <span class='id identifier rubyid_token'>token</span><span class='comma'>,</span> <span class='id identifier rubyid_agreement'>agreement</span><span class='period'>.</span><span class='id identifier rubyid_user_id'>user_id</span><span class='comma'>,</span> <span class='id identifier rubyid_agreement'>agreement</span><span class='period'>.</span><span class='id identifier rubyid_user_email'>user_email</span><span class='rparen'>)</span>
@@ -1673,12 +1675,12 @@ false.</p>
       <pre class="lines">
 
 
-36
-37
-38</pre>
+29
+30
+31</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/echochamber/client.rb', line 36</span>
+      <pre class="code"><span class="info file"># File 'lib/echochamber/client.rb', line 29</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create_reminder'>create_reminder</span><span class='lparen'>(</span><span class='id identifier rubyid_reminder'>reminder</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_reminder_response'>reminder_response</span> <span class='op'>=</span> <span class='const'>Echochamber</span><span class='op'>::</span><span class='const'>Request</span><span class='period'>.</span><span class='id identifier rubyid_create_reminder'>create_reminder</span><span class='lparen'>(</span><span class='id identifier rubyid_token'>token</span><span class='comma'>,</span> <span class='id identifier rubyid_reminder'>reminder</span><span class='rparen'>)</span>
@@ -1769,13 +1771,13 @@ false.</p>
       <pre class="lines">
 
 
-91
-92
-93
-94</pre>
+39
+40
+41
+42</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/echochamber/client.rb', line 91</span>
+      <pre class="code"><span class="info file"># File 'lib/echochamber/client.rb', line 39</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create_transient_document'>create_transient_document</span><span class='lparen'>(</span><span class='id identifier rubyid_file_name'>file_name</span><span class='comma'>,</span> <span class='id identifier rubyid_mime_type'>mime_type</span><span class='comma'>,</span> <span class='id identifier rubyid_file_handle'>file_handle</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_transient_document_response'>transient_document_response</span> <span class='op'>=</span> <span class='const'>Echochamber</span><span class='op'>::</span><span class='const'>Request</span><span class='period'>.</span><span class='id identifier rubyid_create_transient_document'>create_transient_document</span><span class='lparen'>(</span><span class='id identifier rubyid_token'>token</span><span class='comma'>,</span> <span class='id identifier rubyid_file_name'>file_name</span><span class='comma'>,</span> <span class='id identifier rubyid_file_handle'>file_handle</span><span class='comma'>,</span> <span class='id identifier rubyid_mime_type'>mime_type</span><span class='rparen'>)</span>
@@ -1845,13 +1847,13 @@ false.</p>
       <pre class="lines">
 
 
-18
-19
 20
-21</pre>
+21
+22
+23</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/echochamber/client.rb', line 18</span>
+      <pre class="code"><span class="info file"># File 'lib/echochamber/client.rb', line 20</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create_user'>create_user</span><span class='lparen'>(</span><span class='id identifier rubyid_user'>user</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_user_response'>user_response</span>  <span class='op'>=</span> <span class='const'>Echochamber</span><span class='op'>::</span><span class='const'>Request</span><span class='period'>.</span><span class='id identifier rubyid_create_user'>create_user</span><span class='lparen'>(</span><span class='id identifier rubyid_user'>user</span><span class='comma'>,</span> <span class='id identifier rubyid_token'>token</span><span class='rparen'>)</span>
@@ -1921,13 +1923,13 @@ false.</p>
       <pre class="lines">
 
 
-44
-45
-46
-47</pre>
+18
+19
+20
+21</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/echochamber/client.rb', line 44</span>
+      <pre class="code"><span class="info file"># File 'lib/echochamber/agreement/client.rb', line 18</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_agreements'>get_agreements</span>
   <span class='id identifier rubyid_get_agreements_response'>get_agreements_response</span> <span class='op'>=</span> <span class='const'>Echochamber</span><span class='op'>::</span><span class='const'>Request</span><span class='period'>.</span><span class='id identifier rubyid_get_agreements'>get_agreements</span><span class='lparen'>(</span><span class='id identifier rubyid_token'>token</span><span class='rparen'>)</span>
@@ -1997,12 +1999,12 @@ false.</p>
       <pre class="lines">
 
 
-178
-179
-180</pre>
+72
+73
+74</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/echochamber/client.rb', line 178</span>
+      <pre class="code"><span class="info file"># File 'lib/echochamber/client.rb', line 72</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_user'>get_user</span><span class='lparen'>(</span><span class='id identifier rubyid_user_id'>user_id</span><span class='rparen'>)</span>
   <span class='const'>Echochamber</span><span class='op'>::</span><span class='const'>Request</span><span class='period'>.</span><span class='id identifier rubyid_get_user'>get_user</span><span class='lparen'>(</span><span class='id identifier rubyid_token'>token</span><span class='comma'>,</span> <span class='id identifier rubyid_user_id'>user_id</span><span class='rparen'>)</span>
@@ -2076,12 +2078,12 @@ false.</p>
       <pre class="lines">
 
 
-170
-171
-172</pre>
+64
+65
+66</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/echochamber/client.rb', line 170</span>
+      <pre class="code"><span class="info file"># File 'lib/echochamber/client.rb', line 64</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_users'>get_users</span><span class='lparen'>(</span><span class='id identifier rubyid_user_email'>user_email</span><span class='rparen'>)</span>
   <span class='const'>Echochamber</span><span class='op'>::</span><span class='const'>Request</span><span class='period'>.</span><span class='id identifier rubyid_get_users'>get_users</span><span class='lparen'>(</span><span class='id identifier rubyid_token'>token</span><span class='comma'>,</span> <span class='id identifier rubyid_user_email'>user_email</span><span class='rparen'>)</span>
@@ -2096,7 +2098,7 @@ false.</p>
 </div>
 
     <div id="footer">
-  Generated on Wed Aug 20 04:24:25 2014 by
+  Generated on Wed Aug 20 05:05:15 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.4 (ruby-2.0.0).
 </div>

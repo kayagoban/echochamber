@@ -1,4 +1,4 @@
-RSpec.shared_context "shared client", :a => :b do
+RSpec.shared_context "shared client" do
 
   let(:app_id)        { "9QCM5C6Y2AX82M" }
   let(:app_secret)    { "390db093ee6f71ffc6d488b9457593a7" }

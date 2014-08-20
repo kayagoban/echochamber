@@ -9,7 +9,6 @@ describe Echochamber::Client do
   end
 
   describe '.create_user' do
-
     let (:user_params) do
       {
         firstName:  'JohnQ',
@@ -17,10 +16,8 @@ describe Echochamber::Client do
         email:      'publius@comcast.net',
         password:   'kN12oK9p!3',
         title:      'Hedge Wizard'
-
       }
     end
-
     let (:user) { Echochamber::User.new(user_params) }
 
     it 'returns the User ID' do
@@ -51,7 +48,6 @@ describe Echochamber::Client do
    end
   end
 
-
   describe '.create_reminder' do
     let(:reminderInfo) { { 
         agreementId: "2AAABLblqZhA79nM-6ALjW2nXMKKb_ECz-Nr2yr_WrJ-3-Vz7d5D5_Dn9B6K-25C_EDktQqawW7M*", 
@@ -67,7 +63,6 @@ describe Echochamber::Client do
     end
   end
 
-
   describe '.create_transient_document' do
     let(:file_name) { 'agreement.pdf' }
     #let(:file_name) { 'fillable.pdf' }
@@ -82,8 +77,6 @@ describe Echochamber::Client do
       end
     end
   end
-
-
 
 end # describe Echochamber::Client
 
