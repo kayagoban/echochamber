@@ -10,6 +10,7 @@ module Echochamber::Request
     token: BASE_URL + '/auth/tokens',
     user: BASE_URL + '/users',
     agreement: BASE_URL + '/agreements',
+    reminder: BASE_URL + '/reminders',
     transientDocument: BASE_URL + '/transientDocuments'
   }
 
@@ -46,6 +47,26 @@ module Echochamber::Request
 
     JSON.parse(response.body)
   end
+  
+  # Sends a reminder for an agreement.
+  #
+  # @param body [Hash] Valid request body
+  # @param token [String] Auth Token
+  # @return [Hash] Response body
+  def self.create_reminder(token, body)
+    begin
+      response = RestClient.post(
+        ENDPOINT.fetch(:reminder), 
+        body.to_json, 
+        { :content_type => :json, :accept => :json, 'Access-Token' => token}
+      )
+    rescue Exception => error
+      raise_error(error)
+    end
+
+    JSON.parse(response.body)
+  end
+
 
   # Performs REST create_agreement operation
   #
@@ -302,6 +323,29 @@ module Echochamber::Request
 
     JSON.parse(response)
   end
+
+  # Gets all the users in an account that the caller has permissions to access. 
+  #
+  # @param token [String] Auth Token
+  # @param user_id [String]
+  # @return [Hash] User info hash
+  def self.get_user(token, user_id)
+    headers = { 'Access-Token' => token }
+    endpoint = "#{ENDPOINT.fetch(:user)}/#{user_id}"
+
+    begin
+      response = RestClient.get(
+        endpoint, 
+        headers
+      )
+    rescue Exception => error
+      raise_error(error)
+    end
+
+    JSON.parse(response)
+  end
+
+
 
   def self.raise_error(error)
     raise Failure, "#{error.inspect}.  \nSee Adobe Echosign REST API documentation for Error code meanings: https://secure.echosign.com/public/docs/restapi/v2"

@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>
-  Class: Echochamber::Credentials
+  Class: Echochamber::Reminder
   
     &mdash; Documentation by YARD 0.8.7.4
   
@@ -17,7 +17,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '../';
-  framesUrl = "../frames.html#!Echochamber/Credentials.html";
+  framesUrl = "../frames.html#!Echochamber/Reminder.html";
 </script>
 
 
@@ -31,10 +31,10 @@
     <div id="header">
       <div id="menu">
   
-    <a href="../_index.html">Index (C)</a> &raquo;
+    <a href="../_index.html">Index (R)</a> &raquo;
     <span class='title'><span class='object_link'><a href="../Echochamber.html" title="Echochamber (module)">Echochamber</a></span></span>
      &raquo; 
-    <span class="title">Credentials</span>
+    <span class="title">Reminder</span>
   
 
   <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
@@ -63,7 +63,7 @@
 
     <iframe id="search_frame"></iframe>
 
-    <div id="content"><h1>Class: Echochamber::Credentials
+    <div id="content"><h1>Class: Echochamber::Reminder
   
   
   
@@ -80,7 +80,7 @@
           
             <li class="next">Hash</li>
           
-            <li class="next">Echochamber::Credentials</li>
+            <li class="next">Echochamber::Reminder</li>
           
         </ul>
         <a href="#" class="inheritanceTree">show all</a>
@@ -100,7 +100,7 @@
   
   
     <dt class="r1 last">Defined in:</dt>
-    <dd class="r1 last">lib/echochamber/credentials.rb</dd>
+    <dd class="r1 last">lib/echochamber/reminder.rb</dd>
   
 </dl>
 <div class="clear"></div>
@@ -123,7 +123,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#initialize-instance_method" title="#initialize (instance method)">- (Echochamber::Credentials) <strong>initialize</strong>(app_id, app_secret, api_key, email, password) </a>
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (Echochamber::Reminder) <strong>initialize</strong>(params) </a>
     
 
     
@@ -140,7 +140,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Builds a Credentials object.</p>
+<p>Reminder options.</p>
 </div></span>
   
 </li>
@@ -167,7 +167,7 @@
     <div class="method_details first">
   <h3 class="signature first" id="initialize-instance_method">
   
-    - (<tt><span class='object_link'><a href="" title="Echochamber::Credentials (class)">Echochamber::Credentials</a></span></tt>) <strong>initialize</strong>(app_id, app_secret, api_key, email, password) 
+    - (<tt><span class='object_link'><a href="" title="Echochamber::Reminder (class)">Echochamber::Reminder</a></span></tt>) <strong>initialize</strong>(params) 
   
 
   
@@ -176,7 +176,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Builds a Credentials object</p>
+<p>Reminder options</p>
 
 
   </div>
@@ -187,85 +187,56 @@
   
     <li>
       
-        <span class='name'>app_id</span>
+        <span class='name'>params</span>
       
       
-        <span class='type'>(<tt>String</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>Application key</p>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>app_secret</span>
-      
-      
-        <span class='type'>(<tt>String</tt>)</span>
+        <span class='type'>(<tt>Hash</tt>)</span>
       
       
       
         &mdash;
         <div class='inline'>
-<p>Application secret</p>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>api_key</span>
-      
-      
-        <span class='type'>(<tt>String</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>API Key</p>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>email</span>
-      
-      
-        <span class='type'>(<tt>String</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>User email</p>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>password</span>
-      
-      
-        <span class='type'>(<tt>String</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>User password</p>
+<p>SYMBOL-referenced Hash containing exactly one of the following:</p>
 </div>
       
     </li>
   
 </ul>
+
+  
+    
+    
+    <p class="tag_title">Options Hash (<tt>params</tt>):</p>
+    <ul class="option">
+      
+        <li>
+          <span class="name">:agreementId</span>
+          <span class="type">(<tt>String</tt>)</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>REQUIRED</tt>
+            
+          </span>
+          
+        </li>
+      
+        <li>
+          <span class="name">:comment</span>
+          <span class="type">(<tt>String</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'>
+<p>An Optional message sent to the recipients, describing what is being sent
+and why their signatures are required.</p>
+</div>
+          
+        </li>
+      
+    </ul>
+  
 
 
 </div><table class="source_code">
@@ -274,41 +245,17 @@
       <pre class="lines">
 
 
+12
+13
 14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29</pre>
+15</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/echochamber/credentials.rb', line 14</span>
+      <pre class="code"><span class="info file"># File 'lib/echochamber/reminder.rb', line 12</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id'>app_id</span><span class='comma'>,</span> <span class='id identifier rubyid_app_secret'>app_secret</span><span class='comma'>,</span> <span class='id identifier rubyid_api_key'>api_key</span><span class='comma'>,</span> <span class='id identifier rubyid_email'>email</span><span class='comma'>,</span> <span class='id identifier rubyid_password'>password</span><span class='rparen'>)</span>
-
-  <span class='id identifier rubyid_merge!'>merge!</span><span class='lparen'>(</span>
-  <span class='lbrace'>{</span>
-    <span class='label'>applicationCredentials:</span>  <span class='lbrace'>{</span>
-    <span class='label'>applicationId:</span> <span class='id identifier rubyid_app_id'>app_id</span><span class='comma'>,</span>
-    <span class='label'>applicationSecret:</span> <span class='id identifier rubyid_app_secret'>app_secret</span>
-  <span class='rbrace'>}</span><span class='comma'>,</span>
-    <span class='label'>userCredentials:</span> <span class='lbrace'>{</span>
-    <span class='label'>apiKey:</span> <span class='id identifier rubyid_api_key'>api_key</span><span class='comma'>,</span>
-    <span class='label'>email:</span> <span class='id identifier rubyid_email'>email</span><span class='comma'>,</span>
-    <span class='label'>password:</span> <span class='id identifier rubyid_password'>password</span> 
-  <span class='rbrace'>}</span>
-  <span class='rbrace'>}</span>
-  <span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_require_keys'>require_keys</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='symbol'>:agreementId</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_merge!'>merge!</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -321,7 +268,7 @@
 </div>
 
     <div id="footer">
-  Generated on Wed Aug 20 04:24:26 2014 by
+  Generated on Wed Aug 20 04:24:25 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.4 (ruby-2.0.0).
 </div>

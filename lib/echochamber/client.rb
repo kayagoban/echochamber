@@ -29,6 +29,14 @@ module Echochamber
      agreement_response.fetch("agreementId")
    end
 
+   # Creates a reminder 
+   #
+   # @param reminder [Echochamber::Reminder]
+   # @return [String] Reminder ID
+   def create_reminder(reminder)
+     reminder_response = Echochamber::Request.create_reminder(token, reminder)
+   end
+
    # Gets list of agreements
    #
    # @param agreement [Echochamber::Agreement]
@@ -162,6 +170,15 @@ module Echochamber
    def get_users(user_email)
      Echochamber::Request.get_users(token, user_email)
    end
+
+   # Gets all the users in an account that the caller has permissions to access.
+   # 
+   # @param user_id [String]
+   # @return [Hash] User info hash
+   def get_user(user_id)
+     Echochamber::Request.get_user(token, user_id)
+   end
+
 
 
   end # class Client 
