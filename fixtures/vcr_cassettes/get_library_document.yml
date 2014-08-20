@@ -1,0 +1,45 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://secure.echosign.com/api/rest/v2/libraryDocuments/2AAABLblqZhCri9FNiCHjwsixnFegzTxO6cP52B-FIhfOXZjjDHggZoYPQB5r0YS66QZg4DLQV-g*
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      Access-Token:
+      - 2AAABLblqZhC3HrDExRuNnTr9I-U3z2f2KtGloHKah3ccogCP4HzbN5XSbcKSlxNJDtNCVAq94pM*
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 20 Aug 2014 11:04:36 GMT
+      Server:
+      - Apache
+      Content-Length:
+      - '763'
+      Strict-Transport-Security:
+      - max-age=31536000;
+      P3p:
+      - CP="IDC DSP COR ADM DEVi TAIi PSA PSD IVAi IVDi CONi HIS OUR IND CNT"
+      X-Robots-Tag:
+      - none
+      Content-Type:
+      - application/json;charset=UTF-8
+    body:
+      encoding: UTF-8
+      string: '{"events":[{"actingUserEmail":"forms@echosign.com","actingUserIpAddress":"192.150.10.206","date":"2013-09-19T13:33:37-07:00","description":"Document
+        created by EchoSign Forms","participantEmail":"forms@echosign.com","type":"CREATED","versionId":"2AAABLblqZhCU3Xk1nTVtg7Uy6qnNV8VrJqqd7dsWhM6PoOun5-c3cmy5lI9y2JltoDPvzq0Xrl4*"}],"latestVersionId":"2AAABLblqZhAOCW3OrvotqFdo3EenADIUCYkjA70QYB8gpPlQbhqK0xIZ8pvo4STIhhD4W9DcJSc*","locale":"en_US","name":"W-9
+        (Request for Taxpayer Identification Number) ","participants":[{"company":"EchoSign
+        Forms","email":"forms@echosign.com","name":"EchoSign Forms","status":"FORM","roles":["SENDER"]}],"status":"DOCUMENT_LIBRARY","libraryDocumentId":"2AAABLblqZhCri9FNiCHjwsixnFegzTxO6cP52B-FIhfOXZjjDHggZoYPQB5r0YS66QZg4DLQV-g*"}'
+    http_version: 
+  recorded_at: Wed, 20 Aug 2014 11:04:37 GMT
+recorded_with: VCR 2.8.0

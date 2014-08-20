@@ -139,6 +139,7 @@ module Echochamber::Request
 
     # Retrieves library documents for a user.
     #
+    # @param token [String] Auth Token
     # @param user_id [String] The ID of the user whose library documents are being requested. 
     # @param user_email [String] The email address of the user whose library documents are being requested. If both user_id and user_email are provided then user_id is given preference. If neither is specified then the user is inferred from the access token.
     # @return [Hash] Library documents metadata
@@ -158,6 +159,68 @@ module Echochamber::Request
     end
 
     JSON.parse(response)
+  end
+
+  # Retrieves library document metadata for a user.
+  #
+  # @param token [String] Auth Token
+  # @param library_document_id [String]
+  # @return [Hash] Library document metadata
+  def self.get_library_document(token, library_document_id)
+    headers = { 'Access-Token' => token }
+    endpoint = "#{ENDPOINT.fetch(:libraryDocument)}/#{library_document_id}"
+
+    begin
+      response = RestClient.get(
+        endpoint, 
+        headers
+      )
+    rescue Exception => error
+      raise_error(error)
+    end
+
+    JSON.parse(response)
+  end
+
+  # Retrieves library document file
+  #
+  # @param token [String] Auth Token
+  # @param library_document_id [String] (REQUIRED)
+  # @return [Hash] Library document files metadata
+  def self.get_library_document_files(token, library_document_id)
+    headers = { 'Access-Token' => token }
+    endpoint = "#{ENDPOINT.fetch(:libraryDocument)}/#{library_document_id}/documents"
+
+    begin
+      response = RestClient.get(
+        endpoint, 
+        headers
+      )
+    rescue Exception => error
+      raise_error(error)
+    end
+
+    JSON.parse(response)
+  end
+
+  # Retrieves library document file data
+  #
+  # @param token [String] Auth Token
+  # @param library_document_id [String] (REQUIRED)
+  # @param file_id [String] (REQUIRED)
+  # @return [String] Library document file data
+  def self.get_library_document_file(token, library_document_id, file_id)
+    headers = { 'Access-Token' => token }
+    endpoint = "#{ENDPOINT.fetch(:libraryDocument)}/#{library_document_id}/documents/#{file_id}"
+
+    begin
+      response = RestClient.get(
+        endpoint, 
+        headers
+      )
+    rescue Exception => error
+      raise_error(error)
+    end
   end
 
 

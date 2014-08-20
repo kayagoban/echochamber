@@ -468,6 +468,78 @@ agreement.</p>
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#get_library_document-instance_method" title="#get_library_document (instance method)">- (Hash) <strong>get_library_document</strong>(library_document_id) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Retrieves library document metadata.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_library_document_file-instance_method" title="#get_library_document_file (instance method)">- (String) <strong>get_library_document_file</strong>(library_document_id, file_id, file_path = nil) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Retrieves library document file data.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_library_document_files-instance_method" title="#get_library_document_files (instance method)">- (Hash) <strong>get_library_document_files</strong>(library_document_id) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Retrieves library document files metadata.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#get_library_documents-instance_method" title="#get_library_documents (instance method)">- (Hash) <strong>get_library_documents</strong>(user_id = nil, user_email = nil) </a>
     
 
@@ -483,7 +555,7 @@ agreement.</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Retrieves library documents for a user.</p>
+<p>Retrieves library documents metadata for a user.</p>
 </div></span>
   
 </li>
@@ -1965,6 +2037,285 @@ false.</p>
 </div>
     
       <div class="method_details ">
+  <h3 class="signature " id="get_library_document-instance_method">
+  
+    - (<tt>Hash</tt>) <strong>get_library_document</strong>(library_document_id) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Retrieves library document metadata</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>library_document_id</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>(REQUIRED)</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Library document metadata</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+89
+90
+91</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/echochamber/client.rb', line 89</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_get_library_document'>get_library_document</span><span class='lparen'>(</span><span class='id identifier rubyid_library_document_id'>library_document_id</span><span class='rparen'>)</span>
+  <span class='const'>Echochamber</span><span class='op'>::</span><span class='const'>Request</span><span class='period'>.</span><span class='id identifier rubyid_get_library_document'>get_library_document</span><span class='lparen'>(</span><span class='id identifier rubyid_token'>token</span><span class='comma'>,</span> <span class='id identifier rubyid_library_document_id'>library_document_id</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="get_library_document_file-instance_method">
+  
+    - (<tt>String</tt>) <strong>get_library_document_file</strong>(library_document_id, file_id, file_path = nil) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Retrieves library document file data</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>library_document_id</span>
+      
+      
+        <span class='type'>(<tt>REQUIRED</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>file_id</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>(REQUIRED)</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>file_path</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>File path for saving the document.  If none is given, nothing will be saved
+to disk.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Raw library document file data</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+107
+108
+109
+110
+111
+112
+113
+114
+115</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/echochamber/client.rb', line 107</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_get_library_document_file'>get_library_document_file</span><span class='lparen'>(</span><span class='id identifier rubyid_library_document_id'>library_document_id</span><span class='comma'>,</span> <span class='id identifier rubyid_file_id'>file_id</span><span class='comma'>,</span> <span class='id identifier rubyid_file_path'>file_path</span><span class='op'>=</span><span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>Echochamber</span><span class='op'>::</span><span class='const'>Request</span><span class='period'>.</span><span class='id identifier rubyid_get_library_document_file'>get_library_document_file</span><span class='lparen'>(</span><span class='id identifier rubyid_token'>token</span><span class='comma'>,</span> <span class='id identifier rubyid_library_document_id'>library_document_id</span><span class='comma'>,</span> <span class='id identifier rubyid_file_id'>file_id</span><span class='rparen'>)</span>
+  <span class='kw'>unless</span> <span class='id identifier rubyid_file_path'>file_path</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+    <span class='id identifier rubyid_file'>file</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_file_path'>file_path</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>wb</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_file'>file</span><span class='period'>.</span><span class='id identifier rubyid_write'>write</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_file'>file</span><span class='period'>.</span><span class='id identifier rubyid_close'>close</span>
+  <span class='kw'>end</span>
+  <span class='id identifier rubyid_response'>response</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="get_library_document_files-instance_method">
+  
+    - (<tt>Hash</tt>) <strong>get_library_document_files</strong>(library_document_id) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Retrieves library document files metadata</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>library_document_id</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>(REQUIRED)</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Library document files metadata</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+97
+98
+99</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/echochamber/client.rb', line 97</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_get_library_document_files'>get_library_document_files</span><span class='lparen'>(</span><span class='id identifier rubyid_library_document_id'>library_document_id</span><span class='rparen'>)</span>
+  <span class='const'>Echochamber</span><span class='op'>::</span><span class='const'>Request</span><span class='period'>.</span><span class='id identifier rubyid_get_library_document_files'>get_library_document_files</span><span class='lparen'>(</span><span class='id identifier rubyid_token'>token</span><span class='comma'>,</span> <span class='id identifier rubyid_library_document_id'>library_document_id</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
   <h3 class="signature " id="get_library_documents-instance_method">
   
     - (<tt>Hash</tt>) <strong>get_library_documents</strong>(user_id = nil, user_email = nil) 
@@ -1976,7 +2327,7 @@ false.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Retrieves library documents for a user.</p>
+<p>Retrieves library documents metadata for a user.</p>
 
 
   </div>
@@ -2224,7 +2575,7 @@ access token.</p>
 </div>
 
     <div id="footer">
-  Generated on Wed Aug 20 06:03:53 2014 by
+  Generated on Wed Aug 20 07:37:45 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.4 (ruby-2.0.0).
 </div>

@@ -1,0 +1,42 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://secure.echosign.com/api/rest/v2/libraryDocuments/2AAABLblqZhAlC4t0c3xAJ92RFv44xFGZhbCuHpalUdpcHW9k72imMEG-W1SYCmUoia1ZNgQZ-FE*/documents
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      Access-Token:
+      - 2AAABLblqZhC3HrDExRuNnTr9I-U3z2f2KtGloHKah3ccogCP4HzbN5XSbcKSlxNJDtNCVAq94pM*
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 20 Aug 2014 11:12:00 GMT
+      Server:
+      - Apache
+      Content-Length:
+      - '162'
+      Strict-Transport-Security:
+      - max-age=31536000;
+      P3p:
+      - CP="IDC DSP COR ADM DEVi TAIi PSA PSD IVAi IVDi CONi HIS OUR IND CNT"
+      X-Robots-Tag:
+      - none
+      Content-Type:
+      - application/json;charset=UTF-8
+    body:
+      encoding: UTF-8
+      string: '{"documents":[{"documentId":"2AAABLblqZhD0YJu7EaQ3t2aKYe74spEGcgIXHeloWBdhkceuEbfqs9cw0pdkFB6z3RR4N8OWkZg*","mimeType":"application/pdf","name":"agreement.pdf"}]}'
+    http_version: 
+  recorded_at: Wed, 20 Aug 2014 11:12:00 GMT
+recorded_with: VCR 2.8.0
