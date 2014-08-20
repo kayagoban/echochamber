@@ -21,12 +21,8 @@ module Echochamber::Request
   # @param credentials [Echochamber::Credentials] Initialized Echochamber::Credentials
   # @return [String] Valid authentication token
   def self.get_token(credentials)
-    begin
-      response = RestClient.post(ENDPOINT[:token], credentials.to_json, :content_type => :json, :accept => :json)
-    rescue Exception => error
-      raise_error(error)
-    end
-
+    headers = { :content_type => :json, :accept => :json  }
+    response = post(ENDPOINT.fetch(:token), credentials, headers)
     response_body = JSON.parse(response.body)
     response_body.fetch("accessToken")
   end
@@ -37,16 +33,9 @@ module Echochamber::Request
   # @param token [String] Auth Token
   # @return [Hash] New user response body
   def self.create_user(body, token)
-    begin
-      response = RestClient.post(
-        ENDPOINT.fetch(:user), 
-        body.to_json, 
-        { :content_type => :json, :accept => :json, 'Access-Token' => token}
-      )
-    rescue Exception => error
-      raise_error(error)
-    end
-
+    endpoint = ENDPOINT.fetch(:user) 
+    headers = { :content_type => :json, :accept => :json, 'Access-Token' => token}
+    response = post(endpoint, body, headers)
     JSON.parse(response.body)
   end
   
@@ -56,17 +45,10 @@ module Echochamber::Request
   # @param token [String] Auth Token
   # @return [Hash] Response body
   def self.create_reminder(token, body)
-    begin
-      response = RestClient.post(
-        ENDPOINT.fetch(:reminder), 
-        body.to_json, 
-        { :content_type => :json, :accept => :json, 'Access-Token' => token}
-      )
-    rescue Exception => error
-      raise_error(error)
-    end
-
-    JSON.parse(response.body)
+  endpoint = ENDPOINT.fetch(:reminder)
+  headers = { :content_type => :json, :accept => :json, 'Access-Token' => token}
+  response = post(endpoint, body, headers)
+  JSON.parse(response.body)
   end
 
   # Performs REST create_transient_document operation
@@ -103,16 +85,7 @@ module Echochamber::Request
   def self.get_users(token, user_email)
     headers = { 'Access-Token' => token }
     endpoint = "#{ENDPOINT.fetch(:user)}?x-user-email=#{user_email}"
-
-    begin
-      response = RestClient.get(
-        endpoint, 
-        headers
-      )
-    rescue Exception => error
-      raise_error(error)
-    end
-
+    response = get(endpoint, headers)
     JSON.parse(response)
   end
 
@@ -124,19 +97,35 @@ module Echochamber::Request
   def self.get_user(token, user_id)
     headers = { 'Access-Token' => token }
     endpoint = "#{ENDPOINT.fetch(:user)}/#{user_id}"
+    response = get(endpoint, headers)
+    JSON.parse(response)
+  end
 
+
+  private
+
+  def self.get(endpoint, headers)
     begin
-      response = RestClient.get(
+      RestClient.get(
         endpoint, 
         headers
       )
     rescue Exception => error
       raise_error(error)
     end
-
-    JSON.parse(response)
   end
 
+  def self.post(endpoint, body, headers)
+    begin
+      RestClient.post(
+        endpoint, 
+        body.to_json, 
+        headers
+      )
+    rescue Exception => error
+      raise_error(error)
+    end
+  end
 
   def self.raise_error(error)
     raise Failure, "#{error.inspect}.  \nSee Adobe Echosign REST API documentation for Error code meanings: https://secure.echosign.com/public/docs/restapi/v2"

@@ -11,17 +11,7 @@ module Echochamber::Request
     headers = { :content_type => :json, :accept => :json, 'Access-Token' => token }
     headers.merge!('X-User-Id' => user_id) unless user_id.nil?
     headers.merge!('X-User-Email' => user_email) unless user_email.nil?
-
-    begin
-      response = RestClient.post(
-        ENDPOINT.fetch(:agreement), 
-        body.to_json, 
-        headers 
-      )
-    rescue Exception => error
-      raise_error(error)
-    end
-
+    response = post(ENDPOINT.fetch(:agreement), body, headers)
     JSON.parse(response.body)
   end
 
@@ -31,15 +21,7 @@ module Echochamber::Request
   # @return [Hash] Agreements response body
   def self.get_agreements(token)
     headers = { :accept => :json, 'Access-Token' => token }
-
-    begin
-      response = RestClient.get(
-        ENDPOINT.fetch(:agreement), headers
-      )
-    rescue Exception => error
-      raise_error(error)
-    end
-
+    response = get(ENDPOINT.fetch(:agreement), headers)
     JSON.parse(response.body)
   end
 
@@ -51,16 +33,7 @@ module Echochamber::Request
   def self.agreement_info(token, agreement_id)
     headers = { :accept => :json, 'Access-Token' => token }
     endpoint = "#{ENDPOINT.fetch(:agreement)}/#{agreement_id}"
-
-    begin
-      response = RestClient.get(
-        endpoint, 
-        headers
-      )
-    rescue Exception => error
-      raise_error(error)
-    end
-
+    response = get(endpoint, headers)
     JSON.parse(response.body)
   end
 
@@ -72,16 +45,7 @@ module Echochamber::Request
   def self.agreement_signing_urls(token, agreement_id)
     headers = { 'Access-Token' => token }
     endpoint = "#{ENDPOINT.fetch(:agreement)}/#{agreement_id}/signingUrls"
-
-    begin
-      response = RestClient.get(
-        endpoint, 
-        headers
-      )
-    rescue Exception => error
-      raise_error(error)
-    end
-
+    response = get(endpoint, headers)
     JSON.parse(response.body)
   end
 
@@ -93,15 +57,7 @@ module Echochamber::Request
   def self.agreement_combined_pdf(token, agreement_id)
     headers = { 'Access-Token' => token }
     endpoint = "#{ENDPOINT.fetch(:agreement)}/#{agreement_id}/combinedDocument"
-
-    begin
-      response = RestClient.get(
-        endpoint, 
-        headers
-      )
-    rescue Exception => error
-      raise_error(error)
-    end
+    response = get(endpoint, headers)
   end
 
   # Retrieves data entered by the user into interactive form fields at the time they signed the agreement
@@ -112,16 +68,7 @@ module Echochamber::Request
   def self.agreement_form_data(token, agreement_id)
     headers = { 'Access-Token' => token }
     endpoint = "#{ENDPOINT.fetch(:agreement)}/#{agreement_id}/formData"
-
-    begin
-      response = RestClient.get(
-        endpoint, 
-        headers
-      )
-    rescue Exception => error
-      raise_error(error)
-    end
-
+    response = get(endpoint, headers)
   end
 
   # Retrieve agreement document PDF
@@ -132,15 +79,7 @@ module Echochamber::Request
   def self.agreement_document_file(token, agreement_id, document_id)
     headers = { 'Access-Token' => token }
     endpoint = "#{ENDPOINT.fetch(:agreement)}/#{agreement_id}/documents/#{document_id}"
-
-    begin
-      response = RestClient.get(
-        endpoint, 
-        headers
-      )
-    rescue Exception => error
-      raise_error(error)
-    end
+    response = get(endpoint, headers)
   end
 
   # Performs REST GET /agreement/:id/auditTrail operation
@@ -151,15 +90,7 @@ module Echochamber::Request
   def self.audit_trail_pdf(token, agreement_id)
     headers = { 'Access-Token' => token }
     endpoint = "#{ENDPOINT.fetch(:agreement)}/#{agreement_id}/auditTrail"
-
-    begin
-      response = RestClient.get(
-        endpoint, 
-        headers
-      )
-    rescue Exception => error
-      raise_error(error)
-    end
+    response = get(endpoint, headers)
   end
 
   # Performs REST GET /agreement/:id/documents
@@ -173,16 +104,7 @@ module Echochamber::Request
     headers = { :accept => :json, 'Access-Token' => token }
     endpoint = "#{ENDPOINT.fetch(:agreement)}/#{agreement_id}/documents?participantEmail=#{recipient_email}&format=#{format}"
     endpoint << "&version_id=#{version_id}" unless version_id.nil?
-
-    begin
-      response = RestClient.get(
-        endpoint, 
-        headers
-      )
-    rescue Exception => error
-      raise_error(error)
-    end
-
+    response = get(endpoint, headers)
     JSON.parse(response.body)
   end
 
@@ -196,6 +118,7 @@ module Echochamber::Request
   def self.update_agreement_status(token, agreement_id, request_body)
     headers = { :content_type => :json, :accept => :json, 'Access-Token' => token }
     endpoint = "#{ENDPOINT.fetch(:agreement)}/#{agreement_id}/status"
+
     begin
       response = RestClient.put(
         endpoint, 
@@ -208,8 +131,6 @@ module Echochamber::Request
 
     JSON.parse(response.body)
   end
-
-
 
 
 end

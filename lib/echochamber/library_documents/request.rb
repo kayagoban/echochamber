@@ -11,16 +11,7 @@ module Echochamber::Request
     headers.merge!('X-User-Id' => user_id) unless user_id.nil?
     headers.merge!('X-User-Email' => user_email) unless user_email.nil?
     endpoint = ENDPOINT.fetch(:libraryDocument)
-
-    begin
-      response = RestClient.get(
-        endpoint, 
-        headers
-      )
-    rescue Exception => error
-      raise_error(error)
-    end
-
+    response = get(endpoint, headers)
     JSON.parse(response)
   end
 
@@ -32,16 +23,7 @@ module Echochamber::Request
   def self.get_library_document(token, library_document_id)
     headers = { 'Access-Token' => token }
     endpoint = "#{ENDPOINT.fetch(:libraryDocument)}/#{library_document_id}"
-
-    begin
-      response = RestClient.get(
-        endpoint, 
-        headers
-      )
-    rescue Exception => error
-      raise_error(error)
-    end
-
+    response = get(endpoint, headers)
     JSON.parse(response)
   end
 
@@ -53,16 +35,7 @@ module Echochamber::Request
   def self.get_library_document_files(token, library_document_id)
     headers = { 'Access-Token' => token }
     endpoint = "#{ENDPOINT.fetch(:libraryDocument)}/#{library_document_id}/documents"
-
-    begin
-      response = RestClient.get(
-        endpoint, 
-        headers
-      )
-    rescue Exception => error
-      raise_error(error)
-    end
-
+    response = get(endpoint, headers)
     JSON.parse(response)
   end
 
@@ -75,15 +48,7 @@ module Echochamber::Request
   def self.get_library_document_file(token, library_document_id, file_id)
     headers = { 'Access-Token' => token }
     endpoint = "#{ENDPOINT.fetch(:libraryDocument)}/#{library_document_id}/documents/#{file_id}"
-
-    begin
-      response = RestClient.get(
-        endpoint, 
-        headers
-      )
-    rescue Exception => error
-      raise_error(error)
-    end
+    response = get(endpoint, headers)
   end
 
   # Retrieves library document file data
@@ -94,15 +59,7 @@ module Echochamber::Request
   def self.library_document_audit_trail(token, library_document_id)
     headers = { 'Access-Token' => token }
     endpoint = "#{ENDPOINT.fetch(:libraryDocument)}/#{library_document_id}/auditTrail"
-
-    begin
-      response = RestClient.get(
-        endpoint, 
-        headers
-      )
-    rescue Exception => error
-      raise_error(error)
-    end
+    response = get(endpoint, headers)
   end
 
   # Retrieves library combined document file
@@ -113,17 +70,8 @@ module Echochamber::Request
   def self.library_combined_document(token, library_document_id)
     headers = { 'Access-Token' => token }
     endpoint = "#{ENDPOINT.fetch(:libraryDocument)}/#{library_document_id}/combinedDocument"
-
-    begin
-      response = RestClient.get(
-        endpoint, 
-        headers
-      )
-    rescue Exception => error
-      raise_error(error)
-    end
+    response = get(endpoint, headers)
   end
-
 
 end
 
