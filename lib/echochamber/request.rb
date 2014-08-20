@@ -12,7 +12,8 @@ module Echochamber::Request
     user: BASE_URL + '/users',
     agreement: BASE_URL + '/agreements',
     reminder: BASE_URL + '/reminders',
-    transientDocument: BASE_URL + '/transientDocuments'
+    transientDocument: BASE_URL + '/transientDocuments',
+    libraryDocument: BASE_URL + '/libraryDocuments'
   }
 
   # Retrieves the authentication token
@@ -136,6 +137,28 @@ module Echochamber::Request
     JSON.parse(response)
   end
 
+    # Retrieves library documents for a user.
+    #
+    # @param user_id [String] The ID of the user whose library documents are being requested. 
+    # @param user_email [String] The email address of the user whose library documents are being requested. If both user_id and user_email are provided then user_id is given preference. If neither is specified then the user is inferred from the access token.
+    # @return [Hash] Library documents metadata
+  def self.get_library_documents(token, user_id=nil, user_email=nil)
+    headers = { 'Access-Token' => token }
+    headers.merge!('X-User-Id' => user_id) unless user_id.nil?
+    headers.merge!('X-User-Email' => user_email) unless user_email.nil?
+    endpoint = ENDPOINT.fetch(:libraryDocument)
+
+    begin
+      response = RestClient.get(
+        endpoint, 
+        headers
+      )
+    rescue Exception => error
+      raise_error(error)
+    end
+
+    JSON.parse(response)
+  end
 
 
   def self.raise_error(error)

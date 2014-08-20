@@ -65,15 +65,24 @@ describe Echochamber::Client do
 
   describe '.create_transient_document' do
     let(:file_name) { 'agreement.pdf' }
-    #let(:file_name) { 'fillable.pdf' }
     let(:mime_type) { 'application/pdf' }
     let(:file) { File.new("fixtures/agreement.pdf", 'rb') }
-    #let(:file) { File.new("/tmp/fillable.pdf", 'rb') }
 
     it 'returns the transient document ID' do
       VCR.use_cassette('create_transient_document', :record => :once) do
         tran_doc_id = client.create_transient_document(file_name, mime_type, file)
         expect(tran_doc_id).to_not be_nil
+      end
+    end
+  end
+
+  describe '.get_library_documents' do
+    let(:user_id) { nil }
+    let(:user_email) { 'cthomas@railjumper.com' }
+    it 'returns info about library documents' do
+      VCR.use_cassette('get_library_documents', :record => :once) do
+        response = client.get_library_documents(user_id, user_email)
+        expect(response).to be_a Hash
       end
     end
   end

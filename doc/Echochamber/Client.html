@@ -468,6 +468,30 @@ agreement.</p>
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#get_library_documents-instance_method" title="#get_library_documents (instance method)">- (Hash) <strong>get_library_documents</strong>(user_id = nil, user_email = nil) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Retrieves library documents for a user.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#get_user-instance_method" title="#get_user (instance method)">- (Hash) <strong>get_user</strong>(user_id) </a>
     
 
@@ -1941,6 +1965,108 @@ false.</p>
 </div>
     
       <div class="method_details ">
+  <h3 class="signature " id="get_library_documents-instance_method">
+  
+    - (<tt>Hash</tt>) <strong>get_library_documents</strong>(user_id = nil, user_email = nil) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Retrieves library documents for a user.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>user_id</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The ID of the user whose library documents are being requested.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>user_email</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The email address of the user whose library documents are being requested.
+If both user_id and user_email are provided then user_id is given
+preference. If neither is specified then the user is inferred from the
+access token.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Library documents metadata</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+81
+82
+83</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/echochamber/client.rb', line 81</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_get_library_documents'>get_library_documents</span><span class='lparen'>(</span><span class='id identifier rubyid_user_id'>user_id</span><span class='op'>=</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='id identifier rubyid_user_email'>user_email</span><span class='op'>=</span><span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='const'>Echochamber</span><span class='op'>::</span><span class='const'>Request</span><span class='period'>.</span><span class='id identifier rubyid_get_library_documents'>get_library_documents</span><span class='lparen'>(</span><span class='id identifier rubyid_token'>token</span><span class='comma'>,</span> <span class='id identifier rubyid_user_id'>user_id</span><span class='comma'>,</span> <span class='id identifier rubyid_user_email'>user_email</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
   <h3 class="signature " id="get_user-instance_method">
   
     - (<tt>Hash</tt>) <strong>get_user</strong>(user_id) 
@@ -2098,7 +2224,7 @@ false.</p>
 </div>
 
     <div id="footer">
-  Generated on Wed Aug 20 05:21:48 2014 by
+  Generated on Wed Aug 20 06:03:53 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.4 (ruby-2.0.0).
 </div>
