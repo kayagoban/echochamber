@@ -18,7 +18,6 @@ describe Echochamber::Client do
     let(:file_info) do
       { 
         documentURL: Echochamber::UrlFileInfo.new(url_file_info) 
-      #  transientDocumentId: "2AAABLblqZhASezqyVioHG5sGiurozjMEAJOXDzoG0ycIeLopOTfcwu0in1uhWU3Pp7hRcf3VOGlFiaFtul6CQubO4vRo-UXIStCJqssVq9b-hI-4Zq10hMnzBtA1W89PTZoCYyU4gGyaZ0_2OjJb38xjAxQQuG7_0CJ0UA9Glw32_zOEj9lzIRmuvkEtD3qOzm2GVvV1mULX7a4IWP5vsvSgvWYADjRcHv_zXIEphMizvHg1nS0uAQ**"
       }
     end
 
