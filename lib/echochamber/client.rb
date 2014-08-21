@@ -1,5 +1,7 @@
 require 'echochamber/agreement/client'
 require 'echochamber/library_documents/client'
+require 'echochamber/widget/client'
+
 
 module Echochamber
 

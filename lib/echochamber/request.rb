@@ -1,6 +1,7 @@
 require 'rest-client'
 require 'echochamber/agreement/request'
 require 'echochamber/library_documents/request'
+require 'echochamber/widget/request'
 
 module Echochamber::Request
   class Failure < StandardError; end
@@ -13,7 +14,8 @@ module Echochamber::Request
     agreement: BASE_URL + '/agreements',
     reminder: BASE_URL + '/reminders',
     transientDocument: BASE_URL + '/transientDocuments',
-    libraryDocument: BASE_URL + '/libraryDocuments'
+    libraryDocument: BASE_URL + '/libraryDocuments',
+    widget: BASE_URL + '/widgets'
   }
 
   # Retrieves the authentication token
