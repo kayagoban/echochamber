@@ -102,7 +102,7 @@ describe Echochamber::Client do
     end
   end
 
-  describe '.get_widget_documents' do
+  describe '.get_widget_document_file' do
     let(:widget_id) { "2AAABLblqZhD_6RpgbZh5ZVlLXz1H1kfVzw4vHB91MtmjNHBDorFqO0H3_cGzBudZxiWNzPXFzOc*" }
     let(:document_id) { "2AAABLblqZhCGyGn1bpbXp-Kt-QXX8fsBWhjjO-bUKd0NQ184Xxm-mE6gg0DN0e-3k0Lwj6IPw9Q*" }
 

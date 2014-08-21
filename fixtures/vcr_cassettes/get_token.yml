@@ -5,7 +5,7 @@ http_interactions:
     uri: https://secure.echosign.com/api/rest/v2/auth/tokens
     body:
       encoding: UTF-8
-      string: '{"applicationCredentials":{"applicationId":"9QCM5C6Y2AX82M","applicationSecret":"390db093ee6f71ffc6d488b9457593a7"},"userCredentials":{"apiKey":"XCNLJFG83URX95Y","email":"cthomas@railjumper.com","password":"vvidmk"}}'
+      string: '{"applicationCredentials":{"applicationId":"9QC4444Y2AX82M","applicationSecret":"39066666ee6f71ffc6d488b9457593a7"},"userCredentials":{"apiKey":"XCNUUUUU3URX95Y","email":"cthomas@railjumper.com","password":"dfddkk"}}'
     headers:
       Accept:
       - application/json

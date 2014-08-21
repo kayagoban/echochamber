@@ -4,10 +4,6 @@ require 'lib/shared_client.rb'
 describe Echochamber::Client do
   include_context "shared client"
 
-  describe '#initialize' do
-    pending 'calls Echochamber::Request.get_token with credentials'
-  end
-
   describe '.create_user' do
     let (:user_params) do
       {

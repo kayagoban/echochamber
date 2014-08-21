@@ -6,8 +6,8 @@ require 'echochamber/version'
 Gem::Specification.new do |spec|
   spec.name          = "echochamber"
   spec.version       = Echochamber::VERSION
-  spec.authors       = ["C. Thomas"]
-  spec.email         = ["goishi.san@gmail.com"]
+  spec.authors       = ["Cath Thomas"]
+  spec.email         = ["cthomas@railjumper.com"]
   spec.summary       = %q{Package summary}
   spec.description   = %q{A ruby gem that simplifies the use of Adobe's EchoSign web API.}
   spec.homepage      = "http://github.com/kayagoban/echochamber"

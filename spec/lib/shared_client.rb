@@ -1,10 +1,14 @@
 RSpec.shared_context "shared client" do
 
-  let(:app_id)        { "9QCM5C6Y2AX82M" }
-  let(:app_secret)    { "390db093ee6f71ffc6d488b9457593a7" }
-  let(:api_key)       { "XCNLJFG83URX95Y" }
-  let(:email)         { "cthomas@railjumper.com" }
-  let(:password)      { "badpassword" }
+  let(:app_id)        { "9Q444442AX82M" }
+  let(:app_secret)    { "390db09fc6672388b9457593a7" }
+  let(:api_key)       { "XCFDJKSFLNL5Y" }
+  let(:email)         { "nobody@nobody.com" }
+  let(:password)      { "password" }
+
+  #let(:email)         { "cthomas@railjumper.com" }
+  #let(:password)      { "badpassword" }
+
 
   let(:credentials) do  
     Echochamber::Credentials.new(app_id, app_secret, api_key, email, password)

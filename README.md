@@ -23,6 +23,8 @@ It also wouldn't hurt to read Adobe's [Echosign API documentation](https://secur
 #### Initializing a client
 
 ```
+require 'echochamber'
+
 credentials = Echochamber::Credentials.new(app_id, app_secret, api_key, email, password)
 
 client = Echochamber::Client.new(credentials)

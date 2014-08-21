@@ -1,17 +1,8 @@
 require 'spec_helper'
+require 'lib/shared_client.rb'
 
 describe Echochamber::Request do
-
-  let(:app_id)        { "9QCM5C6Y2AX82M" }
-  let(:app_secret)    { "390db093ee6f71ffc6d488b9457593a7" }
-  let(:api_key)       { "XCNLJFG83URX95Y" }
-  let(:email)         { "cthomas@railjumper.com" }
-  let(:password)      { "badpassword" }
-
-  let(:credentials) do  
-    Echochamber::Credentials.new(app_id, app_secret, api_key, email, password)
-  end
-
+  include_context "shared client"
 
   describe '#get_token' do
 
@@ -21,13 +12,6 @@ describe Echochamber::Request do
           expect(token).to_not be_nil
         end
       end
-
-  end
-
-
-  describe '#create_user' do
-
-    pending 'calls RestClient.post'
 
   end
 
