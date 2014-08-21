@@ -77,7 +77,6 @@ module Echochamber
     end
 
 
-
   end # class Client 
 
 end # module Echochamber

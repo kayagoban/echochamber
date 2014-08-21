@@ -1,5 +1,5 @@
 module Echochamber
-  class Widget < Hash
+  class WidgetSecurityOption < Hash
 
     include Validatable
 

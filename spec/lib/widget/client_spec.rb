@@ -32,7 +32,6 @@ describe Echochamber::Client do
     it 'returns widget info' do
       VCR.use_cassette('create_widget', :record => :once) do
         widget_response = client.create_widget(widget)
-        binding.pry
         expect(widget_response).to be_a Hash
       end
     end

@@ -405,7 +405,7 @@ they signed the agreement.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#create_widget-class_method" title="create_widget (class method)">+ (Object) <strong>create_widget</strong>(token, widget) </a>
+      <a href="#create_widget-class_method" title="create_widget (class method)">+ (Hash) <strong>create_widget</strong>(token, widget) </a>
     
 
     
@@ -419,7 +419,10 @@ they signed the agreement.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Creates a widget and returns the Javascript snippet and URL to access the
+widget and widgetID in response to the client.</p>
+</div></span>
   
 </li>
 
@@ -1940,29 +1943,85 @@ they signed the agreement</p>
       <div class="method_details ">
   <h3 class="signature " id="create_widget-class_method">
   
-    + (<tt>Object</tt>) <strong>create_widget</strong>(token, widget) 
+    + (<tt>Hash</tt>) <strong>create_widget</strong>(token, widget) 
   
 
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Creates a widget and returns the Javascript snippet and URL to access the
+widget and widgetID in response to the client</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>token</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Auth token</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>widget</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Widget.html" title="Echochamber::Widget (class)">Echochamber::Widget</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-3
-4
-5
-6
-7
 8
 9
-10</pre>
+10
+11
+12
+13
+14
+15</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/echochamber/widget/request.rb', line 3</span>
+      <pre class="code"><span class="info file"># File 'lib/echochamber/widget/request.rb', line 8</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_create_widget'>create_widget</span><span class='lparen'>(</span><span class='id identifier rubyid_token'>token</span><span class='comma'>,</span> <span class='id identifier rubyid_widget'>widget</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_endpoint'>endpoint</span> <span class='op'>=</span> <span class='const'>ENDPOINT</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='symbol'>:widget</span><span class='rparen'>)</span> 
@@ -3122,7 +3181,7 @@ access token.</p>
 </div>
 
     <div id="footer">
-  Generated on Wed Aug 20 20:18:21 2014 by
+  Generated on Wed Aug 20 23:15:04 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.4 (ruby-2.0.0).
 </div>

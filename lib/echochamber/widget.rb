@@ -1,3 +1,10 @@
+require 'echochamber/widget/widget_completion_info'
+require 'echochamber/widget/widget_security_option'
+require 'echochamber/widget/widget_signer_security_option'
+require 'echochamber/widget/widget_vaulting_info'
+#require 'echochamber/widget/widget_completion_info'
+#require 'echochamber/widget/widget_completion_info'
+
 module Echochamber
   class Widget < Hash
 
@@ -11,9 +18,9 @@ module Echochamber
     # @param user_email [String] The email address of the user on whose behalf widget is being created. If both X-User-Id and X-User-Email are provided then X-User-Id is given preference. If neither is specified then the user is inferred from the access token.
     # @param [Hash] params SYMBOL-referenced Hash containing: (REQUIRED)
     # @option params [String] :name The name of the widget that will be used to identify it, in emails and on the website (REQUIRED)
-    # @option params [Array] :fileInfos Populate with instances of {Echochamber::FileInfo Echochamber::FileInfo}.  A list of one or more files (or references to files) that will be used to create the widget. If more than one file is provided, they will be combined before the widget is created. Library documents are not permitted. Note: Only one of the four parameters in every FileInfo object must be specified (REQUIRED)
+    # @option params [Array] :fileInfos Populate with instances of {Echochamber::Fileinfo Echochamber::Fileinfo}.  A list of one or more files (or references to files) that will be used to create the widget. If more than one file is provided, they will be combined before the widget is created. Library documents are not permitted. Note: Only one of the four parameters in every Fileinfo object must be specified (REQUIRED)
     # @option param [String] :signatureFlow ['SENDER_SIGNATURE_NOT_REQUIRED' or 'SENDER_SIGNS_LAST']: Selects the workflow you would like to use - whether the sender needs to sign before the recipient, after the recipient, or not at all. The possible values for this variable are SENDER_SIGNATURE_NOT_REQUIRED or SENDER_SIGNS_LAST (REQUIRED)
-    # @option params [Array] :formFieldLayerTemplates Populate with instances of {Echochamber::FileInfo Echochamber::FileInfo}.  Specifies the form field layer template or source of form fields to apply on the files in this transaction. If specified, the FileInfo for this parameter must refer to a form field layer template via libraryDocumentId or libraryDocumentName, or if specified via transientDocumentId or documentURL, it must be of a supported file type. Note: Only one of the four parameters in every FileInfo object must be specified. 
+    # @option params [Array] :formFieldLayerTemplates Populate with instances of {Echochamber::Fileinfo Echochamber::Fileinfo}.  Specifies the form field layer template or source of form fields to apply on the files in this transaction. If specified, the FileInfo for this parameter must refer to a form field layer template via libraryDocumentId or libraryDocumentName, or if specified via transientDocumentId or documentURL, it must be of a supported file type. Note: Only one of the four parameters in every FileInfo object must be specified. 
     # @option params [Echochamber::WidgetCompletionInfo] :widgetCompletionInfo URL and associated properties for the success page the user will be taken to after filling out the widget 
     # @option params [String] :callbackInfo A publicly accessible url to which EchoSign will perform an HTTP PUT operation with the final signed PDF file. HTTP authentication is supported using standard embedded syntax - i.e. http://username:password@your.server.com/path/to/file. EchoSign can also communicate with your system using HTTP GET, every time there is a new agreement event. Please contact support@echosign.com if you wish to use this option.
     # @option params [Echochamber::WidgetSecurityOption] :securityOptions Sets optional secondary security parameters for your widget 
