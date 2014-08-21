@@ -61,33 +61,39 @@
 
     <iframe id="search_frame"></iframe>
 
-    <div id="content"><div id='filecontents'><h1>echochamber</h1>
+    <div id="content"><div id='filecontents'>
+<h1 id="label-echochamber">echochamber</h1>
 
-<p>Ruby Gem to consume Adobe&#39;s EchoSign e-signature service</p>
+<p>Ruby Gem to consume Adobe&#39;s EchoSign e-signature service - REST service
+v2</p>
 
-<h2>Installation</h2>
+<h2 id="label-Installation">Installation</h2>
 
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_gem'>gem</span> <span class='id identifier rubyid_install'>install</span> <span class='id identifier rubyid_echochamber'>echochamber</span>
-</code></pre>
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_gem'>gem</span> <span class='id identifier rubyid_install'>install</span> <span class='id identifier rubyid_echochamber'>echochamber</span></code></pre>
 
-<h2>Documentation</h2>
+<h2 id="label-Documentation">Documentation</h2>
 
-<p>The bulk of the API is on the <a href="http://rdoc.info/github/kayagoban/echochamber/frames/Echochamber/Client">Echochamber::Client class</a></p>
+<p>The bulk of the API is on the <a
+href="http://rdoc.info/github/kayagoban/echochamber/frames/Echochamber/Client">Echochamber::Client
+class</a></p>
 
-<p>You can read Echochamber&#39;s full <a href="http://rdoc.info/github/kayagoban/echochamber/frames">API Documentation</a></p>
+<p>You can read Echochamber&#39;s full <a
+href="http://rdoc.info/github/kayagoban/echochamber/frames">API
+Documentation</a></p>
 
-<p>It also wouldn&#39;t hurt to read Adobe&#39;s <a href="https://secure.echosign.com/public/docs/restapi/v2">Echosign API documentation</a></p>
+<p>It also wouldn&#39;t hurt to read Adobe&#39;s <a
+href="https://secure.echosign.com/public/docs/restapi/v2">Echosign API
+documentation</a></p>
 
-<h2>Usage</h2>
+<h2 id="label-Usage">Usage</h2>
 
-<h4>Initializing a client</h4>
+<h4 id="label-Initializing+a+client">Initializing a client</h4>
 
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_credentials'>credentials</span> <span class='op'>=</span> <span class='const'>Echochamber</span><span class='op'>::</span><span class='const'>Credentials</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_app_id'>app_id</span><span class='comma'>,</span> <span class='id identifier rubyid_app_secret'>app_secret</span><span class='comma'>,</span> <span class='id identifier rubyid_api_key'>api_key</span><span class='comma'>,</span> <span class='id identifier rubyid_email'>email</span><span class='comma'>,</span> <span class='id identifier rubyid_password'>password</span><span class='rparen'>)</span>
 
-<span class='id identifier rubyid_client'>client</span> <span class='op'>=</span> <span class='const'>Echochamber</span><span class='op'>::</span><span class='const'>Client</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_credentials'>credentials</span><span class='rparen'>)</span>
-</code></pre>
+<span class='id identifier rubyid_client'>client</span> <span class='op'>=</span> <span class='const'>Echochamber</span><span class='op'>::</span><span class='const'>Client</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_credentials'>credentials</span><span class='rparen'>)</span></code></pre>
 
-<h4>Setting up a new agreement from a URL</h4>
+<h4 id="label-Setting+up+a+new+agreement+from+a+URL">Setting up a new agreement from a URL</h4>
 
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_url_file_params'>url_file_params</span> <span class='op'>=</span> <span class='lbrace'>{</span>
       <span class='label'>url:</span>      <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>http://somedomain.com/contract.pdf</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
@@ -113,15 +119,13 @@
 
 <span class='id identifier rubyid_agreement'>agreement</span> <span class='op'>=</span> <span class='const'>Echochamber</span><span class='op'>::</span><span class='const'>Agreement</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_sender_id'>sender_id</span><span class='comma'>,</span> <span class='id identifier rubyid_sender_email'>sender_email</span><span class='comma'>,</span> <span class='id identifier rubyid_agreement_info'>agreement_info</span><span class='rparen'>)</span> 
 
-<span class='id identifier rubyid_agreement_id'>agreement_id</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span><span class='period'>.</span><span class='id identifier rubyid_create_agreement'>create_agreement</span><span class='lparen'>(</span><span class='id identifier rubyid_agreement'>agreement</span><span class='rparen'>)</span>
-</code></pre>
+<span class='id identifier rubyid_agreement_id'>agreement_id</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span><span class='period'>.</span><span class='id identifier rubyid_create_agreement'>create_agreement</span><span class='lparen'>(</span><span class='id identifier rubyid_agreement'>agreement</span><span class='rparen'>)</span></code></pre>
 
-<h4>Cancelling a pending agreement</h4>
+<h4 id="label-Cancelling+a+pending+agreement">Cancelling a pending agreement</h4>
 
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span><span class='period'>.</span><span class='id identifier rubyid_cancel_agreement'>cancel_agreement</span><span class='lparen'>(</span><span class='id identifier rubyid_agreement_id'>agreement_id</span><span class='comma'>,</span> <span class='kw'>true</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Because...blah blah.</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
-</code></pre>
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span><span class='period'>.</span><span class='id identifier rubyid_cancel_agreement'>cancel_agreement</span><span class='lparen'>(</span><span class='id identifier rubyid_agreement_id'>agreement_id</span><span class='comma'>,</span> <span class='kw'>true</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Because...blah blah.</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span></code></pre>
 
-<h4>Creating a user</h4>
+<h4 id="label-Creating+a+user">Creating a user</h4>
 
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_user_params'>user_params</span> <span class='op'>=</span> <span class='lbrace'>{</span>
       <span class='label'>firstName:</span>  <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>JohnQ</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
@@ -133,17 +137,15 @@
 
 <span class='id identifier rubyid_user'>user</span> <span class='op'>=</span> <span class='const'>Echochamber</span><span class='op'>::</span><span class='const'>User</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_user_params'>user_params</span><span class='rparen'>)</span>
 
-<span class='id identifier rubyid_user_id'>user_id</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span><span class='period'>.</span><span class='id identifier rubyid_create_user'>create_user</span><span class='lparen'>(</span><span class='id identifier rubyid_user'>user</span><span class='rparen'>)</span>
-</code></pre>
+<span class='id identifier rubyid_user_id'>user_id</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span><span class='period'>.</span><span class='id identifier rubyid_create_user'>create_user</span><span class='lparen'>(</span><span class='id identifier rubyid_user'>user</span><span class='rparen'>)</span></code></pre>
 
-<h4>Sending a transient document for later referral</h4>
+<h4 id="label-Sending+a+transient+document+for+later+referral">Sending a transient document for later referral</h4>
 
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_tran_doc_id'>tran_doc_id</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span><span class='period'>.</span><span class='id identifier rubyid_create_transient_document'>create_transient_document</span><span class='lparen'>(</span><span class='id identifier rubyid_file_name'>file_name</span><span class='comma'>,</span> <span class='id identifier rubyid_mime_type'>mime_type</span><span class='comma'>,</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>myfile.pdf</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='rparen'>)</span>
-</code></pre>
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_tran_doc_id'>tran_doc_id</span> <span class='op'>=</span> <span class='id identifier rubyid_client'>client</span><span class='period'>.</span><span class='id identifier rubyid_create_transient_document'>create_transient_document</span><span class='lparen'>(</span><span class='id identifier rubyid_file_name'>file_name</span><span class='comma'>,</span> <span class='id identifier rubyid_mime_type'>mime_type</span><span class='comma'>,</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>myfile.pdf</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='rparen'>)</span></code></pre>
 </div></div>
 
     <div id="footer">
-  Generated on Thu Aug 21 05:31:00 2014 by
+  Generated on Thu Aug 21 04:34:33 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.4 (ruby-2.0.0).
 </div>

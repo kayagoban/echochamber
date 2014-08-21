@@ -1,7 +1,7 @@
 echochamber
 ===========
 
-Ruby Gem to consume Adobe's EchoSign e-signature service
+Ruby Gem to consume Adobe's EchoSign e-signature service - REST service v2
 
 
 ## Installation
@@ -82,5 +82,4 @@ user_id = client.create_user(user)
 ```
 tran_doc_id = client.create_transient_document(file_name, mime_type, File.new('myfile.pdf'))
 ```
-
 
