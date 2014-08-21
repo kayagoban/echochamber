@@ -14,4 +14,66 @@ module Echochamber::Request
     JSON.parse(response.body)
   end
 
+  # Performs REST PUT /agreement/:id operation
+  #
+  # @param token [String] Auth Token
+  # @param widget_id [String]
+  # @param personalization [Echochamber::WidgetPersonalization]
+  # @return [Hash] Response body
+  def self.personalize_widget(token, widget_id, personalization)
+    headers = { :content_type => :json, :accept => :json, 'Access-Token' => token }
+    endpoint = "#{ENDPOINT.fetch(:widget)}/#{widget_id}/personalize"
+
+    begin
+      response = RestClient.put(
+        endpoint, 
+        personalization.to_json,
+        headers
+      )
+    rescue Exception => error
+      raise_error(error)
+    end
+
+    JSON.parse(response.body)
+  end
+
+  # Performs REST PUT /agreement/:id operation
+  #
+  # @param token [String] Auth Token
+  # @param widget_id [String]
+  # @param status [Echochamber::WidgetStatus]
+  # @return [Hash] Response body
+  def self.update_widget_status(token, widget_id, status)
+    headers = { :content_type => :json, :accept => :json, 'Access-Token' => token }
+    endpoint = "#{ENDPOINT.fetch(:widget)}/#{widget_id}/status"
+
+    begin
+      response = RestClient.put(
+        endpoint, 
+        status.to_json,
+        headers 
+      )
+    rescue Exception => error
+      raise_error(error)
+    end
+
+    JSON.parse(response.body)
+  end
+
+  # Performs GET /widgets operation
+  #
+  # @param token [String] Auth Token
+  # @param user_id [String]
+  # @param user_email [String]
+  # @param status [Echochamber::WidgetStatus]
+  # @return [Hash] Response body
+  def self.get_widgets(token, user_id=nil, user_email=nil)
+    headers = { :content_type => :json, :accept => :json, 'Access-Token' => token }
+    headers.merge!('X-User-Id' => user_id) unless user_id.nil?
+    headers.merge!('X-User-Email' => user_email) unless user_email.nil?
+    endpoint = "#{ENDPOINT.fetch(:widget)}"
+    response = get(endpoint, headers)
+    JSON.parse(response.body)
+  end
+
 end

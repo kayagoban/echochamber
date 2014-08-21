@@ -1,0 +1,50 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://secure.echosign.com/api/rest/v2/widgets
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Type:
+      - application/json
+      Access-Token:
+      - 2AAABLblqZhC3HrDExRuNnTr9I-U3z2f2KtGloHKah3ccogCP4HzbN5XSbcKSlxNJDtNCVAq94pM*
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 21 Aug 2014 05:26:42 GMT
+      Server:
+      - Apache
+      Content-Length:
+      - '1206'
+      Strict-Transport-Security:
+      - max-age=31536000;
+      P3p:
+      - CP="IDC DSP COR ADM DEVi TAIi PSA PSD IVAi IVDi CONi HIS OUR IND CNT"
+      X-Robots-Tag:
+      - none
+      Content-Type:
+      - application/json;charset=UTF-8
+    body:
+      encoding: UTF-8
+      string: '{"userWidgetList":[{"widgetId":"2AAABLblqZhD_6RpgbZh5ZVlLXz1H1kfVzw4vHB91MtmjNHBDorFqO0H3_cGzBudZxiWNzPXFzOc*","javascript":"<script
+        type=''text/javascript'' language=''JavaScript'' src=''https://secure.echosign.com/public/widget?f=9V5BHC4L3A394E''></script>","modifiedDate":"2014-08-20T22:04:32-07:00","name":"Test
+        widget","status":"DISABLED","url":"https://secure.echosign.com/public/hostedForm?formid=9V5BHC4L3A394E"},{"widgetId":"2AAABLblqZhAlM7kFpn2BW8DBx52UpiMpL2IKkcJMdH54K_BhUgyl6aQGZdhhXnG42vdR3q-2zUI*","javascript":"<script
+        type=''text/javascript'' language=''JavaScript'' src=''https://secure.echosign.com/public/widget?f=9V5CAH2H44XA26''></script>","modifiedDate":"2014-08-20T17:11:40-07:00","name":"Test
+        widget","status":"ENABLED","url":"https://secure.echosign.com/public/hostedForm?formid=9V5CAH2H44XA26"},{"widgetId":"2AAABLblqZhDCd1PrXzISimFufvl-ESNTVqM3DtE3pn6-ie60UGW_IAMjnGiTxsVa2pZ8TihFZ0w*","javascript":"<script
+        type=''text/javascript'' language=''JavaScript'' src=''https://secure.echosign.com/public/widget?f=9V5D44P486XG3B''></script>","modifiedDate":"2014-08-20T18:38:21-07:00","name":"Test
+        widget","status":"ENABLED","url":"https://secure.echosign.com/public/hostedForm?formid=9V5D44P486XG3B"}]}'
+    http_version: 
+  recorded_at: Thu, 21 Aug 2014 05:26:43 GMT
+recorded_with: VCR 2.8.0

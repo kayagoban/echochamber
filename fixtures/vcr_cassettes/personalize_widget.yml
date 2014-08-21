@@ -1,0 +1,47 @@
+---
+http_interactions:
+- request:
+    method: put
+    uri: https://secure.echosign.com/api/rest/v2/widgets/2AAABLblqZhD_6RpgbZh5ZVlLXz1H1kfVzw4vHB91MtmjNHBDorFqO0H3_cGzBudZxiWNzPXFzOc*/personalize
+    body:
+      encoding: UTF-8
+      string: '{"email":"cthomas@railjumper.com"}'
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Type:
+      - application/json
+      Access-Token:
+      - 2AAABLblqZhC3HrDExRuNnTr9I-U3z2f2KtGloHKah3ccogCP4HzbN5XSbcKSlxNJDtNCVAq94pM*
+      Content-Length:
+      - '34'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 21 Aug 2014 04:23:18 GMT
+      Server:
+      - Apache
+      Content-Length:
+      - '382'
+      Strict-Transport-Security:
+      - max-age=31536000;
+      P3p:
+      - CP="IDC DSP COR ADM DEVi TAIi PSA PSD IVAi IVDi CONi HIS OUR IND CNT"
+      X-Robots-Tag:
+      - none
+      Content-Type:
+      - application/json;charset=UTF-8
+    body:
+      encoding: UTF-8
+      string: '{"javascript":"<script type=''text/javascript'' language=''JavaScript''
+        src=''https://secure.echosign.com/public/hostedForm?formid=9V5BHC4L3A394E&token=39QF96QTRUGYCPYUYQI0G4ZK''></script>","url":"https://secure.echosign.com/public/hostedForm?formid=9V5BHC4L3A394E&token=39QF96QTRUGYCPYUYQI0G4ZK","widgetId":"2AAABLblqZhD_6RpgbZh5ZVlLXz1H1kfVzw4vHB91MtmjNHBDorFqO0H3_cGzBudZxiWNzPXFzOc*"}'
+    http_version: 
+  recorded_at: Thu, 21 Aug 2014 04:23:18 GMT
+recorded_with: VCR 2.8.0

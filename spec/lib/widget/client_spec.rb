@@ -35,7 +35,51 @@ describe Echochamber::Client do
         expect(widget_response).to be_a Hash
       end
     end
-
   end
+
+  describe '.personalize_widget' do
+    let(:widget_id) { "2AAABLblqZhD_6RpgbZh5ZVlLXz1H1kfVzw4vHB91MtmjNHBDorFqO0H3_cGzBudZxiWNzPXFzOc*" }
+    let(:personalization_params) do
+      {
+        email: "cthomas@railjumper.com"
+      }
+    end
+    let(:personalization) { Echochamber::WidgetPersonalization.new(personalization_params) }
+
+    it 'returns widget info' do
+      VCR.use_cassette('personalize_widget', :record => :once) do
+        widget_response = client.personalize_widget(widget_id, personalization)
+        expect(widget_response).to be_a Hash
+      end
+    end
+  end
+
+  describe '.update_widget_status' do
+    let(:widget_id) { "2AAABLblqZhD_6RpgbZh5ZVlLXz1H1kfVzw4vHB91MtmjNHBDorFqO0H3_cGzBudZxiWNzPXFzOc*" }
+    let(:status_params) do
+      {
+        value: 'DISABLE',
+        message: 'Hey guys, hope you like this widget.'
+      }
+    end
+    let(:status) { Echochamber::WidgetStatus.new(status_params) }
+
+    it 'returns widget info' do
+      VCR.use_cassette('update_widget_status', :record => :once) do
+        widget_response = client.update_widget_status(widget_id, status)
+        expect(widget_response).to be_a Hash
+      end
+    end
+  end
+
+  describe '.get_widgets' do
+    it 'returns widgets info' do
+      VCR.use_cassette('get_widgets', :record => :once) do
+        widget_response = client.get_widgets
+        expect(widget_response).to be_a Hash
+      end
+    end
+  end
+
 
 end
