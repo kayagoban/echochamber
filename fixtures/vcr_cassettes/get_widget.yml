@@ -1,0 +1,49 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://secure.echosign.com/api/rest/v2/widgets/2AAABLblqZhD_6RpgbZh5ZVlLXz1H1kfVzw4vHB91MtmjNHBDorFqO0H3_cGzBudZxiWNzPXFzOc*
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Type:
+      - application/json
+      Access-Token:
+      - 2AAABLblqZhC3HrDExRuNnTr9I-U3z2f2KtGloHKah3ccogCP4HzbN5XSbcKSlxNJDtNCVAq94pM*
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 21 Aug 2014 05:33:41 GMT
+      Server:
+      - Apache
+      Content-Length:
+      - '1288'
+      Strict-Transport-Security:
+      - max-age=31536000;
+      P3p:
+      - CP="IDC DSP COR ADM DEVi TAIi PSA PSD IVAi IVDi CONi HIS OUR IND CNT"
+      X-Robots-Tag:
+      - none
+      Content-Type:
+      - application/json;charset=UTF-8
+    body:
+      encoding: UTF-8
+      string: '{"events":[{"actingUserEmail":"cthomas@railjumper.com","actingUserIpAddress":"107.170.74.216","date":"2014-08-20T17:17:23-07:00","description":"Document
+        created by Cath Thomas","participantEmail":"cthomas@railjumper.com","type":"CREATED","versionId":"2AAABLblqZhDrqJ3SBrqRtwg_WPmT2gtFiDq5xbx15usPAs38xPIlvGaiqHPpDZLbtf-v7Dm3FZc*"},{"actingUserEmail":"cthomas@railjumper.com","actingUserIpAddress":"107.170.74.216","date":"2014-08-20T22:04:32-07:00","description":"Widget
+        disabled by Cath Thomas","participantEmail":"cthomas@railjumper.com","type":"WIDGET_DISABLED"}],"latestVersionId":"2AAABLblqZhD4OsjGGYvGdD6hvVBKx_yd8pb_YvFROUPtjpeB_XNGdmMPAnOqmb1tfYD-ZRMrS3E*","locale":"en_US","name":"Test
+        widget","participants":[{"company":"Independent Contractor","email":"cthomas@railjumper.com","name":"Cath
+        Thomas","status":"WIDGET","title":"Ruby on Rails developer","roles":["SENDER","SIGNER"]},{"email":"","name":"","status":"HIDDEN","roles":["WIDGET_SIGNER"]}],"status":"DISABLED","widgetId":"2AAABLblqZhD_6RpgbZh5ZVlLXz1H1kfVzw4vHB91MtmjNHBDorFqO0H3_cGzBudZxiWNzPXFzOc*","javascript":"<script
+        type=''text/javascript'' language=''JavaScript'' src=''https://secure.echosign.com/public/widget?f=9V5BHC4L3A394E''></script>","url":"https://secure.echosign.com/public/hostedForm?formid=9V5BHC4L3A394E"}'
+    http_version: 
+  recorded_at: Thu, 21 Aug 2014 05:33:41 GMT
+recorded_with: VCR 2.8.0

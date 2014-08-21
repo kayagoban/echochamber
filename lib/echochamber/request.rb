@@ -129,6 +129,10 @@ module Echochamber::Request
     end
   end
 
+  def self.add_query(url, query)
+    (url.include?('?') ? '&' : '?') + query
+  end
+
   def self.raise_error(error)
     raise Failure, "#{error.inspect}.  \nSee Adobe Echosign REST API documentation for Error code meanings: https://secure.echosign.com/public/docs/restapi/v2"
   end

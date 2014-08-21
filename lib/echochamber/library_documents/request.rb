@@ -67,9 +67,10 @@ module Echochamber::Request
   # @param token [String] Auth Token
   # @param library_document_id [String] (REQUIRED)
   # @return [String] Raw library combined document file data
-  def self.library_combined_document(token, library_document_id)
+  def self.library_combined_document(token, library_document_id, auditReport)
     headers = { 'Access-Token' => token }
     endpoint = "#{ENDPOINT.fetch(:libraryDocument)}/#{library_document_id}/combinedDocument"
+    endpoint << add_query(endpoint, "auditReport=#{auditReport}") 
     response = get(endpoint, headers)
   end
 

@@ -62,9 +62,10 @@ module Echochamber
     #
     # @param library_document_id (REQUIRED)
     # @param file_path [String] File path for saving the document.  If none is given, nothing will be saved to disk.
+    # @param auditReport [Boolean] When set to YES attach an audit report to the library document PDF. Default value will be false.
     # @return [String] Raw library combined document file data
-    def library_combined_document(library_document_id, file_path=nil)
-      response = Echochamber::Request.library_combined_document(token, library_document_id)
+    def library_combined_document(library_document_id, file_path=nil, auditReport=false)
+      response = Echochamber::Request.library_combined_document(token, library_document_id, auditReport)
       unless file_path.nil?
         file = File.new(file_path, 'wb')
         file.write(response)

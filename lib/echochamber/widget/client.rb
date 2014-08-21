@@ -23,7 +23,7 @@ module Echochamber
     # 
     # @param widget_id
     # @param status [Echochamber::WidgetStatus]
-    # @return [Hash]
+    # @return [Hash] Widget status
     def update_widget_status(widget_id, status)
       Echochamber::Request.update_widget_status(token, widget_id, status)
     end
@@ -36,6 +36,56 @@ module Echochamber
     def get_widgets(user_id=nil, user_email=nil)
       Echochamber::Request.get_widgets(token, user_id, user_email)
     end
+
+    # Retrieves the details of a widget
+    # 
+    # @param widget_id
+    # @return [Hash] Detailed widget info
+    def get_widget(widget_id)
+      Echochamber::Request.get_widget(token, widget_id)
+    end
+
+    # Retrieves the IDs of the documents associated with widget.
+    # 
+    # @param widget_id [String]
+    # @param version_id [String] The version identifier of widget as provided by get_widget. If not provided then latest version will be used.
+    # @param participant_email [String] The email address of the participant to be used to retrieve documents
+    def get_widget_documents(widget_id, version_id=nil, participant_email=nil)
+      Echochamber::Request.get_widget_documents(token, widget_id, version_id, participant_email)
+    end
+
+    # Retrieves the file stream of a document of a widget
+    # 
+    # @param widget_id [String]
+    # @param document_id [String]
+    # @param file_path [String] File path where to save the document.  If none is given, nothing will be saved to file.
+    # @return [String] Raw file stream
+    def get_widget_document_file(widget_id, document_id, file_path=nil)
+      response = Echochamber::Request.get_widget_document_file(token, widget_id, document_id)
+      unless file_path.nil?
+        file = File.new(file_path, 'wb')
+        file.write(response)
+        file.close
+      end
+      response
+    end
+
+    # Retrieves the audit trail of a widget identified by widgetId
+    # 
+    # @note SEEMINGLY NOT YET IMPLEMENTED SERVER-SIDE
+    # @param widget_id [String]
+    # @return [String] Raw file stream
+    def get_widget_audit_trail(widget_id, file_path=nil)
+      response = Echochamber::Request.get_widget_audit_trail(token, widget_id)
+      unless file_path.nil?
+        file = File.new(file_path, 'wb')
+        file.write(response)
+        file.close
+      end
+      response
+    end
+
+
 
 
   end

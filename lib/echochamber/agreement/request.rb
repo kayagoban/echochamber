@@ -54,9 +54,13 @@ module Echochamber::Request
   # @param token [String] Auth Token
   # @param agreement_id [String] ID of agreement to retrieve info on.
   # @return [String] Raw bytes from document file
-  def self.agreement_combined_pdf(token, agreement_id)
+  def self.agreement_combined_pdf(token, agreement_id, versionId, participantEmail, attachSupportingDocuments, auditReport)
     headers = { 'Access-Token' => token }
     endpoint = "#{ENDPOINT.fetch(:agreement)}/#{agreement_id}/combinedDocument"
+    endpoint << add_query(endpoint, "versionId=#{versionId}") unless versionId.nil?
+    endpoint << add_query(endpoint, "participantEmail=#{participantEmail}") unless participantEmail.nil?
+    endpoint << add_query(endpoint, "attachSupportingDocuments=#{attachSupportingDocuments}")
+    endpoint << add_query(endpoint, "auditReport=#{auditReport}")
     response = get(endpoint, headers)
   end
 
@@ -100,10 +104,12 @@ module Echochamber::Request
   # @param format [String] Content format of the supported documents. It can have two possible values ORIGINAL or CONVERTED_PDF. (REQUIRED)
   # @param version_id [String] Version of the agreement as provided by {agreement_info agreement_info}.  If not provided, the latest version of the agreement is used.
   # @return [Hash] Agreement documents response body
-  def self.agreement_documents(token, agreement_id, recipient_email, format, version_id=nil)
+  def self.agreement_documents(token, agreement_id, recipient_email=nil, format=nil, version_id=nil)
     headers = { :accept => :json, 'Access-Token' => token }
-    endpoint = "#{ENDPOINT.fetch(:agreement)}/#{agreement_id}/documents?participantEmail=#{recipient_email}&format=#{format}"
-    endpoint << "&version_id=#{version_id}" unless version_id.nil?
+    endpoint = "#{ENDPOINT.fetch(:agreement)}/#{agreement_id}/documents"
+    endpoint << add_query(endpoint, "versionId=#{version_id}") unless version_id.nil?
+    endpoint << add_query(endpoint, "participantEmail=#{recipient_email}") unless version_id.nil?
+    endpoint << add_query(endpoint, "supportingDocumentContentFormat=#{format}") unless format.nil?
     response = get(endpoint, headers)
     JSON.parse(response.body)
   end

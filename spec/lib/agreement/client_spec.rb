@@ -91,7 +91,7 @@ describe Echochamber::Client do
   describe '.agreement_documents' do
     let(:agreement_id) { "2AAABLblqZhA79nM-6ALjW2nXMKKb_ECz-Nr2yr_WrJ-3-Vz7d5D5_Dn9B6K-25C_EDktQqawW7M*" }
     let(:recipient_email) { 'goishi.san@gmail.com' }
-    let(:format) { 'ORIGINAL' }
+    let(:format) { 'CONVERTED_PDF' }
     let(:version_id) { nil }
 
     it 'returns information about documents for this agreement' do

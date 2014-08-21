@@ -153,7 +153,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#agreement_combined_pdf-instance_method" title="#agreement_combined_pdf (instance method)">- (String) <strong>agreement_combined_pdf</strong>(agreement_id, file_path = nil) </a>
+      <a href="#agreement_combined_pdf-instance_method" title="#agreement_combined_pdf (instance method)">- (String) <strong>agreement_combined_pdf</strong>(agreement_id, file_path = nil, versionId = nil, participantEmail = nil, attachSupportingDocuments = true, auditReport = false) </a>
     
 
     
@@ -636,6 +636,126 @@ widget and widgetID in response to the client.</p>
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#get_widget-instance_method" title="#get_widget (instance method)">- (Hash) <strong>get_widget</strong>(widget_id) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Retrieves the details of a widget.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_widget_audit_trail-instance_method" title="#get_widget_audit_trail (instance method)">- (String) <strong>get_widget_audit_trail</strong>(widget_id, file_path = nil) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Retrieves the audit trail of a widget identified by widgetId.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_widget_document_file-instance_method" title="#get_widget_document_file (instance method)">- (String) <strong>get_widget_document_file</strong>(widget_id, document_id, file_path = nil) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Retrieves the file stream of a document of a widget.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_widget_documents-instance_method" title="#get_widget_documents (instance method)">- (Object) <strong>get_widget_documents</strong>(widget_id, version_id = nil, participant_email = nil) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Retrieves the IDs of the documents associated with widget.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_widgets-instance_method" title="#get_widgets (instance method)">- (Hash) <strong>get_widgets</strong>(user_id = nil, user_email = nil) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Retrieves widgets for a user.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#initialize-instance_method" title="#initialize (instance method)">- (Echochamber::Client) <strong>initialize</strong>(credentials) </a>
     
 
@@ -662,7 +782,7 @@ widget and widgetID in response to the client.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#library_combined_document-instance_method" title="#library_combined_document (instance method)">- (String) <strong>library_combined_document</strong>(library_document_id, file_path = nil) </a>
+      <a href="#library_combined_document-instance_method" title="#library_combined_document (instance method)">- (String) <strong>library_combined_document</strong>(library_document_id, file_path = nil, auditReport = false) </a>
     
 
     
@@ -702,6 +822,54 @@ widget and widgetID in response to the client.</p>
   
     <span class="summary_desc"><div class='inline'>
 <p>Retrieves library document audit trail file.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#personalize_widget-instance_method" title="#personalize_widget (instance method)">- (Hash) <strong>personalize_widget</strong>(widget_id, personalization) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Personalize the widget to a signable document for a specific known user.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#update_widget_status-instance_method" title="#update_widget_status (instance method)">- (Hash) <strong>update_widget_status</strong>(widget_id, status) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Enables or Disables a widget.</p>
 </div></span>
   
 </li>
@@ -832,7 +1000,7 @@ widget and widgetID in response to the client.</p>
       <div class="method_details first">
   <h3 class="signature first" id="agreement_combined_pdf-instance_method">
   
-    - (<tt>String</tt>) <strong>agreement_combined_pdf</strong>(agreement_id, file_path = nil) 
+    - (<tt>String</tt>) <strong>agreement_combined_pdf</strong>(agreement_id, file_path = nil, versionId = nil, participantEmail = nil, attachSupportingDocuments = true, auditReport = false) 
   
 
   
@@ -886,6 +1054,82 @@ to disk.</p>
       
     </li>
   
+    <li>
+      
+        <span class='name'>versionId</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The version identifier of agreement as provided by get_agreement. If not
+provided then latest version will be used</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>participantEmail</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The email address of the participant to be used to retrieve documents.  If
+none is given, the auth token will be used to determine the user</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>attachSupportingDocuments</span>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>true</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>When set to YES, attach corresponding supporting documents to the signed
+agreement PDF. Default value of this parameter is true.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>auditReport</span>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>false</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>When set to YES, attach an audit report to the signed agreement PDF.
+Default value is false</p>
+</div>
+      
+    </li>
+  
 </ul>
 
 <p class="tag_title">Returns:</p>
@@ -913,21 +1157,21 @@ to disk.</p>
       <pre class="lines">
 
 
-88
-89
-90
-91
 92
 93
 94
 95
-96</pre>
+96
+97
+98
+99
+100</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/echochamber/agreement/client.rb', line 88</span>
+      <pre class="code"><span class="info file"># File 'lib/echochamber/agreement/client.rb', line 92</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_agreement_combined_pdf'>agreement_combined_pdf</span><span class='lparen'>(</span><span class='id identifier rubyid_agreement_id'>agreement_id</span><span class='comma'>,</span> <span class='id identifier rubyid_file_path'>file_path</span><span class='op'>=</span><span class='kw'>nil</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>Echochamber</span><span class='op'>::</span><span class='const'>Request</span><span class='period'>.</span><span class='id identifier rubyid_agreement_combined_pdf'>agreement_combined_pdf</span><span class='lparen'>(</span><span class='id identifier rubyid_token'>token</span><span class='comma'>,</span> <span class='id identifier rubyid_agreement_id'>agreement_id</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_agreement_combined_pdf'>agreement_combined_pdf</span><span class='lparen'>(</span><span class='id identifier rubyid_agreement_id'>agreement_id</span><span class='comma'>,</span> <span class='id identifier rubyid_file_path'>file_path</span><span class='op'>=</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='id identifier rubyid_versionId'>versionId</span><span class='op'>=</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='id identifier rubyid_participantEmail'>participantEmail</span><span class='op'>=</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='id identifier rubyid_attachSupportingDocuments'>attachSupportingDocuments</span><span class='op'>=</span><span class='kw'>true</span><span class='comma'>,</span> <span class='id identifier rubyid_auditReport'>auditReport</span><span class='op'>=</span><span class='kw'>false</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>Echochamber</span><span class='op'>::</span><span class='const'>Request</span><span class='period'>.</span><span class='id identifier rubyid_agreement_combined_pdf'>agreement_combined_pdf</span><span class='lparen'>(</span><span class='id identifier rubyid_token'>token</span><span class='comma'>,</span> <span class='id identifier rubyid_agreement_id'>agreement_id</span><span class='comma'>,</span> <span class='id identifier rubyid_versionId'>versionId</span><span class='comma'>,</span> <span class='id identifier rubyid_participantEmail'>participantEmail</span><span class='comma'>,</span> <span class='id identifier rubyid_attachSupportingDocuments'>attachSupportingDocuments</span><span class='comma'>,</span> <span class='id identifier rubyid_auditReport'>auditReport</span><span class='rparen'>)</span>
   <span class='kw'>unless</span> <span class='id identifier rubyid_file_path'>file_path</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
     <span class='id identifier rubyid_file'>file</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_file_path'>file_path</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>wb</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
     <span class='id identifier rubyid_file'>file</span><span class='period'>.</span><span class='id identifier rubyid_write'>write</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='rparen'>)</span>
@@ -1281,18 +1525,18 @@ saved to disk.</p>
       <pre class="lines">
 
 
-103
-104
-105
-106
 107
 108
 109
 110
-111</pre>
+111
+112
+113
+114
+115</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/echochamber/agreement/client.rb', line 103</span>
+      <pre class="code"><span class="info file"># File 'lib/echochamber/agreement/client.rb', line 107</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_agreement_form_data'>agreement_form_data</span><span class='lparen'>(</span><span class='id identifier rubyid_agreement_id'>agreement_id</span><span class='comma'>,</span> <span class='id identifier rubyid_file_path'>file_path</span><span class='op'>=</span><span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>Echochamber</span><span class='op'>::</span><span class='const'>Request</span><span class='period'>.</span><span class='id identifier rubyid_agreement_form_data'>agreement_form_data</span><span class='lparen'>(</span><span class='id identifier rubyid_token'>token</span><span class='comma'>,</span> <span class='id identifier rubyid_agreement_id'>agreement_id</span><span class='rparen'>)</span>
@@ -2094,7 +2338,7 @@ widget and widgetID in response to the client</p>
       <pre class="code"><span class="info file"># File 'lib/echochamber/widget/client.rb', line 9</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create_widget'>create_widget</span><span class='lparen'>(</span><span class='id identifier rubyid_widget'>widget</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>Echochamber</span><span class='op'>::</span><span class='const'>Request</span><span class='period'>.</span><span class='id identifier rubyid_create_widget'>create_widget</span><span class='lparen'>(</span><span class='id identifier rubyid_token'>token</span><span class='comma'>,</span> <span class='id identifier rubyid_widget'>widget</span><span class='rparen'>)</span>
+  <span class='const'>Echochamber</span><span class='op'>::</span><span class='const'>Request</span><span class='period'>.</span><span class='id identifier rubyid_create_widget'>create_widget</span><span class='lparen'>(</span><span class='id identifier rubyid_token'>token</span><span class='comma'>,</span> <span class='id identifier rubyid_widget'>widget</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -2712,9 +2956,487 @@ access token.</p>
 </div>
     
       <div class="method_details ">
+  <h3 class="signature " id="get_widget-instance_method">
+  
+    - (<tt>Hash</tt>) <strong>get_widget</strong>(widget_id) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Retrieves the details of a widget</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>widget_id</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Detailed widget info</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+44
+45
+46</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/echochamber/widget/client.rb', line 44</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_get_widget'>get_widget</span><span class='lparen'>(</span><span class='id identifier rubyid_widget_id'>widget_id</span><span class='rparen'>)</span>
+  <span class='const'>Echochamber</span><span class='op'>::</span><span class='const'>Request</span><span class='period'>.</span><span class='id identifier rubyid_get_widget'>get_widget</span><span class='lparen'>(</span><span class='id identifier rubyid_token'>token</span><span class='comma'>,</span> <span class='id identifier rubyid_widget_id'>widget_id</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="get_widget_audit_trail-instance_method">
+  
+    - (<tt>String</tt>) <strong>get_widget_audit_trail</strong>(widget_id, file_path = nil) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+  <div class="note notetag">
+    <strong>Note:</strong>
+    <div class='inline'>
+<p>SEEMINGLY NOT YET IMPLEMENTED SERVER-SIDE</p>
+</div>
+  </div>
+
+
+<p>Retrieves the audit trail of a widget identified by widgetId</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>widget_id</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Raw file stream</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+78
+79
+80
+81
+82
+83
+84
+85
+86</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/echochamber/widget/client.rb', line 78</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_get_widget_audit_trail'>get_widget_audit_trail</span><span class='lparen'>(</span><span class='id identifier rubyid_widget_id'>widget_id</span><span class='comma'>,</span> <span class='id identifier rubyid_file_path'>file_path</span><span class='op'>=</span><span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>Echochamber</span><span class='op'>::</span><span class='const'>Request</span><span class='period'>.</span><span class='id identifier rubyid_get_widget_audit_trail'>get_widget_audit_trail</span><span class='lparen'>(</span><span class='id identifier rubyid_token'>token</span><span class='comma'>,</span> <span class='id identifier rubyid_widget_id'>widget_id</span><span class='rparen'>)</span>
+  <span class='kw'>unless</span> <span class='id identifier rubyid_file_path'>file_path</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+    <span class='id identifier rubyid_file'>file</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_file_path'>file_path</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>wb</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_file'>file</span><span class='period'>.</span><span class='id identifier rubyid_write'>write</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_file'>file</span><span class='period'>.</span><span class='id identifier rubyid_close'>close</span>
+  <span class='kw'>end</span>
+  <span class='id identifier rubyid_response'>response</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="get_widget_document_file-instance_method">
+  
+    - (<tt>String</tt>) <strong>get_widget_document_file</strong>(widget_id, document_id, file_path = nil) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Retrieves the file stream of a document of a widget</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>widget_id</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>document_id</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>file_path</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>File path where to save the document.  If none is given, nothing will be
+saved to file.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Raw file stream</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+63
+64
+65
+66
+67
+68
+69
+70
+71</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/echochamber/widget/client.rb', line 63</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_get_widget_document_file'>get_widget_document_file</span><span class='lparen'>(</span><span class='id identifier rubyid_widget_id'>widget_id</span><span class='comma'>,</span> <span class='id identifier rubyid_document_id'>document_id</span><span class='comma'>,</span> <span class='id identifier rubyid_file_path'>file_path</span><span class='op'>=</span><span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>Echochamber</span><span class='op'>::</span><span class='const'>Request</span><span class='period'>.</span><span class='id identifier rubyid_get_widget_document_file'>get_widget_document_file</span><span class='lparen'>(</span><span class='id identifier rubyid_token'>token</span><span class='comma'>,</span> <span class='id identifier rubyid_widget_id'>widget_id</span><span class='comma'>,</span> <span class='id identifier rubyid_document_id'>document_id</span><span class='rparen'>)</span>
+  <span class='kw'>unless</span> <span class='id identifier rubyid_file_path'>file_path</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+    <span class='id identifier rubyid_file'>file</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_file_path'>file_path</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>wb</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_file'>file</span><span class='period'>.</span><span class='id identifier rubyid_write'>write</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_file'>file</span><span class='period'>.</span><span class='id identifier rubyid_close'>close</span>
+  <span class='kw'>end</span>
+  <span class='id identifier rubyid_response'>response</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="get_widget_documents-instance_method">
+  
+    - (<tt>Object</tt>) <strong>get_widget_documents</strong>(widget_id, version_id = nil, participant_email = nil) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Retrieves the IDs of the documents associated with widget.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>widget_id</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>version_id</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The version identifier of widget as provided by get_widget. If not provided
+then latest version will be used.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>participant_email</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The email address of the participant to be used to retrieve documents</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+53
+54
+55</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/echochamber/widget/client.rb', line 53</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_get_widget_documents'>get_widget_documents</span><span class='lparen'>(</span><span class='id identifier rubyid_widget_id'>widget_id</span><span class='comma'>,</span> <span class='id identifier rubyid_version_id'>version_id</span><span class='op'>=</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='id identifier rubyid_participant_email'>participant_email</span><span class='op'>=</span><span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='const'>Echochamber</span><span class='op'>::</span><span class='const'>Request</span><span class='period'>.</span><span class='id identifier rubyid_get_widget_documents'>get_widget_documents</span><span class='lparen'>(</span><span class='id identifier rubyid_token'>token</span><span class='comma'>,</span> <span class='id identifier rubyid_widget_id'>widget_id</span><span class='comma'>,</span> <span class='id identifier rubyid_version_id'>version_id</span><span class='comma'>,</span> <span class='id identifier rubyid_participant_email'>participant_email</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="get_widgets-instance_method">
+  
+    - (<tt>Hash</tt>) <strong>get_widgets</strong>(user_id = nil, user_email = nil) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Retrieves widgets for a user</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>user_id</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The ID of the user whose widgets are being requested</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>user_email</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The email address of the user whose widgets are being requested. If both
+user_id  and user_email are provided then user_id is given preference. If
+neither is specified then the user is inferred from the access token</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Widgets info</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+36
+37
+38</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/echochamber/widget/client.rb', line 36</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_get_widgets'>get_widgets</span><span class='lparen'>(</span><span class='id identifier rubyid_user_id'>user_id</span><span class='op'>=</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='id identifier rubyid_user_email'>user_email</span><span class='op'>=</span><span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='const'>Echochamber</span><span class='op'>::</span><span class='const'>Request</span><span class='period'>.</span><span class='id identifier rubyid_get_widgets'>get_widgets</span><span class='lparen'>(</span><span class='id identifier rubyid_token'>token</span><span class='comma'>,</span> <span class='id identifier rubyid_user_id'>user_id</span><span class='comma'>,</span> <span class='id identifier rubyid_user_email'>user_email</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
   <h3 class="signature " id="library_combined_document-instance_method">
   
-    - (<tt>String</tt>) <strong>library_combined_document</strong>(library_document_id, file_path = nil) 
+    - (<tt>String</tt>) <strong>library_combined_document</strong>(library_document_id, file_path = nil, auditReport = false) 
   
 
   
@@ -2762,6 +3484,25 @@ to disk.</p>
       
     </li>
   
+    <li>
+      
+        <span class='name'>auditReport</span>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>false</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>When set to YES attach an audit report to the library document PDF. Default
+value will be false.</p>
+</div>
+      
+    </li>
+  
 </ul>
 
 <p class="tag_title">Returns:</p>
@@ -2789,7 +3530,6 @@ to disk.</p>
       <pre class="lines">
 
 
-66
 67
 68
 69
@@ -2797,13 +3537,14 @@ to disk.</p>
 71
 72
 73
-74</pre>
+74
+75</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/echochamber/library_documents/client.rb', line 66</span>
+      <pre class="code"><span class="info file"># File 'lib/echochamber/library_documents/client.rb', line 67</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_library_combined_document'>library_combined_document</span><span class='lparen'>(</span><span class='id identifier rubyid_library_document_id'>library_document_id</span><span class='comma'>,</span> <span class='id identifier rubyid_file_path'>file_path</span><span class='op'>=</span><span class='kw'>nil</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>Echochamber</span><span class='op'>::</span><span class='const'>Request</span><span class='period'>.</span><span class='id identifier rubyid_library_combined_document'>library_combined_document</span><span class='lparen'>(</span><span class='id identifier rubyid_token'>token</span><span class='comma'>,</span> <span class='id identifier rubyid_library_document_id'>library_document_id</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_library_combined_document'>library_combined_document</span><span class='lparen'>(</span><span class='id identifier rubyid_library_document_id'>library_document_id</span><span class='comma'>,</span> <span class='id identifier rubyid_file_path'>file_path</span><span class='op'>=</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='id identifier rubyid_auditReport'>auditReport</span><span class='op'>=</span><span class='kw'>false</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>Echochamber</span><span class='op'>::</span><span class='const'>Request</span><span class='period'>.</span><span class='id identifier rubyid_library_combined_document'>library_combined_document</span><span class='lparen'>(</span><span class='id identifier rubyid_token'>token</span><span class='comma'>,</span> <span class='id identifier rubyid_library_document_id'>library_document_id</span><span class='comma'>,</span> <span class='id identifier rubyid_auditReport'>auditReport</span><span class='rparen'>)</span>
   <span class='kw'>unless</span> <span class='id identifier rubyid_file_path'>file_path</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
     <span class='id identifier rubyid_file'>file</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_file_path'>file_path</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>wb</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
     <span class='id identifier rubyid_file'>file</span><span class='period'>.</span><span class='id identifier rubyid_write'>write</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='rparen'>)</span>
@@ -2921,12 +3662,177 @@ to disk.</p>
 </table>
 </div>
     
+      <div class="method_details ">
+  <h3 class="signature " id="personalize_widget-instance_method">
+  
+    - (<tt>Hash</tt>) <strong>personalize_widget</strong>(widget_id, personalization) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Personalize the widget to a signable document for a specific known user</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>widget_id</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>personalization</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="WidgetPersonalization.html" title="Echochamber::WidgetPersonalization (class)">Echochamber::WidgetPersonalization</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+18
+19
+20</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/echochamber/widget/client.rb', line 18</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_personalize_widget'>personalize_widget</span><span class='lparen'>(</span><span class='id identifier rubyid_widget_id'>widget_id</span><span class='comma'>,</span> <span class='id identifier rubyid_personalization'>personalization</span><span class='rparen'>)</span>
+  <span class='const'>Echochamber</span><span class='op'>::</span><span class='const'>Request</span><span class='period'>.</span><span class='id identifier rubyid_personalize_widget'>personalize_widget</span><span class='lparen'>(</span><span class='id identifier rubyid_token'>token</span><span class='comma'>,</span> <span class='id identifier rubyid_widget_id'>widget_id</span><span class='comma'>,</span> <span class='id identifier rubyid_personalization'>personalization</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="update_widget_status-instance_method">
+  
+    - (<tt>Hash</tt>) <strong>update_widget_status</strong>(widget_id, status) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Enables or Disables a widget</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>widget_id</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>status</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="WidgetStatus.html" title="Echochamber::WidgetStatus (class)">Echochamber::WidgetStatus</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Widget status</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+27
+28
+29</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/echochamber/widget/client.rb', line 27</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_update_widget_status'>update_widget_status</span><span class='lparen'>(</span><span class='id identifier rubyid_widget_id'>widget_id</span><span class='comma'>,</span> <span class='id identifier rubyid_status'>status</span><span class='rparen'>)</span>
+  <span class='const'>Echochamber</span><span class='op'>::</span><span class='const'>Request</span><span class='period'>.</span><span class='id identifier rubyid_update_widget_status'>update_widget_status</span><span class='lparen'>(</span><span class='id identifier rubyid_token'>token</span><span class='comma'>,</span> <span class='id identifier rubyid_widget_id'>widget_id</span><span class='comma'>,</span> <span class='id identifier rubyid_status'>status</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
   </div>
 
 </div>
 
     <div id="footer">
-  Generated on Wed Aug 20 23:15:05 2014 by
+  Generated on Thu Aug 21 05:15:40 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.4 (ruby-2.0.0).
 </div>

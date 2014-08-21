@@ -59,7 +59,7 @@ describe Echochamber::Client do
     let(:library_document_id) { "2AAABLblqZhAlC4t0c3xAJ92RFv44xFGZhbCuHpalUdpcHW9k72imMEG-W1SYCmUoia1ZNgQZ-FE*" }
     it 'returns library combined document file data' do
       VCR.use_cassette('library_combined_document', :record => :once) do
-        response = client.library_combined_document(library_document_id)
+        response = client.library_combined_document(library_document_id, nil, true)
         expect(response).to_not be_nil 
       end
     end

@@ -58,7 +58,7 @@ describe Echochamber::Client do
     let(:widget_id) { "2AAABLblqZhD_6RpgbZh5ZVlLXz1H1kfVzw4vHB91MtmjNHBDorFqO0H3_cGzBudZxiWNzPXFzOc*" }
     let(:status_params) do
       {
-        value: 'DISABLE',
+        value: 'ENABLE',
         message: 'Hey guys, hope you like this widget.'
       }
     end
@@ -81,5 +81,49 @@ describe Echochamber::Client do
     end
   end
 
+  describe '.get_widget' do
+    let(:widget_id) { "2AAABLblqZhD_6RpgbZh5ZVlLXz1H1kfVzw4vHB91MtmjNHBDorFqO0H3_cGzBudZxiWNzPXFzOc*" }
+    it 'returns widget info' do
+      VCR.use_cassette('get_widget', :record => :once) do
+        widget_response = client.get_widget(widget_id)
+        expect(widget_response).to be_a Hash
+      end
+    end
+  end
+
+  describe '.get_widget_documents' do
+    let(:widget_id) { "2AAABLblqZhD_6RpgbZh5ZVlLXz1H1kfVzw4vHB91MtmjNHBDorFqO0H3_cGzBudZxiWNzPXFzOc*" }
+
+    it 'returns widget documents info' do
+      VCR.use_cassette('get_widget_documents', :record => :once) do
+        widget_response = client.get_widget_documents(widget_id)
+        expect(widget_response).to be_a Hash
+      end
+    end
+  end
+
+  describe '.get_widget_documents' do
+    let(:widget_id) { "2AAABLblqZhD_6RpgbZh5ZVlLXz1H1kfVzw4vHB91MtmjNHBDorFqO0H3_cGzBudZxiWNzPXFzOc*" }
+    let(:document_id) { "2AAABLblqZhCGyGn1bpbXp-Kt-QXX8fsBWhjjO-bUKd0NQ184Xxm-mE6gg0DN0e-3k0Lwj6IPw9Q*" }
+
+    it 'returns widget document file' do
+      VCR.use_cassette('get_widget_document_file', :record => :once) do
+        widget_response = client.get_widget_document_file(widget_id, document_id)
+        expect(widget_response).to_not be_nil
+      end
+    end
+  end
+
+#  describe '.get_widget_audit_trail' do
+#    let(:widget_id) { "2AAABLblqZhD_6RpgbZh5ZVlLXz1H1kfVzw4vHB91MtmjNHBDorFqO0H3_cGzBudZxiWNzPXFzOc*" }
+
+#    it 'returns widget document file' do
+#      VCR.use_cassette('get_widget_audit_trail', :record => :once) do
+#        widget_response = client.get_widget_audit_trail(widget_id)
+#        binding.pry
+#        expect(widget_response).to_not be_nil
+#      end
+#    end
+#  end
 
 end

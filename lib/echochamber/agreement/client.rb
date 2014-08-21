@@ -84,9 +84,13 @@ module Echochamber
    # 
    # @param agreement_id [String]  (REQUIRED)
    # @param file_path [String] File path to save the document.  If no file path is given, nothing is saved to disk.
+   # @param versionId [String] The version identifier of agreement as provided by get_agreement. If not provided then latest version will be used
+   # @param participantEmail [String] The email address of the participant to be used to retrieve documents.  If none is given, the auth token will be used to determine the user
+   # @param attachSupportingDocuments [Boolean] When set to YES, attach corresponding supporting documents to the signed agreement PDF. Default value of this parameter is true.
+   # @param auditReport [Boolean] When set to YES, attach an audit report to the signed agreement PDF. Default value is false
    # @return [String] Raw bytes from document file
-   def agreement_combined_pdf(agreement_id, file_path=nil)
-     response = Echochamber::Request.agreement_combined_pdf(token, agreement_id)
+   def agreement_combined_pdf(agreement_id, file_path=nil, versionId=nil, participantEmail=nil, attachSupportingDocuments=true, auditReport=false)
+     response = Echochamber::Request.agreement_combined_pdf(token, agreement_id, versionId, participantEmail, attachSupportingDocuments, auditReport)
      unless file_path.nil?
        file = File.new(file_path, 'wb')
        file.write(response)

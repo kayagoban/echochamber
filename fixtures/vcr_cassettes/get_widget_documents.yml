@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://secure.echosign.com/api/rest/v2/agreements/2AAABLblqZhA79nM-6ALjW2nXMKKb_ECz-Nr2yr_WrJ-3-Vz7d5D5_Dn9B6K-25C_EDktQqawW7M*/documents?supportingDocumentContentFormat=CONVERTED_PDF
+    uri: https://secure.echosign.com/api/rest/v2/widgets/2AAABLblqZhD_6RpgbZh5ZVlLXz1H1kfVzw4vHB91MtmjNHBDorFqO0H3_cGzBudZxiWNzPXFzOc*/documents
     body:
       encoding: US-ASCII
       string: ''
@@ -11,6 +11,8 @@ http_interactions:
       - application/json
       Accept-Encoding:
       - gzip, deflate
+      Content-Type:
+      - application/json
       Access-Token:
       - 2AAABLblqZhC3HrDExRuNnTr9I-U3z2f2KtGloHKah3ccogCP4HzbN5XSbcKSlxNJDtNCVAq94pM*
       User-Agent:
@@ -21,11 +23,11 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 21 Aug 2014 07:25:50 GMT
+      - Thu, 21 Aug 2014 08:41:32 GMT
       Server:
       - Apache
       Content-Length:
-      - '162'
+      - '159'
       Strict-Transport-Security:
       - max-age=31536000;
       P3p:
@@ -36,7 +38,7 @@ http_interactions:
       - application/json;charset=UTF-8
     body:
       encoding: UTF-8
-      string: '{"documents":[{"documentId":"2AAABLblqZhDcteEO9jy6gSat9d_3XgpPVpxhetoDCpU4L9PoolGv_3mqgKL1DhIGTXTHhqAHlHk*","mimeType":"application/pdf","name":"agreement.pdf"}]}'
+      string: '{"documents":[{"documentId":"2AAABLblqZhCGyGn1bpbXp-Kt-QXX8fsBWhjjO-bUKd0NQ184Xxm-mE6gg0DN0e-3k0Lwj6IPw9Q*","mimeType":"application/pdf","name":"resume.pdf"}]}'
     http_version: 
-  recorded_at: Thu, 21 Aug 2014 07:25:50 GMT
+  recorded_at: Thu, 21 Aug 2014 08:41:32 GMT
 recorded_with: VCR 2.8.0

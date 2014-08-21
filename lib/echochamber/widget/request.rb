@@ -65,7 +65,6 @@ module Echochamber::Request
   # @param token [String] Auth Token
   # @param user_id [String]
   # @param user_email [String]
-  # @param status [Echochamber::WidgetStatus]
   # @return [Hash] Response body
   def self.get_widgets(token, user_id=nil, user_email=nil)
     headers = { :content_type => :json, :accept => :json, 'Access-Token' => token }
@@ -75,5 +74,52 @@ module Echochamber::Request
     response = get(endpoint, headers)
     JSON.parse(response.body)
   end
+
+  # Performs GET /widget operation
+  #
+  # @param widget_id [String]
+  # @return [Hash] Response body
+  def self.get_widget(token, widget_id)
+    headers = { :content_type => :json, :accept => :json, 'Access-Token' => token }
+    endpoint = "#{ENDPOINT.fetch(:widget)}/#{widget_id}"
+    response = get(endpoint, headers)
+    JSON.parse(response.body)
+  end
+
+  # Performs GET /widget/:id/documents operation
+  #
+  # @param widget_id [String]
+  # @return [Hash] Response body
+  def self.get_widget_documents(token, widget_id, version_id=nil, participant_email=nil)
+    headers = { :content_type => :json, :accept => :json, 'Access-Token' => token }
+    endpoint = "#{ENDPOINT.fetch(:widget)}/#{widget_id}/documents"
+    endpoint << add_query(endpoint, "versionId=#{version_id}") unless version_id.nil?
+    endpoint << add_query(endpoint, "participantEmail=#{participant_email}") unless participant_email.nil?
+    response = get(endpoint, headers)
+    JSON.parse(response.body)
+  end
+
+  # Performs GET /widget/:id/documents/:id operation
+  #
+  # @param widget_id [String]
+  # @return [Hash] Response body
+  def self.get_widget_document_file(token, widget_id, document_id)
+    headers = { :content_type => :json, :accept => :json, 'Access-Token' => token }
+    endpoint = "#{ENDPOINT.fetch(:widget)}/#{widget_id}/documents/#{document_id}"
+    response = get(endpoint, headers)
+  end
+
+  # Performs GET /widget/:id/auditTrail
+  #
+  # @param widget_id [String]
+  # @return [Hash] Response body
+  def self.get_widget_audit_trail(token, widget_id)
+    headers = { :content_type => :json, :accept => :json, 'Access-Token' => token }
+    endpoint = "#{ENDPOINT.fetch(:widget)}/#{widget_id}/auditTrail"
+    response = get(endpoint, headers)
+  end
+
+
+
 
 end
