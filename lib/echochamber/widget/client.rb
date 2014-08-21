@@ -75,9 +75,42 @@ module Echochamber
     # 
     # @note SEEMINGLY NOT YET IMPLEMENTED SERVER-SIDE
     # @param widget_id [String]
+    # @param file_path [String] File path where to save the document.  If none is given, nothing will be saved to file.
     # @return [String] Raw file stream
     def get_widget_audit_trail(widget_id, file_path=nil)
       response = Echochamber::Request.get_widget_audit_trail(token, widget_id)
+      unless file_path.nil?
+        file = File.new(file_path, 'wb')
+        file.write(response)
+        file.close
+      end
+      response
+    end
+
+    # Gets a single combined PDF document for the documents associated with a widget.
+    # 
+    # @note SEEMINGLY NOT YET IMPLEMENTED SERVER-SIDE
+    # @param widget_id [String]
+    # @param file_path [String] File path where to save the document.  If none is given, nothing will be saved to file.
+    # @return [String] Raw file stream
+    def get_widget_combined_pdf(widget_id, file_path=nil)
+      response = Echochamber::Request.get_widget_combined_pdf(token, widget_id)
+      unless file_path.nil?
+        file = File.new(file_path, 'wb')
+        file.write(response)
+        file.close
+      end
+      response
+    end
+
+    # Retrieves data entered by the user into interactive form fields at the time they signed the widget
+    # 
+    # @note SEEMINGLY NOT YET IMPLEMENTED SERVER-SIDE
+    # @param widget_id [String]
+    # @param file_path [String] File path where to save the document.  If none is given, nothing will be saved to file.
+    # @return [String] Raw file stream
+    def get_widget_form_data(widget_id, file_path=nil)
+      response = Echochamber::Request.get_widget_form_data(token, widget_id)
       unless file_path.nil?
         file = File.new(file_path, 'wb')
         file.write(response)

@@ -126,4 +126,29 @@ describe Echochamber::Client do
 #    end
 #  end
 
+#  describe '.get_widget_combined_pdf' do
+#    let(:widget_id) { "2AAABLblqZhD_6RpgbZh5ZVlLXz1H1kfVzw4vHB91MtmjNHBDorFqO0H3_cGzBudZxiWNzPXFzOc*" }
+
+#    it 'returns widget document file' do
+#      VCR.use_cassette('get_widget_combined_pdf', :record => :once) do
+#        widget_response = client.get_widget_combined_pdf(widget_id)
+#        binding.pry
+#        expect(widget_response).to_not be_nil
+#      end
+#    end
+#  end
+
+#  describe '.get_widget_form_data' do
+#    let(:widget_id) { "2AAABLblqZhD_6RpgbZh5ZVlLXz1H1kfVzw4vHB91MtmjNHBDorFqO0H3_cGzBudZxiWNzPXFzOc*" }
+
+#    it 'returns widget document file' do
+#      VCR.use_cassette('get_widget_form_data', :record => :once) do
+#        widget_response = client.get_widget_form_data(widget_id)
+#        binding.pry
+#        expect(widget_response).to_not be_nil
+#      end
+#    end
+#  end
+
+
 end

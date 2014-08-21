@@ -119,6 +119,16 @@ module Echochamber::Request
     response = get(endpoint, headers)
   end
 
+  # Performs GET /widget/:id/formData
+  #
+  # @param widget_id [String]
+  # @return [Hash] Response body
+  def self.get_widget_form_data(token, widget_id)
+    headers = { :content_type => :json, :accept => :json, 'Access-Token' => token }
+    endpoint = "#{ENDPOINT.fetch(:widget)}/#{widget_id}/formData"
+    response = get(endpoint, headers)
+  end
+
 
 
 
