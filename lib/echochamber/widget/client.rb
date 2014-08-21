@@ -14,7 +14,7 @@ module Echochamber
     # 
     # @param widget_id
     # @param personalization [Echochamber::WidgetPersonalization]
-    # @return [Hash]
+    # @return [Hash] Operation result
     def personalize_widget(widget_id, personalization)
       Echochamber::Request.personalize_widget(token, widget_id, personalization)
     end
@@ -50,6 +50,7 @@ module Echochamber
     # @param widget_id [String]
     # @param version_id [String] The version identifier of widget as provided by get_widget. If not provided then latest version will be used.
     # @param participant_email [String] The email address of the participant to be used to retrieve documents
+    # @return [Hash] Info about widget documents
     def get_widget_documents(widget_id, version_id=nil, participant_email=nil)
       Echochamber::Request.get_widget_documents(token, widget_id, version_id, participant_email)
     end
