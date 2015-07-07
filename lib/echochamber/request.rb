@@ -4,7 +4,14 @@ require 'echochamber/library_documents/request'
 require 'echochamber/widget/request'
 
 module Echochamber::Request
-  class Failure < StandardError; end
+  class Failure < StandardError
+    attr_reader :original_exception
+
+    def initialize msg, original_exception
+      @message = msg
+      @original_exception = original_exception
+    end
+  end
 
   BASE_URL = 'https://secure.echosign.com/api/rest/v2'
 
@@ -134,7 +141,8 @@ module Echochamber::Request
   end
 
   def self.raise_error(error)
-    raise Failure, "#{error.inspect}.  \nSee Adobe Echosign REST API documentation for Error code meanings: https://secure.echosign.com/public/docs/restapi/v2"
+    message = "#{error.inspect}.  \nSee Adobe Echosign REST API documentation for Error code meanings: https://secure.echosign.com/public/docs/restapi/v2"
+    raise Failure.new message, error
   end
 
 end
