@@ -1,3 +1,4 @@
+require 'syck'
 require 'bundler/setup'
 require 'webmock/rspec'
 require 'vcr'

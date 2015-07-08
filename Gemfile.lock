@@ -54,6 +54,7 @@ GEM
     rspec-support (3.0.3)
     safe_yaml (1.0.1)
     slop (3.6.0)
+    syck (1.0.5)
     thread_safe (0.3.3)
     tzinfo (1.1.0)
       thread_safe (~> 0.1)
@@ -74,6 +75,7 @@ DEPENDENCIES
   pry
   rake
   rspec
+  syck
   vcr
   webmock
   yard
