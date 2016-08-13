@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    echochamber (1.0.1)
+    echochamber (1.0.2)
       faraday
       json
       rest-client
